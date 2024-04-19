@@ -36,7 +36,7 @@ export async function Blogs() {
     console.log(data);
     return (
         <section>
-            <div className="flex flex-col md:px-20 md:m-10 mb-10 gap-5">
+            <div className="flex flex-col md:px-20 md:m-10 mb-10 gap-5" id="blog-section">
                 <div className="self-start md:text-5xl ms:text-xl font-semibold py-10 px-5 text-black max-md:max-w-full max-md:text-4xl">
                     Blogs
                 </div>

@@ -53,15 +53,18 @@ const Header = () => {
               srcSet="..."
               className="shrink-0 max-w-full aspect-[3.33] w-[299px]"
             />
-            <div className="flex gap-5 px-5 align-end">
-              {/* <div>Blog</div> */}
+            <div className="flex gap-3 px-5 align-end">
+              <div><Link href="#blog-section" className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap">
+                Blogs
+              </Link></div>
               <div className="flex-auto"><Link href={"/contact-us"} className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap">
                 Contact Us
-              </Link></div>
+              </Link>
+              </div>
               <img
                 loading="lazy"
                 src="/loc.svg"
-                className="shrink-0 aspect-[1] fill-black w-[20px] h-[20px]"
+                className="shrink-0 self-start aspect-[0.38]"
               />
             </div>
           </div>
