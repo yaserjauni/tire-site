@@ -7,7 +7,7 @@ import { urlForImage } from "../../../../sanity/lib/image";
 import { PostBody } from "@/app/_components/post-body";
 import { TypedObject } from "sanity";
 
-export const revalidate = 30;
+export const revalidate = 0;
 
 interface Post {
     title: string;

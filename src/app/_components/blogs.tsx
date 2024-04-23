@@ -3,7 +3,7 @@ import { client } from "../../../sanity/lib/client";
 import { urlForImage } from "../../../sanity/lib/image";
 import Link from "next/link";
 
-export const revalidate = 30;
+export const revalidate = 0;
 interface Post {
     title: string;
     name: string;
