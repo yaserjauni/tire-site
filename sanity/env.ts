@@ -4,7 +4,7 @@ export const apiVersion =
 export const dataset = "production"
 
 export const projectId = "n3n36w76"
-export const useCdn = false
+export const useCdn = true
 
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {
