@@ -1,10 +1,7 @@
 "use client"
-
 import Link from "next/link";
 import React, { useState } from "react";
 import { useMediaQuery } from "@react-hook/media-query";
-
-
 
 const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -16,7 +13,7 @@ const Header = () => {
   return (
     <div className="flex flex-col pb-2.5 text-lg font-bold text-white bg-white">
       {isDesktop && (
-        <>
+        <section>
           <div className="flex justify-center items-center px-16 py-3.5 w-full text-sm font-semibold leading-5 text-white text-center bg-black max-md:px-5 max-md:max-w-full">
             <div className="flex gap-3 justify-start max-md:flex-wrap">
               <div className="flex gap-1.5 self-start whitespace-nowrap">
@@ -38,7 +35,7 @@ const Header = () => {
               <div className="flex gap-2">
                 <img
                   loading="lazy"
-                  src="cal.svg"
+                  src="/cal.svg"
                   className="shrink-0 w-3.5 aspect-square"
                 />
                 <div className="flex-auto">
@@ -50,7 +47,7 @@ const Header = () => {
           <div className="flex gap-5 justify-between self-center mt-4 w-full text-black uppercase leading-5 flex-wrap ">
             <img
               loading="lazy"
-              srcSet="..."
+              srcSet="/cal.svg"
               className="shrink-0 max-w-full aspect-[3.33] w-[299px]"
             />
             <div className="flex gap-3 px-5 align-end">
@@ -89,7 +86,7 @@ const Header = () => {
               </Link></div>
             </div>
           </div>
-        </>
+        </section>
       )}
       {isMobile && (
         <div className="flex justify-center items-center px-16 z-1 py-4  w-full uppercase border-t border-r border-b-2 border-l border-black border-solid bg-violet-950 leading-[111%] max-md:px-5 max-md:max-w-full">
