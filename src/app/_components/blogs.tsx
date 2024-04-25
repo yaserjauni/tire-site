@@ -2,8 +2,6 @@ import Image from "next/image";
 import { client } from "../../../sanity/lib/client";
 import { urlForImage } from "../../../sanity/lib/image";
 import Link from "next/link";
-import { cache } from "react";
-import { RequestOptions, ResponseQueryOptions } from "next-sanity";
 
 export const revalidate = 0;
 interface Post {
@@ -25,7 +23,6 @@ async function getData(): Promise<Post[]> {
     const query = `*[_type == 'post'] {
     title,  
     "name": author->name,
-    "categories": categories->title,
     publishedAt,
     mainImage,
     desc,

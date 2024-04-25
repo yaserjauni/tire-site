@@ -11,18 +11,13 @@ export default defineType({
             type: 'string',
         }),
         defineField({
-            name: 'width',
-            title: 'Width',
+            name: 'name',
+            title: 'Name',
             type: 'string',
         }),
         defineField({
-            name: 'profile',
-            title: 'Profile',
-            type: 'string',
-        }),
-        defineField({
-            name: 'size',
-            title: 'Size',
+            name: 'spec',
+            title: 'Specification',
             type: 'string',
         }),
         defineField({
@@ -51,12 +46,17 @@ export default defineType({
             type: 'array',
             of: [{ type: 'reference', to: { type: 'category' } }],
         }),
+        defineField({
+            name: 'rating',
+            title: 'Rating',
+            type: 'string',
+        }),
     ],
 
     preview: {
         select: {
-            title: 'title',
-            author: 'author.name',
+            title: 'name',
+            rating: 'rating',
             media: 'productImage',
         },
     },
