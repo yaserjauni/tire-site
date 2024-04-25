@@ -40,13 +40,13 @@ async function getData(slug: string): Promise<Post[]> {
     body,
     "authorPic": author->image
     }`
-    const data = await client.fetch<Post[]>(query);
+    const data = await client.fetch<Post[]>(query, {}, { cache: 'no-cache' });
     return data;
 }
 
 export default async function BlogPage({ params }: { params: { slug: string } }) {
     const data = await getData(params.slug);
-    const authorPicUrl = urlForImage(data[0].authorPic);
+    const authorPicUrl = urlForImage(data[0]?.authorPic);
     return (
         <section>
             <Header />

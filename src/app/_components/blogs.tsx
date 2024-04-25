@@ -2,6 +2,8 @@ import Image from "next/image";
 import { client } from "../../../sanity/lib/client";
 import { urlForImage } from "../../../sanity/lib/image";
 import Link from "next/link";
+import { cache } from "react";
+import { RequestOptions, ResponseQueryOptions } from "next-sanity";
 
 export const revalidate = 0;
 interface Post {
@@ -31,7 +33,7 @@ async function getData(): Promise<Post[]> {
     body,
     "authorPic": author->image  
     }`
-    const data = await client.fetch<Post[]>(query);
+    const data = await client.fetch<Post[]>(query, {}, { cache: 'no-cache' });
     return data;
 }
 

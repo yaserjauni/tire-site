@@ -30,17 +30,22 @@ export function Intro() {
           <div>extensive list of additional services</div>
           <div>from buying bulk tires to installation of </div>
           <div>tires, for more information</div>
-          <div className="flex flex-col justify-center px-8 py-4 mt-5 max-w-full text-sm leading-4 text-center text-white bg-neutral-900 rounded-[30px_30px_0px_30px] w-[390px] max-md:px-5">
-            <div className="flex justify-between pl-12 max-md:px-5">
-              <div className="font-semibold"><Link href={"/contact-us"} className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap">
-                Contact Us
-              </Link></div>
-              <div className="font-black"><img
-                loading="lazy"
-                src="/mobile.svg"
-                className="shrink-0 w-5"
-              /></div>
-            </div>
+          <div className="flex flex-col justify-center px-8 py-4 mt-5 max-w-full text-sm leading-4 text-center text-white bg-neutral-900 rounded-[30px_30px_0px_30px] w-[350px] max-md:px-5">
+
+            <Link href={"/contact-us"} className="block hover:bg-gray-300 hover:text-black whitespace-nowrap">
+              <div className="flex justify-between items-center pl-12 max-md:px-5">
+                <div className="font-semibold">
+                  Contact Us
+                </div>
+
+                <div className="font-black"><img
+                  loading="lazy"
+                  src="/mobile.svg"
+                  className="shrink-0 w-5"
+                /></div>
+              </div>
+            </Link>
+
           </div>
         </div>
       </div>
