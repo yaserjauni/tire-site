@@ -12,7 +12,7 @@ export function UsedRims() {
                 <div className="self-center text-4xl font-extrabold leading-10 text-center text-black uppercase">
                     Steel rims
                 </div>
-                <div className="flex gap-5 justify-between items-center mt-24 max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
+                {/* <div className="flex gap-5 justify-between items-center mt-24 max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
                     <div className="flex flex-col self-stretch my-auto">
                         <img
                             loading="lazy"
@@ -134,7 +134,7 @@ export function UsedRims() {
                             className="mt-5 w-full shadow-sm aspect-[1.16]"
                         />
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

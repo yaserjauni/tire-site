@@ -2,7 +2,7 @@ import { Blogs } from "../_components/blogs";
 import Footer from "../_components/footer";
 import Header from "../_components/header";
 
-export default function Contact() {
+export default function ContactUs() {
     return (
         <main className="flex flex-col overflow-hidden hide-scrollbar">
             <Header />
@@ -10,7 +10,7 @@ export default function Contact() {
                 <div className="flex overflow-hidden relative flex-col items-center pt-12 pb-16 text-center text-white shadow-sm min-h-[548px]">
                     <img
                         loading="lazy"
-                        srcSet="/Sectionbg.png"
+                        src="/Sectionbg.png"
                         className="object-cover absolute inset-0 size-full"
                     />
                     <div className="relative justify-center px-6 py-1.5 text-xs font-semibold leading-6 rounded-2xl bg-neutral-900 tracking-[2px] max-md:px-5">
@@ -63,7 +63,7 @@ export default function Contact() {
                     <a href="https://maps.app.goo.gl/vT1nLMd8dNB8pHvY7">
                         <img
                             loading="lazy"
-                            srcSet="/map.png"
+                            src="/map.png"
                             className="object-cover absolute inset-0 size-full"
                         />
                         <div className="flex relative flex-wrap justify-start pl-2 bg-white rounded-sm shadow-sm ">
@@ -78,7 +78,7 @@ export default function Contact() {
                                 <div className="flex flex-col flex-1 self-start px-2.5 text-xs text-center text-blue-600 whitespace-nowrap">
                                     <img
                                         loading="lazy"
-                                        srcSet="..."
+                                        src="dir.png"
                                         className="self-center aspect-square w-[22px]"
                                     />
                                     <div className="mt-1.5">Directions</div>
