@@ -25,9 +25,18 @@ export async function Tires({ data }: { data: Products[] }) {
 
     return (
         <div>
-            <div className="items-start self-stretch pt-4 pr-4 pb-4 pl-16 text-4xl font-black  text-red-600 leading-[65px]">
-                New Tires | Top Picks
-            </div>
+            <header className="flex flex-row justify-between">
+                <div className="items-start self-start pt-4 pr-4 pb-4 pl-16 text-4xl font-black  text-red-600 leading-[65px]">
+                    New Tires | Top Picks
+                </div>
+                <Link className="flex justify-center" href={'/product/Tire'}>
+                    <div className="items-start self-end pt-4 pr-4 pb-4 pr-16 text-4xl font-black underline text-red-600 leading-[65px]">
+                        Show All
+                    </div>
+                </Link>
+
+            </header>
+
             <div className="flex gap-5 justify-center pb-9 pl-5 mt-11 max-w-full flex-wrap max-md:mt-10">
                 {data.map((product: Products, index: number) => (
                     <div key={index} className="flex flex-col py-6 pr-6 pl-6 bg-white rounded-md border-2 border-solid border-zinc-200 max-md:px-5">
@@ -73,9 +82,17 @@ export async function Tires({ data }: { data: Products[] }) {
 export async function Rims({ data }: { data: Products[] }) {
     return (
         <div>
-            <div className="items-start self-stretch pt-4 pr-4 pb-4 pl-16 text-4xl font-black  text-red-600 leading-[65px]">
-                New Rims | Top Picks
-            </div>
+            <header className="flex flex-row justify-between">
+                <div className="items-start self-start pt-4 pr-4 pb-4 pl-16 text-4xl font-black  text-red-600 leading-[65px]">
+                    New Rims | Top Picks
+                </div>
+                <Link className="flex justify-center" href={'/product/Rims'}>
+                    <div className="items-start self-end pt-4 pr-4 pb-4 pr-16 text-4xl font-black underline text-red-600 leading-[65px]">
+                        Show All
+                    </div>
+                </Link>
+
+            </header>
             <div className="flex gap-5 justify-center pb-9 pl-5 mt-11 max-w-full flex-wrap max-md:mt-10">
                 {data.map((product: Products, index: number) => (
                     <div key={index} className="flex flex-col py-6 pr-6 pl-6 bg-white rounded-md border-2 border-solid border-zinc-200 max-md:px-5">
@@ -122,9 +139,17 @@ export async function Accessories({ data }: { data: Products[] }) {
 
     return (
         <div>
-            <div className="items-start self-stretch pt-4 pr-4 pb-4 pl-16 text-4xl font-black  text-red-600 leading-[65px]">
-                Accessories | Top Picks
-            </div>
+            <header className="flex flex-row justify-between">
+                <div className="items-start self-start pt-4 pr-4 pb-4 pl-16 text-4xl font-black  text-red-600 leading-[65px]">
+                    New Accessories | Top Picks
+                </div>
+                <Link className="flex justify-center" href={'/product/Accessories'}>
+                    <div className="items-start self-end pt-4 pr-4 pb-4 pr-16 text-4xl font-black underline text-red-600 leading-[65px]">
+                        Show All
+                    </div>
+                </Link>
+
+            </header>
             <div className="flex gap-5 justify-center pb-9 pl-5 mt-11 max-w-full flex-wrap max-md:mt-10">
                 {data.map((product: Products, index: number) => (
                     <div key={index} className="flex flex-col py-6 pr-6 pl-6 bg-white rounded-md border-2 border-solid border-zinc-200 max-md:px-5">

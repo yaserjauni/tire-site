@@ -35,16 +35,13 @@ export async function HomePage() {
         <main className="flex flex-col hide-scrollbar">
             <Intro />
             <HeroPost />
-            <Search>
-                <SearchResult search={search} season={season} />
-            </Search>
-            {!search ? (
-                <>
-                    <Tires data={data} />
-                    <Rims data={rimData} />
-                    <Accessories data={accData} />
-                </>
-            ) : null}
+            <Search />
+
+
+            <Tires data={data} />
+            <Rims data={rimData} />
+            <Accessories data={accData} />
+
 
             <Blogs />
             <Brands />

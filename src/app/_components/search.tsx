@@ -1,19 +1,33 @@
 'use client'
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 
-export function Search({
-    children,
-}: {
-    children: React.ReactNode
-}) {
-
-    const [showSearchList, setShowSearchList] = useState(false);
+export function Search() {
+    const router = useRouter();
     function showData() {
-
-        const parameter = `${width}/${profile}/${wheelSize}`;
-        setSearch(parameter);
-        setShowSearchList(!showSearchList);
+        let parameter = "";
+        if (width !== undefined && width !== null && width !== "") {
+            parameter += `width=${width}*`;
+        } else {
+            parameter += "width=*";
+        }
+        if (profile !== undefined && profile !== null && profile !== "") {
+            parameter += `+profile=${profile}*`;
+        } else {
+            parameter += "+profile=*";
+        }
+        if (wheelSize !== undefined && wheelSize !== null && wheelSize !== "") {
+            parameter += `+wheelSize=${wheelSize}*`;
+        } else {
+            parameter += "+wheelSize=*";
+        }
+        if (season !== undefined && season !== null && season !== "") {
+            parameter += `+season=${season}*`;
+        } else {
+            parameter += "+season=*";
+        }
+        router.push(`/product/${parameter}`);
     }
 
     const [search, setSearch] = useState("");
@@ -21,6 +35,11 @@ export function Search({
     const [profile, setProfile] = useState("");
     const [wheelSize, setWheelSize] = useState("");
     const [season, setSeason] = useState("");
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+    useEffect(() => {
+        setIsButtonDisabled(!(width && profile && wheelSize));
+    }, [width, profile, wheelSize]);
 
     const handleWidthChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setWidth(event.target.value);
@@ -56,36 +75,20 @@ export function Search({
                 </div>
                 <div className="flex flex-col self-stretch mt-5 bg-white max-md:max-w-full">
                     <div className="flex flex-col px-4 pt-5 pb-9 border border-solid border-neutral-300 max-md:max-w-full">
-                        {showSearchList ? (
-                            <>
-                                <div className="flex justify-center items-center self-center  py-5 mt-3 max-w-full text-center text-white border border-solid shadow-sm bg-neutral-500 border-neutral-500 w-[520px] max-md:px-5">
-                                    <div className="flex gap-3">
-                                        <img
-                                            loading="lazy"
-                                            srcSet="/search.svg"
-                                            className=" aspect-[1]"
-                                        />
 
-                                        <button onClick={showData} className="md:text-xl font-bold leading-6 uppercase tracking-[2px]">
-                                            Revise Search
-                                        </button>
-                                    </div>
+                        <>
+                            <div className="flex gap-4 px-20 py-4 border border-red-600 border-solid bg-zinc-100 max-md:flex-wrap max-md:px-5">
+                                <div className="my-auto text-2xl font-bold leading-7 text-red-600 uppercase">
+                                    Looking for something specific?
                                 </div>
-                                {children}
-                            </>
-                        ) : (
-                            <>
-                                <div className="flex gap-4 px-20 py-4 border border-red-600 border-solid bg-zinc-100 max-md:flex-wrap max-md:px-5">
-                                    <div className="my-auto text-2xl font-bold leading-7 text-red-600 uppercase">
-                                        Looking for something specific?
-                                    </div>
 
-                                </div>
-                                <div className="flex z-10 flex-col p-6 bg-white border border-solid shadow-lg border-neutral-200 max-md:px-5 max-md:max-w-full">
-                                    <div className="justify-center max-md:max-w-full">
-                                        <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                                            <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-                                                <div className="flex flex-col self-stretch gap-3 pb-10 max-md:mt-8">
+                            </div>
+                            <div className="flex z-10 flex-col p-6 bg-white border border-solid shadow-lg border-neutral-200 max-md:px-5 max-md:max-w-full">
+                                <div className="justify-center max-md:max-w-full">
+                                    <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+                                        <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+                                            <div className="flex flex-col self-stretch gap-3 pb-10 max-md:mt-8">
+                                                <form >
 
                                                     <div className="flex  mt-5 gap-10 ">
                                                         <div className="flex gap-0 my-auto font-bold">
@@ -152,47 +155,46 @@ export function Search({
                                                         <div className="flex flex-1 justify-between ">
                                                             <select
                                                                 className="flex flex-1 justify-between py-2.5 px-1.5 rounded-md border border-solid shadow-sm border-neutral-400 text-zinc-800"
-                                                                defaultValue={"- Select -"}
+                                                                defaultValue={"-Select-"}
                                                                 value={season}
                                                                 onChange={handleSeasonChange}
                                                             >
-                                                                <option disabled value="- Select -">- Select -</option>
-                                                                <option value="1">All Season</option>
-                                                                <option value="2">Winter</option>
+
+                                                                <option >-Select-</option>
+                                                                <option value="AllSeason">All Season</option>
+                                                                <option value="Winter">Winter</option>
                                                             </select>
                                                         </div>
                                                     </div>
-
-                                                </div>
-                                            </div>
-                                            <div className="flex justify-center">
-                                                <img
-                                                    loading="lazy"
-                                                    srcSet="/info.png"
-                                                    className="w-full aspect-[1] max-w-[400.8px] max-md:mt-8"
-                                                />
+                                                </form>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="flex justify-center items-center self-center px-16 py-5 mt-3 max-w-full text-center text-white border border-solid shadow-sm bg-neutral-500 border-neutral-500 w-[520px] max-md:px-5">
-                                        <div className="flex gap-3">
+                                        <div className="flex justify-center">
                                             <img
                                                 loading="lazy"
-                                                srcSet="/search.svg"
-                                                className=" aspect-[1]"
+                                                srcSet="/info.png"
+                                                className="w-full aspect-[1] max-w-[400.8px] max-md:mt-8"
                                             />
-
-                                            <button onClick={showData} className="md:text-xl font-bold leading-6 uppercase tracking-[2px]">
-                                                Find your tires now
-                                            </button>
-
-
                                         </div>
                                     </div>
                                 </div>
-                            </>
-
-                        )}
+                                <div className={`flex justify-center items-center self-center px-16 py-5 mt-3 max-w-full text-center text-white border border-solid shadow-sm  border-neutral-500 w-[520px] ${isButtonDisabled
+                                    ? 'bg-grey-500 text-gray-500 cursor-not-allowed'
+                                    : 'bg-red-500 text-red-600 hover:bg-blue-600'
+                                    }`}>
+                                    <div className="flex gap-3">
+                                        <img
+                                            loading="lazy"
+                                            srcSet="/search.svg"
+                                            className=" aspect-[1]"
+                                        />
+                                        <button onClick={showData} disabled={isButtonDisabled} className="md:text-xl font-bold leading-6 uppercase tracking-[2px] ">
+                                            Find your tires now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </>
                     </div>
                 </div>
             </div>

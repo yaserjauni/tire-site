@@ -72,15 +72,15 @@ export async function getFilteredData({ search, season }: ResultProps): Promise<
     return data;
 }
 
-export async function SearchResult({ search, season }: ResultProps) {
-    const data = await getFilteredData({ search, season })
-    console.log(search, season);
+export async function SearchResult({ data }: { data: Products[] }) {
+
+
     return (
         <div>
             {data.length > 0 ? (
                 <section>
                     <div className="items-start self-stretch pt-4 pr-4 pb-4 pl-16 text-4xl font-black  text-red-600 leading-[65px]">
-                        Results
+                        Search Results
                     </div>
                     <div className="flex gap-5 justify-center pb-9 pl-5 mt-11 max-w-full flex-wrap max-md:mt-10">
                         {data.map((product: Products, index: number) => (
@@ -124,8 +124,8 @@ export async function SearchResult({ search, season }: ResultProps) {
 
             ) : (
 
-                <div className="items-start self-stretch pt-4 pr-4 pb-4 pl-16 text-4xl font-black  text-red-600 leading-[65px]">
-                    No matching Results
+                <div className="items-start self-stretch pt-4 pr-4 pb-4 pl-16 text-4xl font-black  min-h-screen text-red-600 leading-[65px]">
+                    No matching Results found
                 </div>
             )}
 
