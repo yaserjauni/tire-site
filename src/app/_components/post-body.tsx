@@ -7,8 +7,16 @@ import urlBuilder from '@sanity/image-url'
 import { getImageDimensions } from '@sanity/asset-utils'
 import { urlForImage } from '../../../sanity/lib/image';
 
-// Barebones lazy-loaded image component
-const SampleImageComponent = ({ value }) => {
+type ImageValue = {
+  _type: string; // Assuming this is a required property
+  // Add other properties as needed
+  alt?: string; // Optional alt text for the image
+  url: string; // URL of the image
+  // Add other properties as needed
+};
+
+// Update the SampleImageComponent definition to specify the type for the `value` prop
+const SampleImageComponent = ({ value }: { value: ImageValue }) => {
   const { width } = getImageDimensions(value)
   return (
     <img
