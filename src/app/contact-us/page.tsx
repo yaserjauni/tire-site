@@ -78,7 +78,7 @@ export default function ContactUs() {
                                 <div className="flex flex-col flex-1 self-start px-2.5 text-xs text-center text-blue-600 whitespace-nowrap">
                                     <img
                                         loading="lazy"
-                                        src="dir.png"
+                                        src="/dir.png"
                                         className="self-center aspect-square w-[22px]"
                                     />
                                     <div className="mt-1.5">Directions</div>
