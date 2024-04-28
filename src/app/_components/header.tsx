@@ -22,7 +22,7 @@ const Header = () => {
                   src="/phone.svg"
                   className="shrink-0 w-3.5 aspect-square"
                 />
-                <div className="my-auto text-white">1-xxx-xxx-xxxx</div>
+                <div className="my-auto text-white">1-519-827-7845</div>
               </div>
               <div className="flex gap-1.5 self-start whitespace-nowrap">
                 <img
@@ -30,7 +30,7 @@ const Header = () => {
                   src="/mail.svg"
                   className="shrink-0 w-3.5 aspect-square"
                 />
-                <div className="flex-auto">info@xxxxxxxx.ca</div>
+                <div className="flex-auto">Tireempirekitchner@gmail.com</div>
               </div>
               <div className="flex gap-2">
                 <img
@@ -39,17 +39,20 @@ const Header = () => {
                   className="shrink-0 w-3.5 aspect-square"
                 />
                 <div className="flex-auto">
-                  Hours: Monday - Friday 8:30am 5:30pm EST
+                  Hours: Mon - Fri 11:00 AM - 5:00 PM, Sat 11:00 AM - 3:00 PM EST
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex gap-5 justify-between self-center mt-4 w-full text-black uppercase leading-5 flex-wrap ">
-            <img
-              loading="lazy"
-              srcSet="/cal.svg"
-              className="shrink-0 max-w-full aspect-[3.33] w-[299px]"
-            />
+          <div className="flex gap-5 justify-between self-center px-5 mt-4 w-full text-black uppercase leading-5 flex-wrap ">
+            <Link href="/">
+              <img
+                loading="lazy"
+                srcSet="/logo.jpg"
+                className="shrink-0 aspect-[1] w-[150px]"
+              />
+            </Link>
+
             <div className="flex gap-3 px-5 align-end">
               <div><Link href="#blog-section" className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap">
                 Blogs
@@ -112,7 +115,7 @@ const Header = () => {
                           src="/phone.svg"
                           className="shrink-0 aspect-[0.79] w-[11px]"
                         />
-                        <div className="my-auto text-white">1-xxx-xxx-xxxx</div>
+                        <div className="my-auto text-white">1-519-827-7845</div>
                       </div>
                       <div className="flex gap-1.5 self-start whitespace-nowrap">
                         <img
@@ -120,7 +123,7 @@ const Header = () => {
                           src="/mail.svg"
                           className="shrink-0 self-start w-3.5 aspect-square"
                         />
-                        <div className="flex-auto">info@xxxxxxxx.ca</div>
+                        <div className="flex-auto">Tireempirekitchner@gmail.com</div>
                       </div>
                       <div className="flex gap-2">
                         <img
@@ -129,7 +132,7 @@ const Header = () => {
                           className="shrink-0 self-start aspect-[0.93] w-[13px]"
                         />
                         <div className="flex-auto">
-                          Hours: Monday - Friday 8:30am 5:30pm EST
+                          Hours: Mon - Fri 11:00 AM - 5:00 PM, Sat 11:00 AM - 3:00 PM EST
                         </div>
                       </div>
                     </div>

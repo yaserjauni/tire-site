@@ -1,81 +1,12 @@
 
 import * as React from "react";
 import { client } from "../../../../sanity/lib/client";
-import Link from "next/link";
-import { urlForImage } from "../../../../sanity/lib/image";
-import { SearchResult } from "@/app/_components/product-list";
+
+import { getFilteredData, SearchResult } from "@/app/_components/product-list";
 import Header from "@/app/_components/header";
 import Footer from "@/app/_components/footer";
-import category from "../../../../sanity/schemaTypes/category";
 
 
-export interface Products {
-    manufacturer: string;
-    name: string;
-    spec: string;
-    link: string;
-    rating: string;
-    cat: string[];
-
-    productImage: {
-        asset: {
-            _ref: string;
-            _type: "reference";
-        };
-    };
-}
-interface ResultProps {
-    search: string;
-    season: string;
-
-}
-export async function getFilteredData({ search, season }: ResultProps): Promise<Products[]> {
-
-    let query = `*[_type == 'products' && '[Tire]' in categories[]->title ]{
-        manufacturer,
-        name,
-        spec,
-        link,
-        rating,
-        "cat": categories[]->title,
-        productImage,
-    }`
-    if (search) {
-        query = `*[_type == 'products'  && spec match '*${search}*']{
-            manufacturer,
-            name,
-            spec,
-            link,
-            rating,
-            "cat": categories[]->title,
-            productImage,
-        }`
-    } else if (!search && season) {
-        query = `*[_type == 'products'  && '${season}' in categories[]->title ]{
-                    manufacturer,
-                    name,
-                    spec,
-                    link,
-                    rating,
-                    "cat": categories[]->title,
-                    productImage,
-                }`
-
-    } else if (search && season) {
-        query = `*[_type == 'products'  && '${season}' in categories[]->title && spec match '*${search}*']{
-                manufacturer,
-                name,
-                spec,
-                link,
-                rating,
-                "cat": categories[]->title,
-                productImage,
-            }`
-    }
-
-    const data = await client.fetch<Products[]>(query, {}, { cache: 'force-cache' });
-    return data;
-}
 
 export default async function ProductPage({
     params

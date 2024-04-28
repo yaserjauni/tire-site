@@ -20,7 +20,7 @@ interface Post {
 }
 
 async function getData(): Promise<Post[]> {
-    const query = `*[_type == 'post'] {
+    const query = `*[_type == 'post'] | order(publishedAt desc) [0...6] {
     title,  
     "name": author->name,
     publishedAt,
@@ -40,9 +40,17 @@ export async function Blogs() {
     return (
         <section>
             <div className="flex flex-col md:px-20 md:m-10 mb-10 gap-5" id="blog-section">
-                <div className="self-start md:text-5xl text-3xl font-semibold py-10 px-5 text-black">
-                    Blogs
+                <div className="flex flex-row justify-between">
+                    <div className="self-start md:text-5xl text-3xl font-semibold  px-5 text-black">
+                        Blogs
+                    </div>
+                    <Link className="flex " href={'/blogList'}>
+                        <div className="items-start pr-4  pr-16 text-4xl font-black underline text-red-600 leading-[65px]">
+                            All Blogs
+                        </div>
+                    </Link>
                 </div>
+
                 <div className="grid sm-grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
                     {data.map((post: Post, index: number) => (
@@ -66,9 +74,6 @@ export async function Blogs() {
                         </div>
                     ))}
                 </div>
-                {/* <div className="justify-center self-center px-3.5 py-3.5 mt-14 text-xs tracking-widest leading-4 text-center text-black border border-red-600 border-solid max-md:mt-10">
-                    LOAD PREVIOUS ARTICLES
-                </div> */}
             </div>
         </section>
     );

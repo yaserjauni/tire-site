@@ -26,7 +26,7 @@ interface ResultProps {
 }
 export async function getFilteredData({ search, season }: ResultProps): Promise<Products[]> {
 
-    let query = `*[_type == 'products' && 'Tire' in categories[]->title ]{
+    let query = `*[_type == 'products' && '[Tire]' in categories[]->title ]{
         manufacturer,
         name,
         spec,
@@ -45,8 +45,19 @@ export async function getFilteredData({ search, season }: ResultProps): Promise<
             "cat": categories[]->title,
             productImage,
         }`
-    } else if (season) {
+    } else if (!search && season) {
         query = `*[_type == 'products'  && '${season}' in categories[]->title ]{
+                    manufacturer,
+                    name,
+                    spec,
+                    link,
+                    rating,
+                    "cat": categories[]->title,
+                    productImage,
+                }`
+
+    } else if (search && season) {
+        query = `*[_type == 'products'  && '${season}' in categories[]->title && spec match '*${search}*']{
                 manufacturer,
                 name,
                 spec,
@@ -55,23 +66,11 @@ export async function getFilteredData({ search, season }: ResultProps): Promise<
                 "cat": categories[]->title,
                 productImage,
             }`
-
-    } else if (search && season) {
-        query = `*[_type == 'products'  && '${season}' in categories[]->title && spec match '*${search}*']{
-            manufacturer,
-            name,
-            spec,
-            link,
-            rating,
-            "cat": categories[]->title,
-            productImage,
-        }`
     }
 
     const data = await client.fetch<Products[]>(query, {}, { cache: 'force-cache' });
     return data;
 }
-
 export async function SearchResult({ data }: { data: Products[] }) {
 
 

@@ -155,11 +155,9 @@ export function Search() {
                                                         <div className="flex flex-1 justify-between ">
                                                             <select
                                                                 className="flex flex-1 justify-between py-2.5 px-1.5 rounded-md border border-solid shadow-sm border-neutral-400 text-zinc-800"
-                                                                defaultValue={"-Select-"}
-                                                                value={season}
+                                                                value={"-Select-"}
                                                                 onChange={handleSeasonChange}
                                                             >
-
                                                                 <option >-Select-</option>
                                                                 <option value="AllSeason">All Season</option>
                                                                 <option value="Winter">Winter</option>

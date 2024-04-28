@@ -24,12 +24,12 @@ export default function Contact() {
                                 className="shrink-0 w-10 aspect-square"
                             /></div>
                             <div className="text-6xl font-extrabold leading-[54.9px] max-md:max-w-full max-md:text-4xl">
-                                (XXX) XXX-XXXX
+                                (519) 827-7854
                             </div>
                         </div>
                     </div>
                     <div className="relative mt-5 text-base leading-8">
-                        Servicing the Greater Hamilton Area & Niagara Regions.
+                        Servicing the Kitchener & surrounding regions.
                     </div>
                     <div className="relative justify-center px-6 py-1.5 mt-5 text-xs font-semibold leading-6 rounded-2xl bg-neutral-900 tracking-[2px] max-md:px-5">
                         OUR SERVICE AREAS
@@ -38,28 +38,26 @@ export default function Contact() {
                         <div className="flex flex-col max-w-full w-[588px]">
                             <div className="flex gap-2 flex-wrap md:px-10">
                                 <div className="flex gap-2 justify-center whitespace-nowrap">
-                                    <div>St. Catharines</div>
+                                    <div>Waterloo</div>
                                     <div className="shrink-0 w-px border-l border-white border-solid h-[30px]" />
                                 </div>
                                 <div className="flex gap-2 justify-center whitespace-nowrap">
-                                    <div>Burlington & Oakville</div>
+                                    <div>Cambridge</div>
                                     <div className="shrink-0 w-px border-l border-white border-solid h-[30px]" />
                                 </div>
                                 <div className="flex gap-2 justify-center whitespace-nowrap">
-                                    <div>Waterdown</div>
+                                    <div>Guelph</div>
                                     <div className="shrink-0 w-px border-l border-white border-solid h-[30px]" />
                                 </div>
                                 <div className="flex gap-2 justify-center whitespace-nowrap">
-                                    <div>Brantford</div>
+                                    <div>Stratford</div>
                                     <div className="shrink-0 w-px border-l border-white border-solid h-[30px]" />
                                 </div>
-                                <div>Stoney Creek</div>
+                                <div>Woodstock</div>
                             </div>
-
-
-
                         </div>
                     </div>
+
                 </div>
                 <div className="flex overflow-hidden relative flex-col justify-between items-start py-3 min-h-[650px] ">
                     <a href="https://maps.app.goo.gl/vT1nLMd8dNB8pHvY7">
