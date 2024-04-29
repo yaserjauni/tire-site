@@ -39,14 +39,14 @@ export async function Blogs() {
     const data = await getData();
     return (
         <section>
-            <div className="flex flex-col md:px-20 md:m-10 mb-10 gap-5" id="blog-section">
-                <div className="flex flex-row justify-between">
-                    <div className="self-start md:text-5xl text-3xl font-semibold  px-5 text-black">
+            <div className="flex flex-col md:px-10 md:m-10 mb-10 " id="blog-section">
+                <div className="flex flex-row justify-between px-5 gap-10">
+                    <div className="  md:text-4xl text-3xl font-semibold text-red-600">
                         Blogs
                     </div>
                     <Link className="flex " href={'/blogList'}>
-                        <div className="items-start pr-4  pr-16 text-4xl font-black underline text-red-600 leading-[65px]">
-                            All Blogs
+                        <div className=" pr-4  md:pr-16  md:text-4xl text-3xl font-black underline text-red-600 leading-[65px]">
+                            Show All
                         </div>
                     </Link>
                 </div>

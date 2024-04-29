@@ -148,14 +148,11 @@ export function Search() {
                                                             <div className="text-lg leading-5 text-zinc-800">
                                                                 Season
                                                             </div>
-                                                            <div className="text-2xl leading-6 text-red-600">
-                                                                *
-                                                            </div>
                                                         </div>
                                                         <div className="flex flex-1 justify-between ">
                                                             <select
                                                                 className="flex flex-1 justify-between py-2.5 px-1.5 rounded-md border border-solid shadow-sm border-neutral-400 text-zinc-800"
-                                                                value={"-Select-"}
+                                                                value={season}
                                                                 onChange={handleSeasonChange}
                                                             >
                                                                 <option >-Select-</option>
@@ -177,7 +174,7 @@ export function Search() {
                                     </div>
                                 </div>
                                 <div className={`flex justify-center items-center self-center px-16 py-5 mt-3 max-w-full text-center text-white border border-solid shadow-sm  border-neutral-500 w-[520px] ${isButtonDisabled
-                                    ? 'bg-grey-500 text-gray-500 cursor-not-allowed'
+                                    ? 'bg-zinc-500  cursor-not-allowed'
                                     : 'bg-red-500 text-red-600 hover:bg-blue-600'
                                     }`}>
                                     <div className="flex gap-3">
