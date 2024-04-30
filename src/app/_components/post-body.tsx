@@ -1,39 +1,54 @@
-import { PortableText } from '@portabletext/react'
+import { PortableText } from '@portabletext/react';
+import { PortableTextComponentProps, PortableTextListComponent } from '@portabletext/react';
+
 import { TypedObject } from 'sanity';
+import { getImageDimensions } from '@sanity/asset-utils';
+import { urlForImage } from '../../../sanity/lib/image';
+import React from 'react';
+
 type Props = {
   content: TypedObject;
 };
-import urlBuilder from '@sanity/image-url'
-import { getImageDimensions } from '@sanity/asset-utils'
-import { urlForImage } from '../../../sanity/lib/image';
 
 type ImageValue = {
   _type: string; // Assuming this is a required property
-  // Add other properties as needed
   alt?: string; // Optional alt text for the image
   url: string; // URL of the image
-  // Add other properties as needed
 };
 
-// Update the SampleImageComponent definition to specify the type for the `value` prop
 const SampleImageComponent = ({ value }: { value: ImageValue }) => {
-  const { width } = getImageDimensions(value)
+  const { width } = getImageDimensions(value);
   return (
     <img
-      src={urlForImage(value)
-      }
+      src={urlForImage(value)}
       alt={value.alt || ' '}
       loading="lazy"
       style={{
-        // Display alongside text if image appears inside a block text span
         display: 'inline-block',
-
-        // Avoid jumping around with aspect-ratio CSS property
         aspectRatio: width / 500,
       }}
     />
-  )
-}
+  );
+};
+
+type ListComponentProps = {
+  children: React.ReactNode;
+  type?: string;
+  index?: number;
+  isInline?: boolean;
+  renderNode?: (props: any) => React.ReactNode;
+};
+
+const ListComponent: React.FC<ListComponentProps> = ({ children, type }) => {
+  if (type === 'bullet') {
+    return <ul className="mt-xl">{children}</ul>;
+  } else if (type === 'number') {
+    return <ol className="mt-lg">{children}</ol>;
+  } else if (type === 'checkmarks') {
+    return <ol className="m-auto text-lg">{children}</ol>;
+  }
+  return <>{children}</>;
+};
 
 const components = {
   types: {
@@ -41,7 +56,8 @@ const components = {
     // Any other custom types you have in your content
     // Examples: mapLocation, contactForm, code, featuredProjects, latestNews, etc.
   },
-}
+  list: ListComponent, // Add the list component here
+};
 
 export function PostBody({ content }: Props) {
   return (
