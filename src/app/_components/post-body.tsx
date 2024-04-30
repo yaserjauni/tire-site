@@ -33,7 +33,7 @@ const SampleImageComponent = ({ value }: { value: ImageValue }) => {
 
 type ListComponentProps = {
   children: React.ReactNode;
-  type?: string;
+  type?: 'bullet' | 'number' | 'checkmarks'; // Specify the valid types for the list
   index?: number;
   isInline?: boolean;
   renderNode?: (props: any) => React.ReactNode;
@@ -50,13 +50,14 @@ const ListComponent: React.FC<ListComponentProps> = ({ children, type }) => {
   return <>{children}</>;
 };
 
+
 const components = {
   types: {
     image: SampleImageComponent,
     // Any other custom types you have in your content
     // Examples: mapLocation, contactForm, code, featuredProjects, latestNews, etc.
   },
-  list: ListComponent, // Add the list component here
+  list: ListComponent as PortableTextListComponent,// Add the list component here
 };
 
 export function PostBody({ content }: Props) {
