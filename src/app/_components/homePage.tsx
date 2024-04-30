@@ -27,22 +27,16 @@ export async function HomePage() {
     const data = await getData('Tire');
     const rimData = await getData('Rims');
     const accData = await getData('Accessories');
-    // console.log(data);
-    const search = ""; // Set your search constant here
-    const season = ""; // Set your season constant here
+
 
     return (
         <main className="flex flex-col hide-scrollbar">
             <Intro />
             <HeroPost />
-            <Search />
-
 
             <Tires data={data} />
             <Rims data={rimData} />
             <Accessories data={accData} />
-
-
             <Blogs />
             <Brands />
         </main>

@@ -57,22 +57,13 @@ export function Search() {
         setSeason(event.target.value);
     };
     return (
-        <div className="flex overflow-hidden relative flex-col items-center px-16 pt-14 min-h-[996px] max-md:px-5">
+        <div className="flex overflow-hidden relative flex-col items-center px-3 pt-14  max-md:px-5">
 
             <div className="flex relative flex-col items-center p-2.5 max-w-full w-[874px]">
                 <div className="text-5xl font-bold leading-10 text-center text-red-950">
                     OUR PRODUCTS
                 </div>
-                <div className="mt-5 text-base leading-8 text-center text-black max-md:max-w-full">
-                    When your tires are in need of repair or replacement,
-                    Tire Empire always has on duty trained
-                    <br />
-                    personnel for tire repairs. Our knowledgeable and fully trained tire
-                    specialists team is available to help you
-                    <br />
-                    six days a week. and we are always happy to speak with you about new
-                    or used tires and our service range.
-                </div>
+
                 <div className="flex flex-col self-stretch mt-5 bg-white max-md:max-w-full">
                     <div className="flex flex-col px-4 pt-5 pb-9 border border-solid border-neutral-300 max-md:max-w-full">
 
@@ -183,7 +174,7 @@ export function Search() {
                                             srcSet="/search.svg"
                                             className=" aspect-[1]"
                                         />
-                                        <button onClick={showData} disabled={isButtonDisabled} className="md:text-xl font-bold leading-6 uppercase tracking-[2px] ">
+                                        <button onClick={showData} disabled={isButtonDisabled} className="text-sm md:text-xl font-bold leading-6 uppercase tracking-[2px] ">
                                             Find your tires now
                                         </button>
                                     </div>

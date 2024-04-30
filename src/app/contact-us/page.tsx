@@ -7,7 +7,7 @@ export default function ContactUs() {
         <main className="flex flex-col overflow-hidden hide-scrollbar">
             <Header />
             <section>
-                <div className="flex overflow-hidden relative flex-col items-center pt-12 pb-16 text-center text-white shadow-sm min-h-[548px]">
+                <div className="flex overflow-hidden relative flex-col items-center pt-12 pb-16 text-center text-white shadow-sm ">
                     <img
                         loading="lazy"
                         src="/Sectionbg.png"
@@ -29,12 +29,12 @@ export default function ContactUs() {
                         </div>
                     </div>
                     <div className="relative mt-5 text-base leading-8">
-                        Servicing the Kitchener & surrounding regions.
+                        Welcome to Tire Empire
                     </div>
                     <div className="relative justify-center px-6 py-1.5 mt-5 text-xs font-semibold leading-6 rounded-2xl bg-neutral-900 tracking-[2px] max-md:px-5">
-                        OUR SERVICE AREAS
+                        OUR SERVICE AREA
                     </div>
-                    <div className="flex relative flex-wrap justify-center content-start items-center self-stretch px-16 mt-12 w-full text-2xl font-extrabold leading-7 max-md:px-5 max-md:mt-10 max-md:max-w-full">
+                    {/* <div className="flex relative flex-wrap justify-center content-start items-center self-stretch px-16 mt-12 w-full text-2xl font-extrabold leading-7 max-md:px-5 max-md:mt-10 max-md:max-w-full">
                         <div className="flex flex-col max-w-full w-[588px]">
                             <div className="flex gap-2 flex-wrap md:px-10">
                                 <div className="flex gap-2 justify-center whitespace-nowrap">
@@ -56,7 +56,7 @@ export default function ContactUs() {
                                 <div>Woodstock</div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
                 <div className="flex overflow-hidden relative flex-col justify-between items-start py-3 min-h-[650px] ">
