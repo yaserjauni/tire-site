@@ -2,18 +2,18 @@ export async function HeroPost(): Promise<JSX.Element> {
 
   return (
     <section>
-      <div className="flex overflow-hidden relative flex-col justify-center min-h-[600px]">
+      <div className="flex overflow-hidden relative flex-col justify-center min-h-[500px]">
         <img
           loading="lazy"
           srcSet="/Sectionbg.png"
           className="object-cover absolute inset-0 size-full"
         />
-        <div className="flex relative justify-center items-center px-16 py-10 w-full max-md:px-5 max-md:max-w-full">
-          <div className="flex flex-col p-2.5  mb-1.5 max-w-full w-[1260px] max-md:mt-10">
-            <div className="flex gap-2.5 items-center self-center text-3xl font-semibold leading-8 text-center text-white uppercase max-md:flex-wrap">
+        <div className="flex relative justify-center items-center px-5 py-5 w-full max-md:px-5 max-md:max-w-full">
+          <div className="flex flex-col max-w-full w-[1260px] max-md:mt-5">
+            <div className="flex  items-center self-center text-4xl font-semibold leading-8 text-center text-white uppercase max-md:flex-wrap">
               <div className="flex-1 shrink-0 self-stretch my-auto h-px border-t border-white border-solid" />
               <div className="self-stretch max-md:max-w-full">
-                Unbeatable Tire Services & Prices
+                Our Services Include
               </div>
               <div className="flex-1 shrink-0 self-stretch my-auto h-px border-t border-white border-solid" />
             </div>

@@ -10,7 +10,7 @@ import { SearchResult } from "./product-list";
 
 export async function getData(category: string): Promise<Products[]> {
 
-    const query = `*[_type == 'products'  && '${category}' in categories[]->title]{
+    const query = `*[_type == 'products'  && '${category}' in categories[]->title | order(_createdAt desc)[0...5]]{
         manufacturer,
         name,
         spec,

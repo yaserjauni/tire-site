@@ -54,7 +54,7 @@ export default async function BlogList() {
                     <div className="grid sm-grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
                         {data.map((post: Post, index: number) => (
-                            <div key={index} className=" w-full md:ml-0 items-center px-5 text-xs font-medium text-center hover:shadow-xl text-black flex flex-col grow px-6 py-7 w-full bg-white rounded-lg shadow-md">
+                            <div key={index} className=" w-full md:ml-0 items-center px-5 text-xs font-medium text-center  text-black flex flex-col grow px-6 py-7 w-full bg-white rounded-lg hover:shadow-xl shadow-md">
                                 <Link className="text-zinc-500 hover:underline" href={`/blog/${post.currentSlug}`}>
                                     <div className="flex flex-col grow items-center px-5 text-xs font-medium text-center text-black max-md:mt-8 max-md:max-w-full">
                                         <div>

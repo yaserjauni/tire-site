@@ -1,15 +1,18 @@
 import Link from "next/link";
 import { Search } from "./search";
+
 export function Intro() {
   return (
     <section>
-      <div className="flex overflow-hidden relative z-1 flex-col items-center flex-wrap justify-center content-start items-start rounded-[0px_0px_30px_0px] text-base leading-8 text-black shadow-2xl">
-        <img
-          loading="lazy"
-          srcSet="/tire-bg.jpg"
-          className="object-cover md:absolute inset-1 size-full"
-        />
-        <div className="flex flex-wrap items-start z-10 bg-white max-w-full w-[580px] ">
+      <div className="flex overflow-hidden relative z-1 flex-col md:flex-row items-center flex-wrap justify-center content-end items-end text-base leading-8 bg-black text-black">
+        <div className="flex w-full md:w-1/2 overflow-hidden">
+          <img
+            loading="lazy"
+            srcSet="/logo.jpg"
+            className="object-cover w-full h-full"
+          />
+        </div>
+        <div className="w-full md:w-1/2 bg-white p-4">
           <Search />
         </div>
       </div>

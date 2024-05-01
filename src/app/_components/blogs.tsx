@@ -20,7 +20,7 @@ interface Post {
 }
 
 async function getData(): Promise<Post[]> {
-    const query = `*[_type == 'post'] | order(publishedAt desc) [0...6] {
+    const query = `*[_type == 'post'] | order(_createdAt desc)[0...6] {
     title,  
     "name": author->name,
     publishedAt,
@@ -44,33 +44,31 @@ export async function Blogs() {
                     <div className=" mb-5 md:text-4xl text-3xl font-semibold text-red-600">
                         Blogs
                     </div>
-                    <Link className="flex " href={'/blogList'}>
+                    <Link className="flex " href={'/blog-list'}>
                         <div className=" pr-4 md:pr-16  md:text-4xl text-3xl font-black underline text-red-600 leading-[65px]">
                             Show All
                         </div>
                     </Link>
                 </div>
-
                 <div className="grid sm-grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-
                     {data.map((post: Post, index: number) => (
-                        <div key={index} className=" w-full md:ml-0 items-center px-5 text-xs font-medium text-center text-black flex flex-col grow px-6 py-7 w-full bg-white rounded-lg shadow-md">
-
-                            <div className="flex flex-col grow items-center px-5 text-xs font-medium text-center text-black max-md:mt-8 max-md:max-w-full">
-                                <div>
-                                    <Image className="min-h-[200px] self-stretch " src={urlForImage(post.mainImage)} width={800} height={500} alt="Image" />
+                        <div key={index} className=" w-full md:ml-0 items-center px-5 text-xs font-medium text-center text-black flex flex-col grow px-6 py-7 w-full bg-white rounded-lg hover:shadow-xl shadow-md">
+                            <Link className="text-zinc-500 hover:underline" href={`/blog/${post.currentSlug}`}>
+                                <div className="flex flex-col grow items-center px-5 text-xs font-medium text-center text-black max-md:mt-8 max-md:max-w-full">
+                                    <div>
+                                        <Image className="min-h-[200px] self-stretch " src={urlForImage(post.mainImage)} width={800} height={500} alt="Image" />
+                                    </div>
+                                    <div className="mt-5 text-2xl leading-8">
+                                        {post.title}
+                                    </div>
+                                    <div className="mt-5 text-sm leading-5 text-neutral-800">
+                                        {post.desc}{" "}
+                                        <div className=" text-red-500 text-sm leading-5">
+                                            Read more...
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="mt-5 text-2xl leading-8">
-                                    {post.title}
-                                </div>
-                                <div className="mt-5 text-sm leading-5 text-neutral-800">
-                                    {post.desc}{" "}
-                                    <Link className="text-red-500 hover:underline" href={`/blog/${post.currentSlug}`}>
-                                        Read more...
-                                    </Link>
-                                </div>
-                            </div>
-
+                            </Link>
                         </div>
                     ))}
                 </div>
