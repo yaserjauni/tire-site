@@ -44,12 +44,12 @@ export async function Tires({ data }: { data: Products[] }) {
                             <img
                                 loading="lazy"
                                 srcSet={urlForImage(product.productImage)}
-                                className="aspect-[0.75] w-[169px]"
+                                className="aspect-[0.75] w-[200px]"
                             />
                         </div>
-                        <div className="flex flex-col items-center pb-6 mt-5 w-full text-sm font-semibold leading-6 text-sky-900 bg-white">
-                            <div className="font-black tracking-wide text-center">{product.manufacturer}</div>
-                            <div className="mt-4 text-lg tracking-wide text-center">
+                        <div className="flex flex-col items-center pb-6 mt-5 w-[250px] text-sm font-semibold leading-6 text-sky-900 bg-white">
+                            <div className="font-black  text-center">{product.manufacturer}</div>
+                            <div className="mt-4 text-lg whitespace-wrap text-center">
                                 {product.name} -<br />
                                 {product.spec}
                             </div>
