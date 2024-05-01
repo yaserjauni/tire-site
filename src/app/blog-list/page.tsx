@@ -44,9 +44,9 @@ export default async function BlogList() {
             <Header />
             <section>
 
-                <div className="flex flex-col md:px-20 md:m-10 mb-10 gap-5" id="blog-section">
+                <div className="flex flex-col p-5 md:px-20 md:m-10 mb-10 gap-5" id="blog-section">
                     <div className="flex flex-row justify-between">
-                        <div className="self-start md:text-5xl text-3xl font-semibold  px-5 text-black">
+                        <div className="self-start md:text-5xl text-3xl font-semibold text-black">
                             All Blogs
                         </div>
                     </div>
@@ -54,23 +54,23 @@ export default async function BlogList() {
                     <div className="grid sm-grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
                         {data.map((post: Post, index: number) => (
-                            <div key={index} className=" w-full md:ml-0 items-center px-5 text-xs font-medium text-center text-black flex flex-col grow px-6 py-7 w-full bg-white rounded-lg shadow-md">
+                            <div key={index} className=" w-full md:ml-0 items-center px-5 text-xs font-medium text-center hover:shadow-xl text-black flex flex-col grow px-6 py-7 w-full bg-white rounded-lg shadow-md">
+                                <Link className="text-zinc-500 hover:underline" href={`/blog/${post.currentSlug}`}>
+                                    <div className="flex flex-col grow items-center px-5 text-xs font-medium text-center text-black max-md:mt-8 max-md:max-w-full">
+                                        <div>
+                                            <Image className="min-h-[200px] self-stretch " src={urlForImage(post.mainImage)} width={800} height={500} alt="Image" />
+                                        </div>
+                                        <div className="mt-5 text-2xl leading-8">
+                                            {post.title}
+                                        </div>
+                                        <div className="mt-5 text-sm leading-5 text-neutral-800">
+                                            {post.desc}{" "}
 
-                                <div className="flex flex-col grow items-center px-5 text-xs font-medium text-center text-black max-md:mt-8 max-md:max-w-full">
-                                    <div>
-                                        <Image className="min-h-[200px] self-stretch " src={urlForImage(post.mainImage)} width={800} height={500} alt="Image" />
-                                    </div>
-                                    <div className="mt-5 text-2xl leading-8">
-                                        {post.title}
-                                    </div>
-                                    <div className="mt-5 text-sm leading-5 text-neutral-800">
-                                        {post.desc}{" "}
-                                        <Link className="text-red-500 hover:underline" href={`/blog/${post.currentSlug}`}>
                                             Read more...
-                                        </Link>
-                                    </div>
-                                </div>
 
+                                        </div>
+                                    </div>
+                                </Link>
                             </div>
                         ))}
                     </div>

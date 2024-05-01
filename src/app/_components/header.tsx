@@ -44,7 +44,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className="flex gap-5 justify-between self-center px-5 mt-4 w-full text-black uppercase leading-5 flex-wrap ">
+          {/* <div className="flex gap-5 justify-between self-center px-5 mt-4 w-full text-black uppercase leading-5 flex-wrap ">
             <Link href="/">
               <img
                 loading="lazy"
@@ -54,9 +54,7 @@ const Header = () => {
             </Link>
 
             <div className="flex gap-3 px-5 align-end">
-              <div><Link href="#blog-section" className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap">
-                Blogs
-              </Link></div>
+
               <div className="flex-auto"><Link href={"/contact-us"} className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap">
                 Contact Us
               </Link>
@@ -67,8 +65,8 @@ const Header = () => {
                 className="shrink-0 self-start aspect-[0.38]"
               />
             </div>
-          </div>
-          <div className="flex justify-center py-4 mt-2.5 w-full uppercase bg-violet-950 leading-[111%] max-md:px-5 max-md:max-w-full">
+          </div> */}
+          <div className="flex justify-center py-4  w-full uppercase bg-violet-950 leading-[111%] max-md:px-5 max-md:max-w-full">
             <div className="flex flex-row gap-10 whitespace-nowrap px-2">
               <div className="flex-auto"><Link href={"/"}>
                 Home
@@ -84,6 +82,9 @@ const Header = () => {
               <div className="flex-auto"><Link href={"/single-tires"} >
                 Single Tires
               </Link> </div>
+              <div><Link href="/blog-list" className="flex-auto">
+                Blogs
+              </Link></div>
               <div className="flex-auto"><Link href={"/contact-us"} >
                 Contact Us
               </Link></div>
@@ -94,7 +95,9 @@ const Header = () => {
       {isMobile && (
         <div className="flex justify-center items-center px-16 z-1 py-4  w-full uppercase border-t border-r border-b-2 border-l border-black border-solid bg-violet-950 leading-[111%] max-md:px-5 max-md:max-w-full">
           <div className="flex-grow max-md:max-w-full text-xl md:text-3xl text-center font-aclonica">
-            Tire Empire
+            <Link href={"/"}>
+              Tire Empire
+            </Link>
           </div>
           <button onClick={toggleDrawer}>
             <img

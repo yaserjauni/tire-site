@@ -3,7 +3,6 @@ import * as React from "react";
 import { client } from "../../../sanity/lib/client";
 import Link from "next/link";
 import { urlForImage } from "../../../sanity/lib/image";
-import { getData } from "./homePage";
 export interface Products {
     manufacturer: string;
     name: string;
@@ -11,7 +10,6 @@ export interface Products {
     link: string;
     rating: string;
     cat: string[];
-
     productImage: {
         asset: {
             _ref: string;
@@ -22,10 +20,8 @@ export interface Products {
 interface ResultProps {
     search: string;
     season: string;
-
 }
 export async function getFilteredData({ search, season }: ResultProps): Promise<Products[]> {
-
     let query = `*[_type == 'products' && '[Tire]' in categories[]->title ]{
         manufacturer,
         name,
@@ -55,7 +51,6 @@ export async function getFilteredData({ search, season }: ResultProps): Promise<
                     "cat": categories[]->title,
                     productImage,
                 }`
-
     } else if (search && season) {
         query = `*[_type == 'products'  && '${season}' in categories[]->title && spec match '*${search}*']{
                 manufacturer,
@@ -67,13 +62,10 @@ export async function getFilteredData({ search, season }: ResultProps): Promise<
                 productImage,
             }`
     }
-
     const data = await client.fetch<Products[]>(query, {}, { cache: 'force-cache' });
     return data;
 }
 export async function SearchResult({ data }: { data: Products[] }) {
-
-
     return (
         <div>
             {data.length > 0 ? (
@@ -105,13 +97,8 @@ export async function SearchResult({ data }: { data: Products[] }) {
                                             {product.rating}
                                         </div>
                                     </div>
-                                    <img
-                                        loading="lazy"
-                                        srcSet="/amazon-logo.png"
-                                        className="mt-14 aspect-[3.45] w-[238px] max-md:mt-10"
-                                    />
-                                    <div className="justify-center items-center self-stretch px-16 py-5 mt-5 text-xs tracking-wide text-center text-white capitalize whitespace-nowrap bg-red-600 rounded-none max-md:px-5">
-                                        <Link className="flex justify-center" href={product.link || ''}>
+                                    <div className="justify-center items-center self-stretch px-16 py-5 mt-5 text-xl tracking-wide text-center text-white capitalize whitespace-nowrap bg-red-600 rounded-none max-md:px-5">
+                                        <Link className="flex text-center" href={product.link || ''}>
                                             Buy Now
                                         </Link>
                                     </div>
@@ -120,15 +107,11 @@ export async function SearchResult({ data }: { data: Products[] }) {
                         ))}
                     </div>
                 </section>
-
             ) : (
-
                 <div className="items-start self-stretch pt-4 pr-4 pb-4 pl-16 text-4xl font-black  min-h-screen text-red-600 leading-[65px]">
                     No matching Results found
                 </div>
             )}
-
-
         </div>
     );
 }

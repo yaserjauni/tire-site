@@ -28,9 +28,9 @@ export default async function ProductPage({
 
     let searchPara = ``
     if (
-        !parameter.startsWith('accessories') &&
-        !parameter.startsWith('tire') &&
-        !parameter.startsWith('rims')
+        !parameter.startsWith('Accessories') &&
+        !parameter.startsWith('Tire') &&
+        !parameter.startsWith('Rims')
     ) {
         searchPara = `${width}/${profile}/${wheelSize}`;
     }

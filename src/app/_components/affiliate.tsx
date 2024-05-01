@@ -29,14 +29,12 @@ export async function Tires({ data }: { data: Products[] }) {
                 <div className="items-start self-start pt-4 pr-4 pb-4 pl-4 md:pl-16  md:text-4xl text-3xl font-black text-red-600 leading-[65px]">
                     New Tires | Top Picks
                 </div>
-                <Link className="flex justify-center" href={'/product/Tire'}>
+                <Link className="flex justify-center" href={'/product/tire'}>
                     <div className="items-start self-end pt-4 pr-4 pb-4 pr-16  md:text-4xl text-3xl font-black underline text-red-600 leading-[65px]">
                         Show All
                     </div>
                 </Link>
-
             </header>
-
             <div className="flex gap-5 justify-center pb-9 pl-5 mt-11 max-w-full flex-wrap max-md:mt-10">
                 {data.map((product: Products, index: number) => (
                     <div key={index} className="flex flex-col py-6 pr-6 pl-6 bg-white rounded-md border-2 border-solid border-zinc-200 max-md:px-5">
@@ -61,11 +59,6 @@ export async function Tires({ data }: { data: Products[] }) {
                                     {product.rating}
                                 </div>
                             </div>
-                            <img
-                                loading="lazy"
-                                srcSet="/amazon-logo.png"
-                                className="mt-14 aspect-[3.45] w-[238px] max-md:mt-10"
-                            />
                             <div className="justify-center items-center self-stretch px-16 py-5 mt-5 text-xs tracking-wide text-center text-white capitalize whitespace-nowrap bg-red-600 rounded-none max-md:px-5">
                                 <Link className="flex justify-center" href={product.link || ''}>
                                     Buy Now
@@ -91,7 +84,6 @@ export async function Rims({ data }: { data: Products[] }) {
                         Show All
                     </div>
                 </Link>
-
             </header>
             <div className="flex gap-5 justify-center pb-9 pl-5 mt-11 max-w-full flex-wrap max-md:mt-10">
                 {data.map((product: Products, index: number) => (
@@ -100,10 +92,10 @@ export async function Rims({ data }: { data: Products[] }) {
                             <img
                                 loading="lazy"
                                 srcSet={urlForImage(product.productImage)}
-                                className="aspect-[0.75] w-[169px]"
+                                className="aspect-[0.75] w-[210px]"
                             />
                         </div>
-                        <div className="flex flex-col items-center pb-6 mt-5 w-full text-sm font-semibold leading-6 text-sky-900 bg-white">
+                        <div className="flex flex-col items-center pb-6 mt-5 w-[250px] text-sm font-semibold leading-6 text-sky-900 bg-white">
                             <div className="font-black tracking-wide text-center">{product.manufacturer}</div>
                             <div className="mt-4 text-lg tracking-wide text-center">
                                 {product.name} -<br />
@@ -117,11 +109,6 @@ export async function Rims({ data }: { data: Products[] }) {
                                     {product.rating}
                                 </div>
                             </div>
-                            <img
-                                loading="lazy"
-                                srcSet="/amazon-logo.png"
-                                className="mt-14 aspect-[3.45] w-[238px] max-md:mt-10"
-                            />
                             <div className="justify-center items-center self-stretch px-16 py-5 mt-5 text-xs tracking-wide text-center text-white capitalize whitespace-nowrap bg-red-600 rounded-none max-md:px-5">
                                 <Link className="flex justify-center" href={product.link || ''}>
                                     Buy Now
@@ -148,7 +135,6 @@ export async function Accessories({ data }: { data: Products[] }) {
                         Show All
                     </div>
                 </Link>
-
             </header>
             <div className="flex gap-5 justify-center pb-9 pl-5 mt-11 max-w-full flex-wrap max-md:mt-10">
                 {data.map((product: Products, index: number) => (
@@ -157,10 +143,10 @@ export async function Accessories({ data }: { data: Products[] }) {
                             <img
                                 loading="lazy"
                                 srcSet={urlForImage(product.productImage)}
-                                className="aspect-[0.75] w-[169px]"
+                                className="aspect-[0.75] w-[210px]"
                             />
                         </div>
-                        <div className="flex flex-col items-center pb-6 mt-5 w-full text-sm font-semibold leading-6 text-sky-900 bg-white">
+                        <div className="flex flex-col items-center pb-6 mt-5 w-[] text-sm font-semibold leading-6 text-sky-900 bg-white">
                             <div className="font-black tracking-wide text-center">{product.manufacturer}</div>
                             <div className="mt-4 text-lg tracking-wide text-center">
                                 {product.name} -<br />
@@ -174,11 +160,6 @@ export async function Accessories({ data }: { data: Products[] }) {
                                     {product.rating}
                                 </div>
                             </div>
-                            <img
-                                loading="lazy"
-                                srcSet="/amazon-logo.png"
-                                className="mt-14 aspect-[3.45] w-[238px] max-md:mt-10"
-                            />
                             <div className="justify-center items-center self-stretch px-16 py-5 mt-5 text-xs tracking-wide text-center text-white capitalize whitespace-nowrap bg-red-600 rounded-none max-md:px-5">
                                 <Link className="flex justify-center" href={product.link || ''}>
                                     Buy Now
