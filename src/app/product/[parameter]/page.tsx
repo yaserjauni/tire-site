@@ -24,7 +24,7 @@ interface ResultProps {
     search: string;
     season: string;
 }
-export async function getFilteredData({ search, season }: ResultProps): Promise<Products[]> {
+async function getFilteredData({ search, season }: ResultProps): Promise<Products[]> {
     let query = ``;
 
     if (search && season) {
