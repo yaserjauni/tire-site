@@ -44,28 +44,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-          {/* <div className="flex gap-5 justify-between self-center px-5 mt-4 w-full text-black uppercase leading-5 flex-wrap ">
-            <Link href="/">
-              <img
-                loading="lazy"
-                srcSet="/logo.jpg"
-                className="shrink-0 aspect-[1] w-[150px]"
-              />
-            </Link>
 
-            <div className="flex gap-3 px-5 align-end">
-
-              <div className="flex-auto"><Link href={"/contact-us"} className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap">
-                Contact Us
-              </Link>
-              </div>
-              <img
-                loading="lazy"
-                src="/loc.svg"
-                className="shrink-0 self-start aspect-[0.38]"
-              />
-            </div>
-          </div> */}
           <div className="flex justify-center py-4  w-full uppercase bg-violet-950 leading-[111%] max-md:px-5 max-md:max-w-full">
             <div className="flex flex-row gap-10 whitespace-nowrap px-2">
               <div className="flex-auto"><Link href={"/"}>

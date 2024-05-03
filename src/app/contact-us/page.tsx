@@ -28,11 +28,9 @@ export default function ContactUs() {
                             </div>
                         </div>
                     </div>
-                    <div className="relative mt-5 text-base leading-8">
-                        Welcome to Tire Empire
-                    </div>
+
                     <div className="relative justify-center px-6 py-1.5 mt-5 text-xs font-semibold leading-6 rounded-2xl bg-neutral-900 tracking-[2px] max-md:px-5">
-                        OUR SERVICE AREA
+                        Welcome to Tire Empire
                     </div>
                     {/* <div className="flex relative flex-wrap justify-center content-start items-center self-stretch px-16 mt-12 w-full text-2xl font-extrabold leading-7 max-md:px-5 max-md:mt-10 max-md:max-w-full">
                         <div className="flex flex-col max-w-full w-[588px]">

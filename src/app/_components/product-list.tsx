@@ -3,7 +3,8 @@ import * as React from "react";
 import { client } from "../../../sanity/lib/client";
 import Link from "next/link";
 import { urlForImage } from "../../../sanity/lib/image";
-import { Products } from "../product/[parameter]/page";
+import { Products } from "./homePage";
+
 
 
 export async function SearchResult({ data }: { data: Products[] }) {
@@ -33,11 +34,24 @@ export async function SearchResult({ data }: { data: Products[] }) {
                                     </div>
                                     <div className="flex gap-2.5 self-stretch mt-1.5 text-neutral-600">
                                         <div className="justify-center px-3.5 py-2 bg-white rounded-md border border-gray-100 border-solid">
-                                            {product.cat.includes('Winter') ? 'Winter' : 'All Season' || product.cat[0]}
+                                            {product.category}
                                         </div>
                                         <div className="justify-center px-3.5 py-2 whitespace-nowrap bg-white rounded-md border border-gray-100 border-solid">
                                             {product.rating}
                                         </div>
+                                    </div>
+                                    <div className="flex gap-2.5 self-stretch mt-1.5 text-neutral-600">
+                                        {product.category !== 'Rims' && product.tireType && (
+                                            <div className="justify-center px-3.5 py-2 bg-white rounded-md border border-gray-100 border-solid">
+                                                {product.tireType}
+                                            </div>
+                                        )}
+                                        {product.category == 'Rims' && product.rimType && (
+                                            <div className="justify-center px-3.5 py-2 whitespace-nowrap bg-white rounded-md border border-gray-100 border-solid">
+                                                {product.rimType}
+                                            </div>
+
+                                        )}
                                     </div>
                                     <div className="justify-center items-center self-stretch px-16 py-5 mt-5 text-xs tracking-wide text-center text-white capitalize whitespace-nowrap bg-red-600 rounded-none max-md:px-5">
                                         <Link className="flex justify-center" href={product.link || ''}>

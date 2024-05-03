@@ -39,20 +39,20 @@ export async function Blogs() {
     const data = await getData();
     return (
         <section>
-            <div className="flex flex-col py-10 md:px-10 md:m-10 " id="blog-section">
-                <div className="flex flex-row justify-between px-5 gap-5 md:gap-10">
-                    <div className=" mb-5 md:text-4xl text-3xl font-semibold text-red-600">
+            <div className="flex flex-col  " id="blog-section">
+                <header className="flex flex-row justify-between">
+                    <div className="items-start self-start pt-4 pr-4 pb-4 pl-4 md:pl-16 md:text-3xl text-2xl font-semibold  text-red-800 ">
                         Blogs
                     </div>
-                    <Link className="flex " href={'/blog-list'}>
-                        <div className=" pr-4 md:pr-16  md:text-4xl text-3xl font-black underline text-red-600 leading-[65px]">
+                    <Link className="flex justify-center" href={'/product/Tire'}>
+                        <div className="items-start self-end pt-4 pr-4 pb-4 md:pr-16 md:text-3xl text-2xl  font-semibold underline text-red-800 ">
                             Show All
                         </div>
                     </Link>
-                </div>
-                <div className="grid sm-grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                </header>
+                <div className="grid sm-grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-5 md:px-10 md:m-10 gap-5">
                     {data.map((post: Post, index: number) => (
-                        <div key={index} className=" w-full md:ml-0 items-center px-5 text-xs font-medium text-center text-black flex flex-col grow px-6 py-7 w-full bg-white rounded-lg hover:shadow-xl shadow-md">
+                        <div key={index} className=" w-full md:ml-0 items-center px-5 text-xs font-medium text-center text-black flex flex-col grow py-7  bg-white rounded-lg hover:shadow-xl shadow-md">
                             <Link className="text-zinc-500 hover:underline" href={`/blog/${post.currentSlug}`}>
                                 <div className="flex flex-col grow items-center px-5 text-xs font-medium text-center text-black max-md:mt-8 max-md:max-w-full">
                                     <div>

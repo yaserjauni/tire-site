@@ -5,21 +5,9 @@ import { client } from "../../../../sanity/lib/client";
 import { SearchResult } from "@/app/_components/product-list";
 import Header from "@/app/_components/header";
 import Footer from "@/app/_components/footer";
+import { Products } from "@/app/_components/homePage";
 
-export interface Products {
-    manufacturer: string;
-    name: string;
-    spec: string;
-    link: string;
-    rating: string;
-    cat: string[];
-    productImage: {
-        asset: {
-            _ref: string;
-            _type: "reference";
-        };
-    };
-}
+
 interface ResultProps {
     search: string;
     season: string;

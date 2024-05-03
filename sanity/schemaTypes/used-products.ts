@@ -1,28 +1,13 @@
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
-    name: 'products',
-    title: 'Products',
+    name: 'used-products',
+    title: 'Used Products',
     type: 'document',
     fields: [
         defineField({
-            name: 'manufacturer',
-            title: 'Manufacturer',
-            type: 'string',
-        }),
-        defineField({
             name: 'name',
             title: 'Name',
-            type: 'string',
-        }),
-        defineField({
-            name: 'spec',
-            title: 'Specification',
-            type: 'string',
-        }),
-        defineField({
-            name: 'link',
-            title: 'Link',
             type: 'string',
         }),
         defineField({
@@ -41,16 +26,16 @@ export default defineType({
             ]
         }),
         defineField({
-            name: 'category',
-            title: 'Category',
+            name: 'type',
+            title: 'Type of',
             type: 'string',
             options: {
                 list: [
-                    { title: 'Tire', value: 'Tire' },
-                    { title: 'Accessories', value: 'Accessories' },
-                    { title: 'Rims', value: 'Rims' },
+                    { title: 'Used Tire', value: 'used-tire' },
+                    { title: 'Single Tire', value: 'single-tire' },
+                    { title: 'Used Rims', value: 'used-rims' },
                 ],
-                layout: 'radio', // This makes it a three-way selection
+                layout: 'radio',
             },
         }),
         defineField({
@@ -77,18 +62,11 @@ export default defineType({
                 layout: 'radio',
             },
         }),
-        defineField({
-            name: 'rating',
-            title: 'Rating',
-            type: 'string',
-        }),
     ],
 
     preview: {
         select: {
             title: 'name',
-            rating: 'rating',
-            media: 'productImage',
         },
     },
 })
