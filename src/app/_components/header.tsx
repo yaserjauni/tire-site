@@ -152,6 +152,11 @@ const Header = () => {
                     Contact Us
                   </Link>
                 </li>
+                <li>
+                  <Link href={"/blog-list"} className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap">
+                    Blogs
+                  </Link>
+                </li>
               </ul>
             </div>
           )}

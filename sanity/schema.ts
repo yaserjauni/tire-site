@@ -11,5 +11,5 @@ import singleTires from './schemaTypes/single-tires'
 import usedProducts from './schemaTypes/used-products'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post, author, blockContent, products, usedProducts],
+  types: [post, author, blockContent, products, usedProducts, singleTires],
 }

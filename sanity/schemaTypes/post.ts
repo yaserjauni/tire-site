@@ -55,6 +55,12 @@ export default defineType({
       title: 'Body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'relatedProducts',
+      title: 'Related Products',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'products' } }],
+    }),
   ],
 
   preview: {

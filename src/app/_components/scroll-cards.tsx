@@ -13,7 +13,7 @@ export async function ScrollCard({ data }: { data: UsedProducts[] }) {
     return (
         <div className="flex flex-col bg-white py-10 md:px-10 md:m-10 px-5 gap-5">
             <div className="mb-5 md:text-4xl text-3xl font-semibold text-red-600">
-                Our Products
+                Used Tires in Stock
             </div>
             <div className="flex overflow-y-hidden pb-10">
                 {data.map((product: UsedProducts, index: number) => (

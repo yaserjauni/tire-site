@@ -25,7 +25,7 @@ export async function Tires({ data }: { data: Products[] }) {
                     <div key={index}>
                         <div className="flex-none px-3">
                             <div className="max-w-xs scroll scroll-smooth  overfllow-x-scroll rounded-lg bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                                <div className="flex flex-col py-6 pr-6 pl-6 bg-white h-[580px] border-2 border-solid border-zinc-200 max-md:px-5">
+                                <div className="flex flex-col justify-between py-6 pr-6 pl-6 bg-white md:h-[700px] h-[600px] border-2 border-solid border-zinc-200 max-md:px-5">
                                     <div className="flex justify-center items-center px-9 pb-3 max-md:px-5">
                                         <img
                                             loading="lazy"
@@ -33,7 +33,7 @@ export async function Tires({ data }: { data: Products[] }) {
                                             className="aspect-[0.75] w-[200px]"
                                         />
                                     </div>
-                                    <div className="flex flex-col items-center pb-6 mt-5 text-sm font-semibold leading-6 text-sky-900 bg-white">
+                                    <div className="flex flex-col items-center justify-between pb-6 mt-5 text-sm font-semibold leading-6 text-sky-900 bg-white">
                                         <div className="font-semibold tracking-wide text-center">{product.manufacturer}</div>
                                         <div className="mt-4 text-lg tracking-wide text-center">
                                             {product.name} -<br />
@@ -60,11 +60,12 @@ export async function Tires({ data }: { data: Products[] }) {
 
                                             )}
                                         </div>
-                                        <div className="justify-center items-center self-stretch px-16 py-5 mt-5 text-2xl tracking-wide text-center text-white capitalize whitespace-nowrap bg-red-600 rounded-none max-md:px-5">
-                                            <Link className="flex justify-center" href={product.link || ''}>
-                                                Buy Now
-                                            </Link>
-                                        </div>
+
+                                    </div>
+                                    <div className="justify-center items-center self-stretch px-16 py-5  text-2xl tracking-wide text-center text-white capitalize whitespace-nowrap bg-red-600 rounded-none max-md:px-5">
+                                        <Link className="flex justify-center" href={product.link || ''}>
+                                            Buy Now
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +95,7 @@ export async function Rims({ data }: { data: Products[] }) {
                     <div key={index}>
                         <div className="flex-none px-3">
                             <div className="max-w-xs scroll scroll-smooth  overfllow-x-scroll rounded-lg bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                                <div className="flex flex-col py-6 pr-6 pl-6 bg-white h-[580px] border-2 border-solid border-zinc-200 max-md:px-5">
+                                <div className="flex flex-col justify-between py-6 pr-6 pl-6 bg-white md:h-[700px] h-[600px] border-2 border-solid border-zinc-200 max-md:px-5">
                                     <div className="flex justify-center items-center px-9 pb-3 max-md:px-5">
                                         <img
                                             loading="lazy"
@@ -102,7 +103,7 @@ export async function Rims({ data }: { data: Products[] }) {
                                             className="aspect-[0.75] w-[200px]"
                                         />
                                     </div>
-                                    <div className="flex flex-col items-center pb-6 mt-5 text-sm font-semibold leading-6 text-sky-900 bg-white">
+                                    <div className="flex flex-col items-center justify-between pb-6 mt-5 text-sm font-semibold leading-6 text-sky-900 bg-white">
                                         <div className="font-semibold tracking-wide text-center">{product.manufacturer}</div>
                                         <div className="mt-4 text-lg tracking-wide text-center">
                                             {product.name} -<br />
@@ -129,11 +130,12 @@ export async function Rims({ data }: { data: Products[] }) {
 
                                             )}
                                         </div>
-                                        <div className="justify-center items-center self-stretch px-16 py-5 mt-5 text-2xl tracking-wide text-center text-white capitalize whitespace-nowrap bg-red-600 rounded-none max-md:px-5">
-                                            <Link className="flex justify-center" href={product.link || ''}>
-                                                Buy Now
-                                            </Link>
-                                        </div>
+
+                                    </div>
+                                    <div className="justify-center items-center self-stretch px-16 py-5  text-2xl tracking-wide text-center text-white capitalize whitespace-nowrap bg-red-600 rounded-none max-md:px-5">
+                                        <Link className="flex justify-center" href={product.link || ''}>
+                                            Buy Now
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +166,7 @@ export async function Accessories({ data }: { data: Products[] }) {
                     <div key={index}>
                         <div className="flex-none px-3">
                             <div className="max-w-xs scroll scroll-smooth  overfllow-x-scroll rounded-lg bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                                <div className="flex flex-col py-6 pr-6 pl-6 bg-white h-[580px] border-2 border-solid border-zinc-200 max-md:px-5">
+                                <div className="flex flex-col justify-between py-6 pr-6 pl-6 bg-white md:h-[700px] h-[600px] border-2 border-solid border-zinc-200 max-md:px-5">
                                     <div className="flex justify-center items-center px-9 pb-3 max-md:px-5">
                                         <img
                                             loading="lazy"
@@ -172,7 +174,7 @@ export async function Accessories({ data }: { data: Products[] }) {
                                             className="aspect-[0.75] w-[200px]"
                                         />
                                     </div>
-                                    <div className="flex flex-col items-center pb-6 mt-5 text-sm font-semibold leading-6 text-sky-900 bg-white">
+                                    <div className="flex flex-col items-center justify-between pb-6 mt-5 text-sm font-semibold leading-6 text-sky-900 bg-white">
                                         <div className="font-semibold tracking-wide text-center">{product.manufacturer}</div>
                                         <div className="mt-4 text-lg tracking-wide text-center">
                                             {product.name} -<br />
@@ -199,11 +201,12 @@ export async function Accessories({ data }: { data: Products[] }) {
 
                                             )}
                                         </div>
-                                        <div className="justify-center items-center self-stretch px-16 py-5 mt-5 text-2xl tracking-wide text-center text-white capitalize whitespace-nowrap bg-red-600 rounded-none max-md:px-5">
-                                            <Link className="flex justify-center" href={product.link || ''}>
-                                                Buy Now
-                                            </Link>
-                                        </div>
+
+                                    </div>
+                                    <div className="justify-center items-center self-stretch px-16 py-5 text-2xl tracking-wide text-center text-white capitalize whitespace-nowrap bg-red-600 rounded-none max-md:px-5">
+                                        <Link className="flex justify-center" href={product.link || ''}>
+                                            Buy Now
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

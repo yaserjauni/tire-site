@@ -60,9 +60,6 @@ export function Search() {
         <div className="flex overflow-hidden relative flex-col items-center  pt-5  max-md:px-5">
 
             <div className="flex relative flex-col items-center px-2.5 max-w-full">
-                <div className="text-4xl font-bold leading-10 text-center text-red-950">
-                    OUR PRODUCTS
-                </div>
 
                 <div className="flex flex-col self-stretch mt-5 bg-white max-md:max-w-full">
                     <div className="flex flex-col px-4 pt-5 pb-9  max-md:max-w-full">
