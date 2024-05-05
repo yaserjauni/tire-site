@@ -10,8 +10,8 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 4, 13, 18;
-  --background-end-rgb: 4, 13, 18;
+  --background-start-rgb: 17, 24, 39;
+  --background-end-rgb: 17, 24, 39;
   --font-aclonica: aclonica;
   scrollbar-width: none;
   -ms-overflow-style: none;
