@@ -26,6 +26,21 @@ export default defineType({
             ]
         }),
         defineField({
+            name: 'rating',
+            title: 'Rating',
+            type: 'string',
+        }),
+        defineField({
+            name: 'manufacturer',
+            title: 'Manufacturer',
+            type: 'string',
+        }),
+        defineField({
+            name: 'price',
+            title: 'Price',
+            type: 'string',
+        }),
+        defineField({
             name: 'type',
             title: 'Type of',
             type: 'string',

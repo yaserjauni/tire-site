@@ -16,23 +16,27 @@ async function getFilteredData({ search, season }: ResultProps): Promise<Product
     let query = ``;
 
     if (search && season) {
-        query = `*[_type == 'products'  && '${season}' in categories[]->title && spec match '*${search}*']{
+        query = `*[_type == 'products'  && '${season}' in categories[]->title || spec match '*${search}* || name match '*${search}*']{
             manufacturer,
-            name,
-            spec,
-            link,
-            rating,
-            "cat": categories[]->title,
-            productImage,
-        }`;
+        name,
+        spec,
+        link,
+        rating,
+        category,
+        rimType,
+        tireType,
+        productImage,
+    }`;
     } else if (season && search == "") {
-        query = `*[_type == 'products'  && '${season}' in categories[]->title ]{
+        query = `*[_type == 'products'  && tireType == '${season}' ]{
             manufacturer,
             name,
             spec,
             link,
             rating,
-            "cat": categories[]->title,
+            category,
+            rimType,
+            tireType,
             productImage,
         }`;
     } else if (search && !season) {
@@ -42,17 +46,21 @@ async function getFilteredData({ search, season }: ResultProps): Promise<Product
             spec,
             link,
             rating,
-            "cat": categories[]->title,
+            category,
+            rimType,
+            tireType,
             productImage,
         }`;
     } else {
-        query = `*[_type == 'products' && 'Tire' in categories[]->title]{
+        query = `*[_type == 'products' && category == 'Tire']{
             manufacturer,
             name,
             spec,
             link,
             rating,
-            "cat": categories[]->title,
+            category,
+            rimType,
+            tireType,
             productImage,
         }`;
     }
@@ -98,7 +106,7 @@ export default async function ProductPage({
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
-            <SearchResult data={data}></SearchResult>
+            <SearchResult data={data} />
 
             <Footer />
         </div>

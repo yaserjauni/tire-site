@@ -41,6 +41,11 @@ export default defineType({
             ]
         }),
         defineField({
+            name: 'rating',
+            title: 'Rating',
+            type: 'string',
+        }),
+        defineField({
             name: 'category',
             title: 'Category',
             type: 'string',
@@ -77,11 +82,7 @@ export default defineType({
                 layout: 'radio',
             },
         }),
-        defineField({
-            name: 'rating',
-            title: 'Rating',
-            type: 'string',
-        }),
+
     ],
 
     preview: {

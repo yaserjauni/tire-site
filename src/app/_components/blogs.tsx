@@ -39,7 +39,7 @@ export async function Blogs() {
     const data = await getData();
     return (
         <section>
-            <div className="flex flex-col  " id="blog-section">
+            <div className="flex flex-col  mb-5" id="blog-section">
                 <header className="flex flex-row justify-between">
                     <div className="items-start self-start pt-4 pr-4 pb-4 pl-4 md:pl-16 md:text-3xl text-2xl font-semibold  text-red-800 ">
                         Blogs

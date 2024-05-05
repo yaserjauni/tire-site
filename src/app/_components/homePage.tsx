@@ -7,7 +7,12 @@ import { Accessories, Rims, Tires } from "./affiliate";
 import { Search } from "./search";
 import { client } from "../../../sanity/lib/client";
 import { SearchResult } from "./product-list";
-import { ScrollCard } from "./scroll-cards";
+
+import SlideCard from "./slide-card";
+import { urlForImage } from "../../../sanity/lib/image";
+import { Image } from "sanity";
+
+
 export interface Products {
     manufacturer: string;
     name: string;
@@ -26,6 +31,9 @@ export interface Products {
 }
 export interface UsedProducts {
     name: string;
+    manufacturer: string;
+    rating: string;
+    price: string;
     type: string;
     rimType: string;
     tireType: string;
@@ -36,7 +44,15 @@ export interface UsedProducts {
         };
     };
 }
-
+export interface ImageSlideData {
+    display: {
+        _type: string;
+        asset: {
+            _ref: string;
+            _type: 'reference';
+        };
+    }[];
+}
 
 export async function getData(category: string): Promise<Products[]> {
 
@@ -66,16 +82,25 @@ export async function getAllData(): Promise<UsedProducts[]> {
     const data = await client.fetch<UsedProducts[]>(query, {}, { cache: 'no-cache' });
     return data;
 }
+export async function getDisplay(): Promise<string[]> {
+    const query = `*[_type == 'imageSlide']{
+        display,
+    }`
+    const data = await client.fetch<ImageSlideData[]>(query, {}, { cache: 'no-cache' });
+    // Extract image URLs from data and return as an array of strings
+    const imageUrls = data[0].display.map((image: Image) => urlForImage(image));
+    return imageUrls;
+}
 
 export async function HomePage() {
     const data = await getAllData();
     const tiredata = await getData('Tire');
     const rimData = await getData('Rims');
     const accData = await getData('Accessories');
-
+    const imageUrls = await getDisplay();
 
     return (
-        <main className="flex flex-col hide-scrollbar">
+        <main className="flex flex-col hide-scrollbar pb-5">
             <Intro />
             <HeroPost />
 
@@ -83,7 +108,7 @@ export async function HomePage() {
             <Rims data={rimData} />
             <Accessories data={accData} />
             <Blogs />
-            <ScrollCard data={data} />
+            <SlideCard imageUrls={imageUrls} />
         </main>
     );
 }

@@ -4,69 +4,52 @@ import { client } from "../../../sanity/lib/client";
 import { urlForImage } from "../../../sanity/lib/image";
 import { UsedProducts } from "./homePage";
 import Link from "next/link";
+import { StarRating } from "./star-rating";
 
 export async function getRimsData(): Promise<UsedProducts[]> {
 
     const query = `*[_type == 'used-products' && type == 'used-rims']{
         name,
+        manufacturer,
+        rating,
+        price,
         type,
         rimType,
         tireType,
         productImage,
-    }`
+    }`;
     const data = await client.fetch<UsedProducts[]>(query, {}, { cache: 'no-cache' });
     return data;
 }
 
 export async function UsedRims() {
     const data = await getRimsData();
-    console.log(data);
+    // console.log(data);
+
     return (
         <div>
             {data.length > 0 ? (
                 <section>
-                    <div className="items-start self-stretch pt-4 pr-4 pb-4 pl-16 text-4xl font-black  text-red-600 leading-[65px]">
-                        Products:
-                    </div>
-                    <div className="flex gap-5 justify-center pb-9 pl-5 mt-11 max-w-full flex-wrap max-md:mt-10">
-                        {data.map((product: UsedProducts, index: number) => (
-                            <div key={index}>
-                                <div className="flex-none px-3">
-                                    <div className="max-w-xs scroll scroll-smooth  overfllow-x-scroll rounded-lg bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                                        <div className="flex flex-col py-6 pr-6 pl-6 bg-white h-[550px] border-2 border-solid border-zinc-200 max-md:px-5">
-                                            <div className="flex justify-center items-center px-9 pb-3 max-md:px-5">
-                                                <img
-                                                    loading="lazy"
-                                                    srcSet={urlForImage(product.productImage)}
-                                                    className="aspect-[0.75] w-[200px]"
-                                                />
-                                            </div>
-                                            <div className="flex flex-col items-center  m-auto p-auto w-[250px] text-sm font-semibold leading-6 text-sky-900 bg-white relative">
-                                                <div className="font-black  text-center">{product.type}</div>
-                                                <div className="mt-4 text-lg whitespace-wrap text-center">
-                                                    {product.name}
-                                                </div>
-                                                <div className="flex gap-2.5 self-stretch mt-1.5 text-neutral-600">
-                                                    {product.type !== 'used-rims' && product.tireType && (
-                                                        <div className="justify-center px-3.5 py-2 bg-white rounded-md border border-gray-100 border-solid">
-                                                            {product.tireType}
-                                                        </div>
-                                                    )}
-                                                    {product.type !== 'Tire' && product.rimType && (
-                                                        <div className="justify-center px-3.5 py-2 whitespace-nowrap bg-white rounded-md border border-gray-100 border-solid">
-                                                            {product.rimType}
-                                                        </div>
-                                                    )}
-                                                </div>
-                                                <div className="mt-7 self-stretch py-5 text-2xl tracking-wide text-center text-white capitalize whitespace-nowrap bg-red-600 rounded-none max-md:px-5">
-                                                    <Link href={'/contact-us'} className="flex justify-center">Buy Now</Link>
-                                                </div>
-                                            </div>
+                    <div className="bg-gray-900 py-16">
+                        <div className="container mx-auto px-4">
+                            <h2 className="text-3xl font-bold text-white mb-8">Used Tires in Stock</h2>
+                            <div className="flex flex-wrap  gap-6">
+                                {data.map((item, index) => (
+                                    <div key={index} className="bg-white w-[300px] rounded-lg shadow-lg p-8">
+                                        <div className="relative overflow-hidden">
+                                            <img className="object-fill w-[250px] h-[250px]" src={urlForImage(item.productImage)} alt="Product" />
+                                        </div>
+                                        <p className="text-gray-500 text-sm mt-2 justify-center text-center">{item.manufacturer || 'Manufacturer'}</p>
+                                        <h3 className="text-xl font-bold text-gray-900 mt-4 truncate">{item.name || "Product Name"}</h3>
+                                        <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
+                                        <div className="flex items-center justify-between mt-4">
+                                            <span className="text-gray-900 font-bold text-lg">${item.price || 0}</span>
+                                            <Link href={"/contact-us"} className="bg-gray-900 text-white py-2 px-3 rounded-full font-bold hover:bg-gray-800">Contact now</Link>
                                         </div>
                                     </div>
-                                </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </section>
             ) : (
