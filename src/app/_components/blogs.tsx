@@ -41,18 +41,18 @@ export async function Blogs() {
         <section>
             <div className="flex flex-col  mb-5" id="blog-section">
                 <header className="flex flex-row justify-between">
-                    <div className="items-start self-start pt-4 pr-4 pb-4 pl-4 md:pl-16 md:text-3xl text-2xl font-semibold  text-red-800 ">
+                    <div className="items-start self-start pt-4 pr-4 pb-4 pl-4 md:pl-16 md:text-3xl text-2xl font-semibold  text-white ">
                         Blogs
                     </div>
                     <Link className="flex justify-center" href={'/product/Tire'}>
-                        <div className="items-start self-end pt-4 pr-4 pb-4 md:pr-16 md:text-3xl text-2xl  font-semibold underline text-red-800 ">
+                        <div className="items-start self-end pt-4 pr-4 pb-4 md:pr-16 md:text-3xl text-2xl  font-semibold underline text-white ">
                             Show All
                         </div>
                     </Link>
                 </header>
                 <div className="grid sm-grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-5 md:px-10 md:m-10 gap-5">
                     {data.map((post: Post, index: number) => (
-                        <div key={index} className=" w-full md:ml-0 items-center px-5 text-xs font-medium text-center text-black flex flex-col grow py-7  bg-white rounded-lg hover:shadow-xl shadow-md">
+                        <div key={index} className=" w-full md:ml-0 items-center px-5 text-xs font-medium text-center text-black flex flex-col grow py-7  bg-slate-100 rounded-lg hover:shadow-xl shadow-md">
                             <Link className="text-zinc-500 hover:underline" href={`/blog/${post.currentSlug}`}>
                                 <div className="flex flex-col grow items-center px-5 text-xs font-medium text-center text-black max-md:mt-8 max-md:max-w-full">
                                     <div>

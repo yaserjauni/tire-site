@@ -13,11 +13,13 @@ const SlideCard: React.FC<SlideCardProps> = ({ imageUrls }) => {
     var settings = {
         dots: true,
         infinite: true,
-        slidesToShow: 3,
+        slidesToShow: 5,
         slidesToScroll: 1,
         initialSlide: 1,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 2000,
+        pauseOnHover: false,
+
         responsive: [
             {
                 breakpoint: 1024,
@@ -28,6 +30,9 @@ const SlideCard: React.FC<SlideCardProps> = ({ imageUrls }) => {
                     slidesToShow: 3,
                     slidesToScroll: 1,
                     initialSlide: 1,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    pauseOnHover: false,
                 }
             },
             {
@@ -39,6 +44,9 @@ const SlideCard: React.FC<SlideCardProps> = ({ imageUrls }) => {
                     slidesToShow: 2,
                     slidesToScroll: 1,
                     initialSlide: 1,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    pauseOnHover: false,
                 }
             },
             {
@@ -50,6 +58,9 @@ const SlideCard: React.FC<SlideCardProps> = ({ imageUrls }) => {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     initialSlide: 1,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    pauseOnHover: false,
                 }
             }
         ]
@@ -59,7 +70,7 @@ const SlideCard: React.FC<SlideCardProps> = ({ imageUrls }) => {
 
 
     return (
-        <main className="slider-container lg:py-10 ">
+        <main className="slider-container lg:py-10 py-5">
             <Slider {...settings}>
                 {imageUrls.map((imageUrl, index) => (
                     <div key={index} className="px-10">

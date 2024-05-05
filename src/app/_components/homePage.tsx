@@ -97,7 +97,7 @@ export async function HomePage() {
     const tiredata = await getData('Tire');
     const rimData = await getData('Rims');
     const accData = await getData('Accessories');
-    const imageUrls = await getDisplay();
+
 
     return (
         <main className="flex flex-col hide-scrollbar pb-5">
@@ -108,7 +108,7 @@ export async function HomePage() {
             <Rims data={rimData} />
             <Accessories data={accData} />
             <Blogs />
-            <SlideCard imageUrls={imageUrls} />
+
         </main>
     );
 }

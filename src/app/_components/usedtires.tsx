@@ -37,11 +37,10 @@ export async function UsedTires() {
                             <h2 className="text-3xl font-bold text-white mb-8">Used Tires in Stock</h2>
                             <div className="flex flex-wrap  gap-6">
                                 {data.map((item, index) => (
-                                    <div key={index} className="bg-white w-[300px] rounded-lg shadow-lg p-8">
+                                    <div key={index} className="bg-slate-100 w-[300px] rounded-lg shadow-lg p-8">
                                         <div className="relative overflow-hidden">
                                             <img className="object-fill w-[250px] h-[250px]" src={urlForImage(item.productImage)} alt="Product" />
                                         </div>
-                                        <p className="text-gray-500 text-sm mt-2 justify-center text-center">{item.manufacturer || 'Manufacturer'}</p>
                                         <h3 className="text-xl font-bold text-gray-900 mt-4 truncate">{item.name || "Product Name"}</h3>
                                         <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
                                         <div className="flex items-center justify-between mt-4">

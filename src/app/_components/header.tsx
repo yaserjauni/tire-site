@@ -11,7 +11,7 @@ const Header = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
   return (
-    <div className="flex flex-col  text-lg font-bold text-white bg-white">
+    <div className="flex flex-col  text-lg font-bold text-white ">
       {isDesktop && (
         <section>
           <div className="flex justify-center items-center px-16 py-3.5 w-full text-sm font-semibold leading-5 text-white text-center bg-black max-md:px-5 max-md:max-w-full">
@@ -45,8 +45,15 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="flex justify-center py-4  w-full uppercase bg-violet-950 leading-[111%] max-md:px-5 max-md:max-w-full">
-            <div className="flex flex-row gap-10 whitespace-nowrap px-2">
+          <div className="flex justify-between py-3 pl-20  px-10 w-full uppercase bg-violet-950 leading-[111%] max-md:px-5 max-md:max-w-full">
+            <Link href={"/"} >
+              <img
+                loading="lazy"
+                src="/logo.jpg"
+                className="shrink-0 items-center w-10 aspect-square"
+              />
+            </Link>
+            <div className="flex flex-row gap-10 whitespace-nowrap py-2 items-center px-2">
               <div className="flex-auto"><Link href={"/"}>
                 Home
               </Link></div>
@@ -72,10 +79,14 @@ const Header = () => {
         </section>
       )}
       {isMobile && (
-        <div className="flex justify-center items-center px-16 z-1 py-4  w-full uppercase border-t border-r border-b-2 border-l border-black border-solid bg-violet-950 leading-[111%] max-md:px-5 max-md:max-w-full">
-          <div className="flex-grow max-md:max-w-full text-xl md:text-3xl text-center font-aclonica">
+        <div className="flex justify-end px-16 z-1 py-4  w-full uppercase border-t border-r border-b-2 border-l border-black border-solid bg-violet-950 leading-[111%] max-md:px-5 max-md:max-w-full">
+          <div className="flex flex-row absolute left-1/2 transform -translate-x-1/2 items-center max-md:max-w-full text-xl md:text-3xl text-center font-aclonica">
             <Link href={"/"}>
-              Tire Empire
+              <img
+                loading="lazy"
+                src="/logo.jpg"
+                className="shrink-0 w-10 aspect-square"
+              />
             </Link>
           </div>
           <button onClick={toggleDrawer}>
@@ -86,7 +97,7 @@ const Header = () => {
             />
           </button>
           {isDrawerOpen && (
-            <div className="bg-black h-screen z-20 overflow-y-hidden w-full fixed text-sm top-0 right-0 shadow-md flex justify-center items-left py-1 w-full text-sm font-semibold leading-5 text-white text-left ">
+            <div className="bg-black h-screen z-20 overflow-y-hidden w-full fixed text-sm top-0 right-0 shadow-md flex justify-center items-left py-1  font-semibold leading-5 text-white text-left ">
               <ul>
                 <li >
                   <div className="flex flex-row self-end gap-2 p-2 ">

@@ -19,7 +19,7 @@ export async function SearchResult({ data }: { data: Products[] }) {
                             <h2 className="text-3xl font-bold text-white mb-8">Matching Products Found</h2>
                             <div className="flex flex-wrap  gap-6">
                                 {data.map((item, index) => (
-                                    <div key={index} className="bg-white w-[300px] rounded-lg shadow-lg p-8">
+                                    <div key={index} className="bg-slate-100 w-[300px] rounded-lg shadow-lg p-8">
                                         <div className="relative overflow-hidden">
                                             <img className="object-fill w-[250px] h-[250px]" src={urlForImage(item.productImage)} alt="Product" />
                                         </div>

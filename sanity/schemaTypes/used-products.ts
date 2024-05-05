@@ -30,11 +30,7 @@ export default defineType({
             title: 'Rating',
             type: 'string',
         }),
-        defineField({
-            name: 'manufacturer',
-            title: 'Manufacturer',
-            type: 'string',
-        }),
+
         defineField({
             name: 'price',
             title: 'Price',

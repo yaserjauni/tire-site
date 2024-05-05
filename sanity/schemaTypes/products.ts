@@ -5,11 +5,7 @@ export default defineType({
     title: 'Products',
     type: 'document',
     fields: [
-        defineField({
-            name: 'manufacturer',
-            title: 'Manufacturer',
-            type: 'string',
-        }),
+
         defineField({
             name: 'name',
             title: 'Name',

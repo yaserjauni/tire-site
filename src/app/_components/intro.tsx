@@ -1,16 +1,14 @@
 import Link from "next/link";
 import { Search } from "./search";
+import { getDisplay } from "./homePage";
+import SlideCard from "./slide-card";
 
-export function Intro() {
+export async function Intro() {
+  const imageUrls = await getDisplay();
   return (
     <section >
-      <div className="flex text-black w-full gap-3  flex-col justify-center  bg-[#040d12] items-center">
-        <img
-          loading="lazy"
-          src="/logo.jpg"
-          className="object-cover w-[300px] h-[300px]"
-          alt="Logo"
-        />
+      <div className="pt-10 text-black w-full gap-20  flex-col justify-center  bg-[#040d12] items-center">
+        <SlideCard imageUrls={imageUrls} />
         <Search />
       </div>
 
