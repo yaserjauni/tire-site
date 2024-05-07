@@ -8,7 +8,7 @@ export default function Training() {
         <main className="flex flex-col overflow-hidden hide-scrollbar">
             <Header />
             <UsedRims />
-            <Blogs />
+
             <Footer />
         </main>
     );

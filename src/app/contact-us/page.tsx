@@ -87,7 +87,6 @@ export default function ContactUs() {
 
                 </div>
             </section>
-            <Blogs />
             <Footer />
         </main>
     );

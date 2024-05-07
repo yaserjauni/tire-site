@@ -8,7 +8,7 @@ export default function DidYouKnow() {
         <main className="flex flex-col overflow-hidden hide-scrollbar">
             <Header />
             <UsedTires />
-            <Blogs />
+
             <Footer />
         </main>
     );

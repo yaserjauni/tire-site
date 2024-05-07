@@ -8,7 +8,6 @@ export default function Resources() {
         <main className="flex flex-col overflow-hidden hide-scrollbar">
             <Header />
             <SingleTires />
-            <Blogs />
             <Footer />
         </main>
     );
