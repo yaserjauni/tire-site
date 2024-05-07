@@ -8,7 +8,7 @@ interface SlideCardProps {
     imageUrls: string[];
 }
 
-const SlideCard: React.FC<SlideCardProps> = ({ imageUrls }) => {
+export const SlideCard: React.FC<SlideCardProps> = ({ imageUrls }) => {
 
     var settings = {
         dots: true,
@@ -70,19 +70,19 @@ const SlideCard: React.FC<SlideCardProps> = ({ imageUrls }) => {
 
 
     return (
-        <main className="slider-container lg:py-10 py-5">
-            <Slider {...settings}>
-                {imageUrls.map((imageUrl, index) => (
-                    <div key={index} className="px-10">
-                        <img
-                            src={imageUrl}
-                            alt={`Image ${index + 1}`}
-                            className={`w-[1000px] aspect-square bg-white object-cover rounded-2xl`}
-                        />
-                    </div>
-                ))}
-            </Slider>
-        </main >
+
+        <Slider {...settings}>
+            {imageUrls.map((imageUrl, index) => (
+                <div key={index} >
+                    <img
+                        src={imageUrl}
+                        alt={`Image ${index + 1}`}
+                        className={`w-[500px] aspect-square bg-white object-cover rounded-2xl`}
+                    />
+                </div>
+            ))}
+        </Slider>
+
     );
 };
 

@@ -11,10 +11,11 @@ import { SearchResult } from "./product-list";
 import SlideCard from "./slide-card";
 import { urlForImage } from "../../../sanity/lib/image";
 import { Image } from "sanity";
+import Link from "next/link";
 
 
 export interface Products {
-    manufacturer: string;
+
     name: string;
     spec: string;
     link: string;
@@ -31,7 +32,7 @@ export interface Products {
 }
 export interface UsedProducts {
     name: string;
-    manufacturer: string;
+
     rating: string;
     price: string;
     type: string;
@@ -53,11 +54,42 @@ export interface ImageSlideData {
         };
     }[];
 }
+export interface Post {
+    title: string;
+    name: string;
+    publishedAt: string;
+    mainImage: {
+        asset: {
+            _ref: string;
+            _type: "reference";
+        };
+    };
+    URL: string;
+    desc: string;
+    currentSlug: string;
+}
 
+export async function getPostData(): Promise<Post[]> {
+    const query = `*[_type == 'post'] | order(_createdAt desc) {
+    title,  
+    "name": author->name,
+    publishedAt,
+    mainImage,
+    desc,
+    "currentSlug": slug.current,
+    body,
+    "authorPic": author->image  
+    }`
+    const data = await client.fetch<Post[]>(query, {}, { cache: 'no-store' });
+    data.forEach(post => {
+        post.URL = urlForImage(post.mainImage);
+    });
+    return data;
+}
 export async function getData(category: string): Promise<Products[]> {
 
     const query = `*[_type == 'products'  && category == '${category}']{
-        manufacturer,
+        
         name,
         spec,
         link,
@@ -97,18 +129,27 @@ export async function HomePage() {
     const tiredata = await getData('Tire');
     const rimData = await getData('Rims');
     const accData = await getData('Accessories');
+    const blogs = await getPostData();
 
 
     return (
-        <main className="flex flex-col hide-scrollbar pb-5">
+        <main className=" hide-scrollbar relative pb-5">
             <Intro />
             <HeroPost />
-
+            <header className="flex flex-row justify-between border-t bg-violet-950 z-5 mb-5">
+                <div className="items-start self-start pt-4 pr-4 pb-4 pl-4 md:pl-16  md:text-2xl text-xl font-semibold text-white ">
+                    New Tires | Top Picks
+                </div>
+                <Link className="flex justify-center" href={'/product/Tire'}>
+                    <div className="items-start self-end pt-4 pr-4 pb-4  md:pr-16 md:text-2xl text-xl font-semibold underline text-white ">
+                        Show All
+                    </div>
+                </Link>
+            </header>
             <Tires data={tiredata} />
             <Rims data={rimData} />
             <Accessories data={accData} />
-            <Blogs />
-
+            <Blogs data={blogs} />
         </main>
     );
 }

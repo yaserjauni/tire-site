@@ -17,7 +17,6 @@ async function getFilteredData({ search, season }: ResultProps): Promise<Product
 
     if (search && season) {
         query = `*[_type == 'products'  && '${season}' in categories[]->title || spec match '*${search}* || name match '*${search}*']{
-            manufacturer,
         name,
         spec,
         link,
@@ -27,9 +26,21 @@ async function getFilteredData({ search, season }: ResultProps): Promise<Product
         tireType,
         productImage,
     }`;
+    } else if ((season == 'Accessories' || season == 'Tire' || season == 'Rims') && search == "") {
+        query = `*[_type == 'products'  && category == '${season}' ]{
+            
+            name,
+            spec,
+            link,
+            rating,
+            category,
+            rimType,
+            tireType,
+            productImage,
+        }`;
     } else if (season && search == "") {
         query = `*[_type == 'products'  && tireType == '${season}' ]{
-            manufacturer,
+            
             name,
             spec,
             link,
@@ -41,7 +52,7 @@ async function getFilteredData({ search, season }: ResultProps): Promise<Product
         }`;
     } else if (search && !season) {
         query = `*[_type == 'products' && spec match '*${search}*']{
-            manufacturer,
+            
             name,
             spec,
             link,
@@ -53,7 +64,7 @@ async function getFilteredData({ search, season }: ResultProps): Promise<Product
         }`;
     } else {
         query = `*[_type == 'products' && category == 'Tire']{
-            manufacturer,
+            
             name,
             spec,
             link,

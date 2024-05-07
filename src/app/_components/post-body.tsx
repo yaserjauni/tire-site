@@ -62,7 +62,7 @@ const components = {
 
 export function PostBody({ content }: Props) {
   return (
-    <div className="max-w-5xl mx-auto md:mx-3 prose lg:prose-l font-semibold leading-8">
+    <div className="max-w-5xl md:w-3/4 w-full mx-auto md:mx-3 prose lg:prose-l font-semibold leading-8">
       <PortableText value={content} components={components} />
     </div>
   );

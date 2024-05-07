@@ -11,10 +11,10 @@ const Header = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
   return (
-    <div className="flex flex-col  text-lg font-bold text-white ">
+    <div className="flex flex-col  text-md font-bold text-white ">
       {isDesktop && (
         <section>
-          <div className="flex justify-center items-center px-16 py-3.5 w-full text-sm font-semibold leading-5 text-white text-center bg-black max-md:px-5 max-md:max-w-full">
+          <div className="flex justify-center items-center px-10 py-3.5 w-full text-sm font-semibold leading-5 text-white text-center bg-black max-md:px-5 max-md:max-w-full">
             <div className="flex gap-3 justify-start max-md:flex-wrap">
               <div className="flex gap-1.5 self-start whitespace-nowrap">
                 <img
@@ -80,7 +80,7 @@ const Header = () => {
       )}
       {isMobile && (
         <div className="flex justify-end px-16 z-1 py-4  w-full uppercase border-t border-r border-b-2 border-l border-black border-solid bg-violet-950 leading-[111%] max-md:px-5 max-md:max-w-full">
-          <div className="flex flex-row absolute left-1/2 transform -translate-x-1/2 items-center max-md:max-w-full text-xl md:text-3xl text-center font-aclonica">
+          <div className="flex flex-row absolute left-1/2 transform -translate-x-1/2 items-center max-md:max-w-full text-xl md:text-2xl text-center font-aclonica">
             <Link href={"/"}>
               <img
                 loading="lazy"

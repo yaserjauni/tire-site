@@ -40,22 +40,16 @@ body {
 
 }
 
-.slides {
-  position: relative;
+.slick-slide>div {
+  margin: 0 10px;
+}
 
-  .slick-prev,
-  .slick-next {
-    position: absolute;
-    top: 50%;
-  }
+.slick-list {
+  margin: 0 -10px;
+}
 
-  .slick-prev {
-    left: 5%;
-  }
-
-  .slick-next {
-    right: 5%;
-  }
+.slick-dots li button::before {
+  color: White !important;
 }
 
 @layer utilities {

@@ -8,9 +8,11 @@ import { PostBody } from "@/app/_components/post-body";
 import { TypedObject } from "sanity";
 import { Tires } from "@/app/_components/affiliate";
 import Link from "next/link";
+import { getPostData } from "@/app/_components/homePage";
+import { StarRating } from "@/app/_components/star-rating";
 
 export interface Products {
-    manufacturer: string;
+
     name: string;
     spec: string;
     link: string;
@@ -28,7 +30,6 @@ export interface Products {
 interface Post {
     title: string;
     name: string;
-    categories: string[];
     publishedAt: string;
     mainImage: {
         asset: {
@@ -47,13 +48,11 @@ interface Post {
     relatedProducts: Products[];
 
 }
+async function getAllData(): Promise<Post[]> {
 
-async function getData(slug: string): Promise<Post[]> {
-    console.log(slug);
-    const query = `*[_type == 'post' && slug.current == '${slug}'] | order(publishedAt asc){
+    const query = `*[_type == 'post'] | order(publishedAt asc){
     title,
     "name": author->name,
-    "categories": categories->title,
     publishedAt,
     mainImage,
     body,
@@ -64,15 +63,30 @@ async function getData(slug: string): Promise<Post[]> {
     const data = await client.fetch<Post[]>(query, {}, { cache: 'no-cache' });
     return data;
 }
+async function getData(slug: string): Promise<Post[]> {
+
+    const query = `*[_type == 'post' && slug.current == '${slug}'] | order(publishedAt asc){
+    title,
+    "name": author->name,
+    publishedAt,
+    mainImage,
+    body,
+    "authorPic": author->image,
+    relatedProducts[]-> ,
+    }`
+    const data = await client.fetch<Post[]>(query, {}, { cache: 'no-cache' });
+    return data;
+}
 
 export default async function BlogPage({ params }: { params: { slug: string } }) {
     const data = await getData(params.slug);
-    console.log(data[0].relatedProducts)
+    const blogs = await getPostData();
+
     const authorPicUrl = urlForImage(data[0]?.authorPic);
     return (
-        <section>
+        <div className="w-full overflow-hidden">
             <Header />
-            <div className="flex flex-col justify-center items-center px-16 py-4 text-base bg-white text-zinc-800 max-md:px-5">
+            <div className="flex flex-col justify-center items-center px-10 py-4 md:py-8 text-base bg-white text-zinc-800 max-md:px-5">
                 {/* post-header */}
                 <PostHeader
                     key={params.slug}
@@ -85,69 +99,43 @@ export default async function BlogPage({ params }: { params: { slug: string } })
                     }}
                 />
                 {/* post-body */}
-                <PostBody
-                    content={data[0].body}
-                />
-
-            </div>
-            <div>
-                <div className="flex overflow-y-hidden pb-10">
-                    {data[0].relatedProducts?.map((product: Products, index: number) => (
-                        <div key={index}>
-                            <div className="flex-none px-3">
-                                <div className="max-w-xs scroll scroll-smooth  overfllow-x-scroll rounded-lg bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                                    <div className="flex flex-col justify-between py-6 pr-6 pl-6 bg-white md:h-[700px] h-[550px] border-2 border-solid border-zinc-200 max-md:px-5">
-                                        <div className="flex justify-center items-center px-9 pb-3 max-md:px-5">
-                                            <img
-                                                loading="lazy"
-                                                srcSet={urlForImage(product.productImage)}
-                                                className="aspect-[0.75] w-[200px]"
-                                            />
+                <main className="md:flex flex-col w-full md:flex-row  justify-between">
+                    <PostBody
+                        content={data[0].body}
+                    />
+                    {data[0].relatedProducts && (
+                        <div className="md:w-1/4 md:justify-end md:pl-20 ">
+                            <div className="md:relative right-0 mb-3 md:text-2xl text-xl font-semibold text-Black ">
+                                Related Products
+                            </div>
+                            <div className="md:absolute md:right-5 overflow-scroll md:overflow-x-hidden flex flex-row md:flex-col pb-3 md:pl-3 md:ml-10 mx-3 gap-10">
+                                {data[0].relatedProducts.map((item, index) => (
+                                    <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] justify-evenly rounded-lg shadow-lg p-4">
+                                        <div className="relative overflow-hidden">
+                                            <img className="object-fill w-[150px] h-[150px] rounded-lg" src={urlForImage(item.productImage)} alt="Product" />
                                         </div>
-                                        <div className="flex flex-col items-center justify-between pb-6 mt-5 text-sm font-semibold leading-6 text-sky-900 bg-white">
-                                            <div className="font-semibold tracking-wide text-center">{product.manufacturer}</div>
-                                            <div className="mt-4 text-lg tracking-wide text-center">
-                                                {product.name} -<br />
-                                                {product.spec}
-                                            </div>
-                                            <div className="flex gap-2.5 self-stretch mt-1.5 text-neutral-600">
-                                                <div className="justify-center px-3.5 py-2 bg-white rounded-md border border-gray-100 border-solid">
-                                                    {product.category}
-                                                </div>
-                                                <div className="justify-center px-3.5 py-2 whitespace-nowrap bg-white rounded-md border border-gray-100 border-solid">
-                                                    {product.rating}
-                                                </div>
-                                            </div>
-                                            <div className="flex gap-2.5 self-stretch mt-1.5 text-neutral-600">
-                                                {product.category !== 'Rims' && product.tireType && (
-                                                    <div className="justify-center px-3.5 py-2 bg-white rounded-md border border-gray-100 border-solid">
-                                                        {product.tireType}
-                                                    </div>
-                                                )}
-                                                {product.category == 'Rims' && product.rimType && (
-                                                    <div className="justify-center px-3.5 py-2 whitespace-nowrap bg-white rounded-md border border-gray-100 border-solid">
-                                                        {product.rimType}
-                                                    </div>
-
-                                                )}
-                                            </div>
-
+                                        <h3 className="text-md font-bold text-gray-900 mt-2 line-clamp-1">{item.name || "Product Name"}</h3>
+                                        <div className="flex items-center justify-between mt-2">
+                                            <p className="text-gray-500 text-sm mt-2">{item.spec || ''} </p>
+                                            <p className="text-gray-500 text-sm mt-2">{item.tireType || ''} </p>
                                         </div>
-                                        <div className="justify-center items-center self-stretch px-16 py-5 mt-5 text-2xl tracking-wide text-center text-white capitalize whitespace-nowrap bg-red-600 rounded-none max-md:px-5">
-                                            <Link className="flex justify-center" href={product.link || ''}>
-                                                Buy Now
-                                            </Link>
+                                        <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
+                                        <div className="flex items-center justify-between mt-2">
+                                            <Link href={item.link} className="bg-gray-900 text-white py-2 px-4  rounded-full font-bold hover:bg-gray-800">Buy now</Link>
                                         </div>
                                     </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
-                    ))}
-                </div>
-            </div>
-            <Blogs />
-            <Footer />
-        </section>
 
+
+                    )}
+                </main>
+
+            </div>
+
+            <Blogs data={blogs} />
+            <Footer />
+        </div>
     );
 }

@@ -6,13 +6,17 @@ import SlideCard from "./slide-card";
 export async function Intro() {
   const imageUrls = await getDisplay();
   return (
-    <section >
-      <div className="pt-10 text-black w-full gap-20  flex-col justify-center  bg-gray-900 items-center">
-        <SlideCard imageUrls={imageUrls} />
-        <Search />
-      </div>
+    <main >
+      <div className="block " >
+        <div className="m-10">
+          <SlideCard imageUrls={imageUrls} />
+        </div>
 
-    </section >
+
+      </div>
+      <Search />
+
+    </main >
 
   );
 }
