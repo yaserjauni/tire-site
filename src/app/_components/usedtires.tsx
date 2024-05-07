@@ -12,7 +12,6 @@ import { StarRating } from "./star-rating";
 async function getusedData(): Promise<UsedProducts[]> {
     const query = `*[_type == 'used-products' && type == 'used-tire']{
         name,
-        manufacturer,
         rating,
         price,
         type,

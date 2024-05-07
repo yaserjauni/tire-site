@@ -10,7 +10,6 @@ export async function getRimsData(): Promise<UsedProducts[]> {
 
     const query = `*[_type == 'used-products' && type == 'used-rims']{
         name,
-        manufacturer,
         rating,
         price,
         type,
@@ -39,7 +38,6 @@ export async function UsedRims() {
                                         <div className="relative overflow-hidden">
                                             <img className="object-fill w-[250px] h-[250px]" src={urlForImage(item.productImage)} alt="Product" />
                                         </div>
-                                        <p className="text-gray-500 text-sm mt-2 justify-center text-center">{item.manufacturer || 'Manufacturer'}</p>
                                         <h3 className="text-xl font-bold text-gray-900 mt-4 truncate">{item.name || "Product Name"}</h3>
                                         <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
                                         <div className="flex items-center justify-between mt-4">
