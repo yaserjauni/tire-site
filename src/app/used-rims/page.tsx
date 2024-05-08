@@ -6,7 +6,7 @@ import Header from "../_components/header";
 import { UsedProducts } from "../_components/homePage";
 import { UsedRims } from "../_components/usedrims";
 
-export async function getRimsData(): Promise<UsedProducts[]> {
+async function getRimsData(): Promise<UsedProducts[]> {
 
     const query = `*[_type == 'used-products' && type == 'used-rims']{
         name,
@@ -19,7 +19,7 @@ export async function getRimsData(): Promise<UsedProducts[]> {
     }`;
     const data = await client.fetch<UsedProducts[]>(query, {}, { cache: 'no-cache' });
     data.forEach(product => {
-        product.URL = urlForImage(product.productImage);
+        product.URL = urlForImage(product.productImage || "");
     });
     return data;
 }
@@ -31,7 +31,6 @@ export default async function ShopRims() {
         <main className="flex flex-col overflow-hidden hide-scrollbar">
             <Header />
             <UsedRims data={data} />
-
             <Footer />
         </main>
     );
