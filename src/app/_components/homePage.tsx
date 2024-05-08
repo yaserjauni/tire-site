@@ -32,7 +32,6 @@ export interface Products {
 }
 export interface UsedProducts {
     name: string;
-
     rating: string;
     price: string;
     type: string;
@@ -44,6 +43,7 @@ export interface UsedProducts {
             _type: "reference";
         };
     };
+    URL: string;
 }
 export interface ImageSlideData {
     display: {

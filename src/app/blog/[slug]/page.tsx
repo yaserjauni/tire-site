@@ -121,7 +121,7 @@ export default async function BlogPage({ params }: { params: { slug: string } })
                                         </div>
                                         <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
                                         <div className="flex items-center justify-between mt-2">
-                                            <Link href={item.link} className="bg-gray-900 text-white py-2 px-4  rounded-full font-bold hover:bg-gray-800">Buy now</Link>
+                                            <Link href={item.link || ""} className="bg-gray-900 text-white py-2 px-4  rounded-full font-bold hover:bg-gray-800">Buy now</Link>
                                         </div>
                                     </div>
                                 ))}

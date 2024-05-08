@@ -4,7 +4,7 @@ import Header from "./_components/header";
 
 export default function Home() {
   return (
-    <main className="overflow-x-visible ">
+    <main className="overflow-hidden">
       <Header />
       <HomePage />
       <Footer />

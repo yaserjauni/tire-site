@@ -33,7 +33,7 @@ export async function SearchResult({ data }: { data: Products[] }) {
                                         <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
                                         <div className="flex items-center justify-between mt-2">
                                             {/* <span className="text-gray-900 font-bold text-lg">${item.price || 0}</span> */}
-                                            <Link href={item.link} className="bg-gray-900 text-white py-2 px-6  rounded-full font-bold hover:bg-gray-800">Buy now</Link>
+                                            <Link href={item.link || ""} className="bg-gray-900 text-white py-2 px-6  rounded-full font-bold hover:bg-gray-800">Buy now</Link>
                                         </div>
                                     </div>
                                 ))}

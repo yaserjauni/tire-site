@@ -11,7 +11,6 @@ export async function Tires({ data }: { data: Products[] }) {
 
     return (
         <div>
-
             <div className="flex overflow-y-hidden pb-3 md:ml-10 mx-3 gap-6">
                 {data.map((item, index) => (
                     <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] justify-evenly rounded-lg shadow-lg p-4">
@@ -25,7 +24,7 @@ export async function Tires({ data }: { data: Products[] }) {
                         </div>
                         <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
                         <div className="flex items-center justify-between mt-2">
-                            <Link href={item.link} className="bg-gray-900 text-white py-2 px-4  rounded-full font-bold hover:bg-gray-800">Buy now</Link>
+                            <Link href={item.link || ''} className="bg-gray-900 text-white py-2 px-4  rounded-full font-bold hover:bg-gray-800">Buy now</Link>
                         </div>
                     </div>
                 ))}
@@ -60,7 +59,7 @@ export async function Rims({ data }: { data: Products[] }) {
                         </div>
                         <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
                         <div className="flex items-center justify-between mt-2">
-                            <Link href={item.link} className="bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800">Buy now</Link>
+                            <Link href={item.link || ""} className="bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800">Buy now</Link>
                         </div>
                     </div>
                 ))}
@@ -95,7 +94,7 @@ export async function Accessories({ data }: { data: Products[] }) {
                         </div>
                         <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
                         <div className="flex items-center justify-between mt-2">
-                            <Link href={item.link} className="bg-gray-900 text-white py-2 px-4  rounded-full font-bold hover:bg-gray-800">Buy now</Link>
+                            <Link href={item.link || ""} className="bg-gray-900 text-white py-2 px-4  rounded-full font-bold hover:bg-gray-800">Buy now</Link>
                         </div>
                     </div>
                 ))}
