@@ -16,7 +16,7 @@ export async function Tires({ data }: { data: TopProducts[] }) {
                 {data[0].topProducts.map((item, index) => (
                     <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] justify-evenly rounded-lg shadow-lg p-4">
                         <div className="relative overflow-hidden">
-                            <img className="object-fill w-[150px] h-[150px] rounded-lg" src={urlForImage(item.productImage)} alt="Product" />
+                            <img className="object-contain w-[150px] h-[150px] rounded-lg" src={urlForImage(item.productImage)} alt="Product" />
                         </div>
                         <h3 className="text-md font-bold text-gray-900 mt-2 line-clamp-1">{item.name || "Product Name"}</h3>
                         <div className="flex items-center justify-between mt-2">
@@ -51,7 +51,7 @@ export async function Rims({ data }: { data: TopProducts[] }) {
                 {data[0].topProducts.map((item, index) => (
                     <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] rounded-lg shadow-lg p-4">
                         <div className="relative overflow-hidden">
-                            <img className="object-fill w-[150px] h-[150px] rounded-lg" src={urlForImage(item.productImage)} alt="Product" />
+                            <img className="object-contain w-[150px] h-[150px] rounded-lg" src={urlForImage(item.productImage)} alt="Product" />
                         </div>
                         <h3 className="text-md font-bold text-gray-900 mt-2 line-clamp-2">{item.name || "Product Name"}</h3>
                         <div className="flex items-center justify-between mt-2">
@@ -87,7 +87,7 @@ export async function Accessories({ data }: { data: TopProducts[] }) {
                 {data[0].topProducts.map((item, index) => (
                     <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] rounded-lg shadow-lg p-4">
                         <div className="relative overflow-hidden">
-                            <img className="object-fill w-[150px] h-[150px] rounded-lg" src={urlForImage(item.productImage)} alt="Product" />
+                            <img className="object-contain w-[150px] h-[150px] rounded-lg" src={urlForImage(item.productImage)} alt="Product" />
                         </div>
                         <h3 className="text-md font-bold text-gray-900 mt-2  line-clamp-2">{item.name || "Product Name"}</h3>
                         <div className="flex items-center justify-between mt-2">
