@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import { client } from "../../../../sanity/lib/client";
 
@@ -7,16 +6,23 @@ import Header from "@/app/_components/header";
 import Footer from "@/app/_components/footer";
 import { Products } from "@/app/_components/homePage";
 
+// interface ResultProps {
+//     search: string;
+//     season: string;
+//     width: string;
+//     profile: string;
+//     wheelSize: string;
+// }
 
-interface ResultProps {
-    search: string;
-    season: string;
-}
-async function getFilteredData({ search, season }: ResultProps): Promise<Products[]> {
-    let query = ``;
+async function getFilteredData({ search, season, width, profile, wheelSize }: { search: string, season: string, width: string, profile: string, wheelSize: string }): Promise<Products[]> {
+    let categoryCondition = '';
+    if (season === 'Accessories' || season === 'Tire' || season === 'Rims') {
+        categoryCondition = `category == '${season}'`;
+    } else {
+        categoryCondition = `tireType == '${season}'`;
+    }
 
-    if (search && season) {
-        query = `*[_type == 'products'  && '${season}' in categories[]->title || spec match '*${search}* || name match '*${search}*']{
+    const query = `*[(_type == 'products' || _type == 'used-products') && ( ${categoryCondition} || spec match '*${search}*' || name match '*${search}*') && (name match '*${width}*' || spec match '*${width}*') && (name match '*${profile}*' || spec match '*${profile}*') && (name match '*${wheelSize}*' || spec match '*${wheelSize}*')] {
         name,
         spec,
         link,
@@ -26,56 +32,6 @@ async function getFilteredData({ search, season }: ResultProps): Promise<Product
         tireType,
         productImage,
     }`;
-    } else if ((season == 'Accessories' || season == 'Tire' || season == 'Rims') && search == "") {
-        query = `*[_type == 'products'  && category == '${season}' ]{
-            
-            name,
-            spec,
-            link,
-            rating,
-            category,
-            rimType,
-            tireType,
-            productImage,
-        }`;
-    } else if (season && search == "") {
-        query = `*[_type == 'products'  && tireType == '${season}' ]{
-            
-            name,
-            spec,
-            link,
-            rating,
-            category,
-            rimType,
-            tireType,
-            productImage,
-        }`;
-    } else if (search && !season) {
-        query = `*[_type == 'products' && spec match '*${search}*']{
-            
-            name,
-            spec,
-            link,
-            rating,
-            category,
-            rimType,
-            tireType,
-            productImage,
-        }`;
-    } else {
-        query = `*[_type == 'products' && category == 'Tire']{
-            
-            name,
-            spec,
-            link,
-            rating,
-            category,
-            rimType,
-            tireType,
-            productImage,
-        }`;
-    }
-
     const data = await client.fetch<Products[]>(query, {}, { cache: 'no-cache' });
     return data;
 }
@@ -98,28 +54,20 @@ export default async function ProductPage({
     const wheelSize = wheelSizeMatch ? wheelSizeMatch[1] : '';
     const season = seasonMatch ? seasonMatch[1] : '';
 
-    const searchPara = `${width}/${profile}/${wheelSize}`;
-
     // Getting data based on extracted values
     let data = null;
-    if (parameter.startsWith('Accessories')) {
-
-        data = await getFilteredData({ search: "", season: "Accessories" });
-    } else if (parameter.startsWith('Tire')) {
-        data = await getFilteredData({ search: "", season: "Tire" });
-    } else if (parameter.startsWith('Rims')) {
-        data = await getFilteredData({ search: "", season: "Rims" });
+    if (season || width || profile || wheelSize) {
+        data = await getFilteredData({ search: "", season, width, profile, wheelSize });
     } else {
-        data = await getFilteredData({ search: searchPara, season });
+        data = await getFilteredData({ search: "", season: "Tire", width, profile, wheelSize }); // Default to Tire if no season or search parameters
     }
-
 
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
             <SearchResult data={data} />
-
             <Footer />
         </div>
     );
 }
+

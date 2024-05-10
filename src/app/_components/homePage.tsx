@@ -54,6 +54,9 @@ export interface ImageSlideData {
         };
     }[];
 }
+export interface TopProducts {
+    topProducts: Products[];
+}
 export interface Post {
     title: string;
     name: string;
@@ -102,6 +105,15 @@ export async function getData(category: string): Promise<Products[]> {
     const data = await client.fetch<Products[]>(query, {}, { cache: 'no-cache' });
     return data;
 }
+export async function getTopData(category: string): Promise<TopProducts[]> {
+
+    const query = `*[_type == 'topPicks'  && title == '${category}']{
+        
+        topProducts[]->,
+    }`
+    const data = await client.fetch<TopProducts[]>(query, {}, { cache: 'no-cache' });
+    return data;
+}
 export async function getAllData(): Promise<UsedProducts[]> {
 
     const query = `*[_type == 'used-products']{
@@ -126,11 +138,12 @@ export async function getDisplay(): Promise<string[]> {
 
 export async function HomePage() {
     const data = await getAllData();
-    const tiredata = await getData('Tire');
-    const rimData = await getData('Rims');
-    const accData = await getData('Accessories');
+    const tiredata = await getTopData('New Tires | Top Picks');
+    const rimData = await getTopData('New Rims | Top Picks');
+    const accData = await getTopData('New Accessories');
     const blogs = await getPostData();
 
+    // console.log(top[0]);
 
     return (
         <main className=" hide-scrollbar relative pb-5">

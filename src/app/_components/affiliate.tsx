@@ -3,16 +3,17 @@ import * as React from "react";
 import { client } from "../../../sanity/lib/client";
 import Link from "next/link";
 import { urlForImage } from "../../../sanity/lib/image";
-import { getData, Products } from "./homePage";
+import { getData, Products, TopProducts } from "./homePage";
 import { StarRating } from "./star-rating";
+import { Console } from "console";
 
 
-export async function Tires({ data }: { data: Products[] }) {
+export async function Tires({ data }: { data: TopProducts[] }) {
 
     return (
         <div>
             <div className="flex overflow-y-hidden pb-3 md:ml-10 mx-3 gap-6">
-                {data.map((item, index) => (
+                {data[0].topProducts.map((item, index) => (
                     <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] justify-evenly rounded-lg shadow-lg p-4">
                         <div className="relative overflow-hidden">
                             <img className="object-fill w-[150px] h-[150px] rounded-lg" src={urlForImage(item.productImage)} alt="Product" />
@@ -33,7 +34,7 @@ export async function Tires({ data }: { data: Products[] }) {
     );
 }
 
-export async function Rims({ data }: { data: Products[] }) {
+export async function Rims({ data }: { data: TopProducts[] }) {
     return (
         <div>
             <header className="flex flex-row justify-between mt-1 bg-violet-950 z-5 mb-5">
@@ -47,7 +48,7 @@ export async function Rims({ data }: { data: Products[] }) {
                 </Link>
             </header>
             <div className="flex overflow-y-hidden pb-3 md:ml-10 mx-3 gap-6">
-                {data.map((item, index) => (
+                {data[0].topProducts.map((item, index) => (
                     <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] rounded-lg shadow-lg p-4">
                         <div className="relative overflow-hidden">
                             <img className="object-fill w-[150px] h-[150px] rounded-lg" src={urlForImage(item.productImage)} alt="Product" />
@@ -68,7 +69,7 @@ export async function Rims({ data }: { data: Products[] }) {
     );
 }
 
-export async function Accessories({ data }: { data: Products[] }) {
+export async function Accessories({ data }: { data: TopProducts[] }) {
 
     return (
         <div>
@@ -83,7 +84,7 @@ export async function Accessories({ data }: { data: Products[] }) {
                 </Link>
             </header>
             <div className="flex overflow-y-hidden pb-3 md:ml-10 mx-3 gap-6">
-                {data.map((item, index) => (
+                {data[0].topProducts.map((item, index) => (
                     <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] rounded-lg shadow-lg p-4">
                         <div className="relative overflow-hidden">
                             <img className="object-fill w-[150px] h-[150px] rounded-lg" src={urlForImage(item.productImage)} alt="Product" />

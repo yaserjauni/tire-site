@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { urlForImage } from "../../../sanity/lib/image";
+import Image from "next/image";
 
 interface SlideCardProps {
     imageUrls: string[];
@@ -11,7 +12,7 @@ interface SlideCardProps {
 export const SlideCard: React.FC<SlideCardProps> = ({ imageUrls }) => {
 
     var settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         slidesToShow: 5,
         slidesToScroll: 1,
@@ -24,7 +25,7 @@ export const SlideCard: React.FC<SlideCardProps> = ({ imageUrls }) => {
             {
                 breakpoint: 1024,
                 settings: {
-                    dots: true,
+                    dots: false,
                     infinite: true,
                     speed: 700,
                     slidesToShow: 3,
@@ -38,7 +39,7 @@ export const SlideCard: React.FC<SlideCardProps> = ({ imageUrls }) => {
             {
                 breakpoint: 600,
                 settings: {
-                    dots: true,
+                    dots: false,
                     infinite: true,
                     speed: 700,
                     slidesToShow: 2,
@@ -52,7 +53,7 @@ export const SlideCard: React.FC<SlideCardProps> = ({ imageUrls }) => {
             {
                 breakpoint: 480,
                 settings: {
-                    dots: true,
+                    dots: false,
                     infinite: true,
                     speed: 700,
                     slidesToShow: 1,
@@ -74,10 +75,13 @@ export const SlideCard: React.FC<SlideCardProps> = ({ imageUrls }) => {
         <Slider {...settings}>
             {imageUrls.map((imageUrl, index) => (
                 <div key={index} >
-                    <img
+                    <Image
                         src={imageUrl}
+                        width={400}
+                        height={400}
+
                         alt={`Image ${index + 1}`}
-                        className={`w-[500px] aspect-square bg-white object-cover rounded-2xl`}
+                        className={`aspect-square bg-transparent rounded-2xl`}
                     />
                 </div>
             ))}

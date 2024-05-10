@@ -13,6 +13,11 @@ export const StarRating = ({ rating }: { rating?: string }) => {
         numericRating = parseFloat(parts[0]) / 2; // Convert to out of 5
         maxRating = 5;
     }
+    if (parseFloat(rating) > 5) {
+        numericRating = parseFloat(rating) / 2; // Convert to out of 5
+        maxRating = 5;
+    }
+
 
     // Calculate the number of full stars and the fractional part for the half star
     const fullStars = Math.floor(numericRating);

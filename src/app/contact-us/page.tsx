@@ -1,4 +1,5 @@
 import { Blogs } from "../_components/blogs";
+import Contact from "../_components/contact-mail";
 import Footer from "../_components/footer";
 import Header from "../_components/header";
 
@@ -32,29 +33,7 @@ export default function ContactUs() {
                     <div className="relative justify-center px-6 py-1.5 mt-5 text-xs font-semibold leading-6 rounded-2xl bg-neutral-900 tracking-[2px] max-md:px-5">
                         Welcome to Tire Empire
                     </div>
-                    {/* <div className="flex relative flex-wrap justify-center content-start items-center self-stretch px-16 mt-12 w-full text-2xl font-extrabold leading-7 max-md:px-5 max-md:mt-10 max-md:max-w-full">
-                        <div className="flex flex-col max-w-full w-[588px]">
-                            <div className="flex gap-2 flex-wrap md:px-10">
-                                <div className="flex gap-2 justify-center whitespace-nowrap">
-                                    <div>Waterloo</div>
-                                    <div className="shrink-0 w-px border-l border-white border-solid h-[30px]" />
-                                </div>
-                                <div className="flex gap-2 justify-center whitespace-nowrap">
-                                    <div>Cambridge</div>
-                                    <div className="shrink-0 w-px border-l border-white border-solid h-[30px]" />
-                                </div>
-                                <div className="flex gap-2 justify-center whitespace-nowrap">
-                                    <div>Guelph</div>
-                                    <div className="shrink-0 w-px border-l border-white border-solid h-[30px]" />
-                                </div>
-                                <div className="flex gap-2 justify-center whitespace-nowrap">
-                                    <div>Stratford</div>
-                                    <div className="shrink-0 w-px border-l border-white border-solid h-[30px]" />
-                                </div>
-                                <div>Woodstock</div>
-                            </div>
-                        </div>
-                    </div> */}
+
 
                 </div>
                 <div className="flex overflow-hidden relative flex-col justify-between items-start py-3 min-h-[650px] ">
@@ -86,6 +65,7 @@ export default function ContactUs() {
                     </a>
 
                 </div>
+                <Contact />
             </section>
             <Footer />
         </main>

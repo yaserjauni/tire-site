@@ -2,7 +2,7 @@ import { defineField, defineType } from 'sanity'
 
 export default defineType({
     name: 'used-products',
-    title: 'Used Products',
+    title: 'Used Products {Rims and Tires}',
     type: 'document',
     fields: [
         defineField({
@@ -43,7 +43,6 @@ export default defineType({
             options: {
                 list: [
                     { title: 'Used Tire', value: 'used-tire' },
-                    { title: 'Single Tire', value: 'single-tire' },
                     { title: 'Used Rims', value: 'used-rims' },
                 ],
                 layout: 'radio',
