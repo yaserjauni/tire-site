@@ -1,15 +1,11 @@
 
 import * as React from "react";
-import { client } from "../../../sanity/lib/client";
 import Link from "next/link";
 import { urlForImage } from "../../../sanity/lib/image";
 import { Products } from "./homePage";
 import { StarRating } from "./star-rating";
 
-
-
 export async function SearchResult({ data }: { data: Products[] }) {
-
     return (
         <div>
             {data.length > 0 ? (
@@ -23,13 +19,11 @@ export async function SearchResult({ data }: { data: Products[] }) {
                                         <div className="relative overflow-hidden">
                                             <img className="object-contain w-[150px] h-[150px]" src={urlForImage(item.productImage)} alt="Product" />
                                         </div>
-
                                         <h3 className="text-md font-semibold leading-6 text-gray-900 mt-2 truncate">{item.name || "Product Name"}</h3>
                                         <div className="flex items-center justify-between mt-1">
                                             <p className="text-gray-500 text-sm mt-1 ">{item.spec || ''}</p>
                                             <p className="text-gray-500 text-sm mt-1">{item.tireType || ''} </p>
                                         </div>
-
                                         <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
                                         <div className="flex items-center justify-between mt-2">
                                             {/* <span className="text-gray-900 font-bold text-lg">${item.price || 0}</span> */}
