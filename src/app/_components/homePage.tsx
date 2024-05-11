@@ -6,7 +6,6 @@ import { Brands } from "./brands";
 import { Accessories, Rims, Tires } from "./affiliate";
 import { Search } from "./search";
 import { client } from "../../../sanity/lib/client";
-import { SearchResult } from "./product-list";
 
 import SlideCard from "./slide-card";
 import { urlForImage } from "../../../sanity/lib/image";

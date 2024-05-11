@@ -14,15 +14,24 @@ import { Products } from "@/app/_components/homePage";
 //     wheelSize: string;
 // }
 
-async function getFilteredData({ search, season, width, profile, wheelSize }: { search: string, season: string, width: string, profile: string, wheelSize: string }): Promise<Products[]> {
-    // let categoryCondition = '';
-    // if (season === 'Accessories' || season === 'Tire' || season === 'Rims') {
-    //     categoryCondition = `category == '${season}'`;
-    // } else {
-    //     categoryCondition = `tireType == '${season}'`;
-    // }
+async function getFilteredData({ season, width, profile, wheelSize }: { season: string, width: string, profile: string, wheelSize: string }): Promise<Products[]> {
+    let categoryCondition = '';
+    if (season) {
+        categoryCondition = `category == '${season}'`;
+    } else {
+        categoryCondition = `true`;
+    }
+    let searchCondition = '';
+    if (width) {
+        const search1 = width + "/" + profile + "/" + wheelSize;
+        const search2 = width + "/" + profile + "R" + wheelSize;
+        console.log(search1, search2);
+        searchCondition = `name match '*${search2}*' || name match '*${search1}*' || spec match '*${search1}*' || spec match '*${search2}*'`;
+    } else {
+        searchCondition = `true`;
+    }
 
-    const query = `*[_type == 'products' || _type == 'used-products' && (tireType == '${season}' || spec match '*${search}*' || name match '*${search}*') && (name match '*${width}*' || spec match '*${width}*') && (name match '*${profile}*' || spec match '*${profile}*') && (name match '*${wheelSize}*' || spec match '*${wheelSize}*')] {
+    const query = `*[${categoryCondition} && ${searchCondition}] {
         name,
         spec,
         link,
@@ -60,6 +69,7 @@ export default async function ProductPage({
     params: { parameter: string }
 }) {
     const parameter = decodeURIComponent(params.parameter);
+    console.log(parameter);
     let data = null;
     if (parameter === 'Accessories' || parameter === 'Tire' || parameter === 'Rims') {
         data = await getParaData(parameter);
@@ -76,11 +86,11 @@ export default async function ProductPage({
         const season = seasonMatch ? seasonMatch[1] : '';
 
         // Getting data based on extracted values
-
+        console.log(season, width, profile, wheelSize);
         if (season || width || profile || wheelSize) {
-            data = await getFilteredData({ search: "", season, width, profile, wheelSize });
+            data = await getFilteredData({ season, width, profile, wheelSize });
         } else {
-            data = await getFilteredData({ search: "", season: parameter, width, profile, wheelSize }); // Default to Tire if no season or search parameters
+            data = await getFilteredData({ season: season, width, profile, wheelSize }); // Default to Tire if no season or search parameters
         }
     }
 

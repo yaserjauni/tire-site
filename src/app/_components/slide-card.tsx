@@ -77,11 +77,11 @@ export const SlideCard: React.FC<SlideCardProps> = ({ imageUrls }) => {
                 <div key={index} >
                     <Image
                         src={imageUrl}
-                        width={400}
-                        height={400}
+                        width={1200}
+                        height={1200}
 
                         alt={`Image ${index + 1}`}
-                        className={`aspect-square bg-transparent rounded-2xl`}
+                        className={`aspect-square object-cover bg-transparent rounded-2xl`}
                     />
                 </div>
             ))}

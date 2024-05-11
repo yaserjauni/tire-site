@@ -13,7 +13,7 @@ export async function SearchResult({ data }: { data: Products[] }) {
                     <div className="bg-gray-900 py-16">
                         <div className="container mx-auto px-4">
                             <h2 className="text-3xl font-bold text-white mb-6">Matching Products Found</h2>
-                            <div className="flex flex-wrap  gap-6">
+                            <div className="flex flex-wrap pl-auto justify-center gap-6">
                                 {data.map((item, index) => (
                                     <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] rounded-lg shadow-lg p-4">
                                         <div className="relative overflow-hidden">
