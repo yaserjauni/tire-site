@@ -87,10 +87,10 @@ export default async function ProductPage({
 
         // Getting data based on extracted values
         console.log(season, width, profile, wheelSize);
-        if (season || width || profile || wheelSize) {
+        if (width) {
             data = await getFilteredData({ season, width, profile, wheelSize });
         } else {
-            data = await getFilteredData({ season: season, width, profile, wheelSize }); // Default to Tire if no season or search parameters
+            data = await getFilteredData({ season, width, profile, wheelSize }); // Default to Tire if no season or search parameters
         }
     }
 

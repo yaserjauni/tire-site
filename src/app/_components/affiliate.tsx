@@ -20,7 +20,7 @@ export async function Tires({ data }: { data: TopProducts[] }) {
                         </div>
                         <h3 className="text-md font-bold text-gray-900 mt-2 line-clamp-1">{item.name || "Product Name"}</h3>
                         <div className="flex items-center justify-between mt-2">
-                            <p className="text-gray-500 text-sm mt-2">{item.spec || ''} </p>
+                            <p className="text-gray-500 text-sm mt-2 line-clamp-2 pr-4">{item.spec || ''} </p>
                             <p className="text-gray-500 text-sm mt-2">{item.tireType || ''} </p>
                         </div>
                         <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
@@ -55,7 +55,7 @@ export async function Rims({ data }: { data: TopProducts[] }) {
                         </div>
                         <h3 className="text-md font-bold text-gray-900 mt-2 line-clamp-2">{item.name || "Product Name"}</h3>
                         <div className="flex items-center justify-between mt-2">
-                            <p className="text-gray-500 text-sm mt-2">{item.spec || ''} </p>
+                            <p className="text-gray-500 text-sm mt-2 line-clamp-2 pr-4">{item.spec || ''} </p>
                             <p className="text-gray-500 text-sm mt-2">{item.rimType || ''} </p>
                         </div>
                         <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
@@ -91,7 +91,7 @@ export async function Accessories({ data }: { data: TopProducts[] }) {
                         </div>
                         <h3 className="text-md font-bold text-gray-900 mt-2  line-clamp-2">{item.name || "Product Name"}</h3>
                         <div className="flex items-center justify-between mt-2">
-                            <p className="text-gray-500 text-sm mt-2">{item.spec || ''} </p>
+                            <p className="text-gray-500 text-sm mt-2 line-clamp-2">{item.spec || ''} </p>
                         </div>
                         <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
                         <div className="flex items-center justify-between mt-2">

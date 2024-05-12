@@ -88,7 +88,7 @@ export function Search() {
                         <label className="block mb-2 text-md font-medium text-gray-300 " htmlFor="diameter">Rim Size</label>
                         <select id="diameter" name="diameter" value={wheelSize} onChange={handleWheelSizeChange} className="form-select  bg-gray-700  border  block w-full p-2.5 min-w-[200px] border-gray-600  placeholder-gray-400  text-white  focus:ring-blue-500  focus:border-blue-500" required>
                             <option value="">Size</option>
-                            {[17, 18, 19].map(value => (
+                            {[15, 16, 17, 18, 19].map(value => (
                                 <option key={value} value={value}>R{value}</option>
                             ))}
                         </select>

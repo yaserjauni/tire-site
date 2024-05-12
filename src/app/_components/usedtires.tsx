@@ -38,17 +38,17 @@ export function UsedTires({ data }: { data: UsedProducts[] }) {
                                 </div>
                             </div>
 
-                            <div className="flex flex-wrap items-center md:justify-normal justify-center gap-6">
+                            <div className="flex flex-wrap pl-auto items-center justify-center gap-6">
                                 {filteredData.map((item, index) => (
-                                    <div key={index} className="bg-slate-100 w-[300px] rounded-lg shadow-lg p-8">
+                                    <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] rounded-lg shadow-lg p-4">
                                         <div className="relative overflow-hidden">
-                                            <img className="object-contain w-[250px] h-[250px]" src={item.URL} alt="Product" />
+                                            <img className="object-cover w-[150px] h-[150px]" src={item.URL} alt="Product" />
                                         </div>
-                                        <h3 className="text-xl font-bold text-gray-900 mt-4 truncate">{item.name || "Product Name"}</h3>
-                                        <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
-                                        <div className="flex items-center justify-between mt-4">
-                                            <span className="text-gray-900 font-bold text-lg">${item.price || 0}</span>
-                                            <Link href={"/contact-us"} className="bg-gray-900 text-white py-2 px-3 rounded-full font-bold hover:bg-gray-800">Contact now</Link>
+                                        <h3 className="text-md font-semibold leading-6 text-gray-900 mt-2 truncate">{item.name || "Product Name"}</h3>
+                                        <p className="text-gray-500 text-sm mt-1"><StarRating rating={item.rating || '0'} /></p>
+                                        <div className="flex flex-row gap-3 items-center justify-between mt-2">
+                                            <span className="text-gray-900 font-bold">${item.price || 0}</span>
+                                            <Link href={"/contact-us"} className="bg-gray-900 items-end text-center text-white py-1 px-3 text-xs rounded-full font-bold hover:bg-gray-800">Contact now</Link>
                                         </div>
                                     </div>
                                 ))}

@@ -21,7 +21,7 @@ export async function SearchResult({ data }: { data: Products[] }) {
                                         </div>
                                         <h3 className="text-md font-semibold leading-6 text-gray-900 mt-2 truncate">{item.name || "Product Name"}</h3>
                                         <div className="flex items-center justify-between mt-1">
-                                            <p className="text-gray-500 text-sm mt-1 ">{item.spec || ''}</p>
+                                            <p className="text-gray-500 text-sm mt-1 truncate">{item.spec || ''}</p>
                                             <p className="text-gray-500 text-sm mt-1">{item.tireType || ''} </p>
                                         </div>
                                         <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>

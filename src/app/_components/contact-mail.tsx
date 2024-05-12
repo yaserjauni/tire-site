@@ -41,23 +41,23 @@ export default function ContactForm() {
 
     return (
         <>
-            <div className="w-full bg-gray-800 h-auto">
+            <div className="w-full lg:w-5/12 lg:items-end bg-gray-800 h-auto">
                 <div className="bg-gradient-to-b from-blue-800 to-blue-600"></div>
-                <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 ">
-                    <div className="bg-gray-900 w-full shadow rounded p-8 sm:p-12 ">
+                <div className="max-w-5xl mx-auto ">
+                    <div className="bg-gray-900 w-full shadow rounded py-8 px-4 sm:py-8 sm:px-8">
                         <p className="text-3xl font-bold leading-7 text-center text-white">Contact Us</p>
                         {submitted ? (
                             <p className="text-green-500 text-center mt-4">Thank you for your message!</p>
                         ) : (
                             <form id="contact-form" onSubmit={handleSubmit}>
-                                <div className="md:flex items-center mt-12">
+                                <div className="md:flex items-center mt-6">
                                     <div className="w-full md:w-1/2 flex flex-col">
                                         <label className="font-semibold leading-none text-gray-300">Name</label>
-                                        <input type="text" required={true} id="name" name="name" className="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded" />
+                                        <input type="text" required={true} id="name" name="name" className="leading-none lg:mr-6 text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded" />
                                     </div>
                                     <div className="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
                                         <label className="font-semibold leading-none text-gray-300">Email</label>
-                                        <input type="email" required={true} id="email" name="email" className="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded" />
+                                        <input type="email" required={true} id="email" name="email" className="leading-none lg:mr-6 text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded" />
                                     </div>
                                 </div>
                                 <div className="md:flex items-center mt-8">
