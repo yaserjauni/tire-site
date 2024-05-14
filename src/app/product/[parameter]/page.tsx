@@ -16,16 +16,15 @@ import { Products } from "@/app/_components/homePage";
 
 async function getFilteredData({ season, width, profile, wheelSize }: { season: string, width: string, profile: string, wheelSize: string }): Promise<Products[]> {
     let categoryCondition = 'true';
-    if (season) {
-        categoryCondition = `tireType == '${season}'`;
-    } else {
-        categoryCondition = `true`;
-    }
+    season ? categoryCondition = `tireType == '${season}'` : 'true';
     // searchCondition = `name match '*${search2}*' || name match '*${search1}*' || spec match '*${search1}*' || spec match '*${search2}*'`;
-    let searchCondition = `name match ["*${width}","${profile}"]`;
+    const pattern = `${width}\\/${profile}\\/${wheelSize}`;
+    const pattern2 = `${width}\\/${profile}R${wheelSize}`;
+    const searchCondition = `name match '${pattern}' || name match '${pattern2}'`;
+    const searchCondition2 = `spec match '${pattern}' || spec match '${pattern2}'`;
 
 
-    const query = `*[(${categoryCondition}) && (${searchCondition})] {
+    const query = `*[(${categoryCondition}) && ((${searchCondition}) || (${searchCondition2}) )] {
         name,
         spec,
         link,
@@ -35,7 +34,7 @@ async function getFilteredData({ season, width, profile, wheelSize }: { season: 
         tireType,
         productImage,
     }`;
-    const data = await client.fetch<Products[]>(query, {}, { cache: 'reload' });
+    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-cache' });
     return data;
 }
 
@@ -52,7 +51,7 @@ async function getParaData(parameter: string): Promise<Products[]> {
         tireType,
         productImage,
     }`;
-    const data = await client.fetch<Products[]>(query, {}, { cache: 'reload' });
+    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-cache' });
     return data;
 }
 
