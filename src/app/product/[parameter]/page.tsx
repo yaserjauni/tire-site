@@ -37,7 +37,7 @@ async function getFilteredData({ season, width, profile, wheelSize }: { season: 
         tireType,
         productImage,
     }`;
-    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-store' });
+    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-cache' });
     return data;
 }
 
@@ -54,7 +54,7 @@ async function getParaData(parameter: string): Promise<Products[]> {
         tireType,
         productImage,
     }`;
-    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-store' });
+    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-cache' });
     return data;
 }
 
