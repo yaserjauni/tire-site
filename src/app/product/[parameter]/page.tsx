@@ -15,17 +15,20 @@ import { Products } from "@/app/_components/homePage";
 // }
 
 async function getFilteredData({ season, width, profile, wheelSize }: { season: string, width: string, profile: string, wheelSize: string }): Promise<Products[]> {
-    let categoryCondition = 'true';
+    let categoryCondition = '';
     if (season) {
         categoryCondition = `tireType == '${season}'`;
+    } else {
+        categoryCondition = `true`;
     }
-    let searchCondition = 'true';
-    if (width && profile && wheelSize) {
-        const search1 = `${width}/${profile}/${wheelSize}`;
-        const search2 = `${width}/${profile}R${wheelSize}`;
+    let searchCondition = '';
+    if (width) {
+        const search1 = width + "/" + profile + "/" + wheelSize;
+        const search2 = width + "/" + profile + "R" + wheelSize;
         console.log(search1, search2);
-        // searchCondition = `name match '*${search2}' || name match '*${search1}' || spec match '*${search1}' || spec match '*${search2}'`;
-        searchCondition = `name match ['*${width}', '*${profile}', '*${wheelSize}'] || spec match ['*${width}', '*${profile}', '*${wheelSize}']`
+        searchCondition = `name match '*${search2}*' || name match '*${search1}*' || spec match '*${search1}*' || spec match '*${search2}*'`;
+    } else {
+        searchCondition = `true`;
     }
 
     const query = `*[${categoryCondition} && ${searchCondition}] {
@@ -87,7 +90,7 @@ export default async function ProductPage({
         if (width) {
             data = await getFilteredData({ season, width, profile, wheelSize });
         } else {
-            data = await getFilteredData({ season, width, profile, wheelSize }); // Default to Tire if no season or search parameters
+            data = await getParaData('Tire'); // Default to Tire if no season or search parameters
         }
     }
 
