@@ -17,7 +17,7 @@ export async function SearchResult({ data }: { data: Products[] }) {
                                 {data.map((item, index) => (
                                     <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] rounded-lg shadow-lg p-4">
                                         <div className="relative overflow-hidden">
-                                            <img className="object-contain w-[150px] h-[150px]" src={urlForImage(item.productImage)} alt="Product" />
+                                            <img className="object-contain w-[150px] h-[150px]" src={urlForImage(item.productImage) || ""} alt="Product" />
                                         </div>
                                         <h3 className="text-md font-semibold leading-6 text-gray-900 mt-2 truncate">{item.name || "Product Name"}</h3>
                                         <div className="flex items-center justify-between mt-1">

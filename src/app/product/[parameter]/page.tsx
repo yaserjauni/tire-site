@@ -15,20 +15,17 @@ import { Products } from "@/app/_components/homePage";
 // }
 
 async function getFilteredData({ season, width, profile, wheelSize }: { season: string, width: string, profile: string, wheelSize: string }): Promise<Products[]> {
-    let categoryCondition = '';
+    let categoryCondition = 'true';
     if (season) {
         categoryCondition = `tireType == '${season}'`;
     } else {
         categoryCondition = `true`;
     }
-    const search1 = width + "/" + profile + "/" + wheelSize;
-    const search2 = width + "/" + profile + "R" + wheelSize;
-    console.log(width, profile, wheelSize);
     // searchCondition = `name match '*${search2}*' || name match '*${search1}*' || spec match '*${search1}*' || spec match '*${search2}*'`;
-    let searchCondition = `name match ["*${width}*", "*${profile}*", "*${wheelSize}*"]`;
+    let searchCondition = `name match ["*${width}","${profile}"]`;
 
 
-    const query = `*[${categoryCondition} && ${searchCondition}] {
+    const query = `*[(${categoryCondition}) && (${searchCondition})] {
         name,
         spec,
         link,
@@ -55,7 +52,7 @@ async function getParaData(parameter: string): Promise<Products[]> {
         tireType,
         productImage,
     }`;
-    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-cache' });
+    const data = await client.fetch<Products[]>(query, {}, { cache: 'reload' });
     return data;
 }
 
@@ -90,7 +87,7 @@ export default async function ProductPage({
             data = await getParaData('Tire'); // Default to Tire if no season or search parameters
         }
     }
-
+    console.log(data);
     return (
         <div className="flex flex-col min-h-screen overflow-hidden">
             <Header />
