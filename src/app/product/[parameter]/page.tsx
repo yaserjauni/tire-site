@@ -21,16 +21,12 @@ async function getFilteredData({ season, width, profile, wheelSize }: { season: 
     } else {
         categoryCondition = `true`;
     }
-    let searchCondition = '';
-    if (width) {
-        const search1 = width + "/" + profile + "/" + wheelSize;
-        const search2 = width + "/" + profile + "R" + wheelSize;
-        console.log(search1, search2);
-        // searchCondition = `name match '*${search2}*' || name match '*${search1}*' || spec match '*${search1}*' || spec match '*${search2}*'`;
-        searchCondition = `[spec, name] match ["${width}", "${profile}", "${wheelSize}"]`;
-    } else {
-        searchCondition = `true`;
-    }
+    const search1 = width + "/" + profile + "/" + wheelSize;
+    const search2 = width + "/" + profile + "R" + wheelSize;
+    console.log(width, profile, wheelSize);
+    // searchCondition = `name match '*${search2}*' || name match '*${search1}*' || spec match '*${search1}*' || spec match '*${search2}*'`;
+    let searchCondition = `name match ["*${width}*", "*${profile}*", "*${wheelSize}*"]`;
+
 
     const query = `*[${categoryCondition} && ${searchCondition}] {
         name,
@@ -42,7 +38,7 @@ async function getFilteredData({ season, width, profile, wheelSize }: { season: 
         tireType,
         productImage,
     }`;
-    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-store' });
+    const data = await client.fetch<Products[]>(query, {}, { cache: 'reload' });
     return data;
 }
 
