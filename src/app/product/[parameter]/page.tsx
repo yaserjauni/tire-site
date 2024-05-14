@@ -17,7 +17,7 @@ import { Products } from "@/app/_components/homePage";
 async function getFilteredData({ season, width, profile, wheelSize }: { season: string, width: string, profile: string, wheelSize: string }): Promise<Products[]> {
     let categoryCondition = '';
     if (season) {
-        categoryCondition = `category == '${season}'`;
+        categoryCondition = `tireType == '${season}'`;
     } else {
         categoryCondition = `true`;
     }
