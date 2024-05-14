@@ -22,11 +22,11 @@ async function getFilteredData({ season, width, profile, wheelSize }: { season: 
         categoryCondition = `true`;
     }
     let searchCondition = '';
-    if (width) {
-        const search1 = `${width}/${profile}/${wheelSize}`;
-        const search2 = `${width}/${profile}R${wheelSize}`;
+    if (width && profile && wheelSize) {
+        const search1 = `${width}${'/'}${profile}${'/'}${wheelSize}`;
+        const search2 = `${width}${'/'}${profile}R${wheelSize}`;
         console.log(search1, search2);
-        searchCondition = `name match '${search2}' || name match '${search1}' || spec match '${search1}' || spec match '${search2}'`;
+        searchCondition = `name match '*${search2}*' || name match '*${search1}*' || spec match '*${search1}*' || spec match '${search2}'`;
     } else {
         searchCondition = `true`;
     }
