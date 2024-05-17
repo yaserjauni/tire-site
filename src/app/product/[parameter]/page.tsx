@@ -19,7 +19,7 @@ async function getFilteredData(): Promise<Products[]> {
     // season ? categoryCondition = `tireType == '${season}'` : 'true';
     // searchCondition = `name match '*${search2}*' || name match '*${search1}*' || spec match '*${search1}*' || spec match '*${search2}*'`;
 
-    const query = `*[(_type == 'products' || 'used-products')] {
+    const query = `*[category == 'Tire'] {
         name,
         spec,
         link,

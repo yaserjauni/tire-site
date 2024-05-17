@@ -19,7 +19,8 @@ export async function SearchResult({ data, season, width, profile, wheelSize }: 
     };
     console.log(data.length);
     // Filter data based on the search conditions
-    const filteredData = data.filter(matchesSearchConditions);
+    const allParamsProvided = season && width && profile && wheelSize;
+    const filteredData = allParamsProvided ? data.filter(matchesSearchConditions) : data;
     console.log(filteredData.length);
     return (
         <div>
