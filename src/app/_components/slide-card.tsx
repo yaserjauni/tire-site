@@ -2,7 +2,6 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { urlForImage } from "../../../sanity/lib/image";
 import Image from "next/image";
 
 interface SlideCardProps {

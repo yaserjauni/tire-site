@@ -16,7 +16,7 @@ async function getusedData(): Promise<UsedProducts[]> {
         tireType,
         productImage,
     }`;
-    const data = await client.fetch<UsedProducts[]>(query, {}, { cache: 'no-cache' });
+    const data = await client.fetch<UsedProducts[]>(query, {}, { cache: 'no-store' });
     data.forEach(product => {
         product.URL = urlForImage(product.productImage);
     });

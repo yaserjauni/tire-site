@@ -60,7 +60,7 @@ async function getAllData(): Promise<Post[]> {
     relatedProducts[]-> ,
 
     }`
-    const data = await client.fetch<Post[]>(query, {}, { cache: 'no-cache' });
+    const data = await client.fetch<Post[]>(query, {}, { cache: 'no-store' });
     return data;
 }
 async function getData(slug: string): Promise<Post[]> {
@@ -74,7 +74,7 @@ async function getData(slug: string): Promise<Post[]> {
     "authorPic": author->image,
     relatedProducts[]-> ,
     }`
-    const data = await client.fetch<Post[]>(query, {}, { cache: 'no-cache' });
+    const data = await client.fetch<Post[]>(query, {}, { cache: 'no-store' });
     return data;
 }
 

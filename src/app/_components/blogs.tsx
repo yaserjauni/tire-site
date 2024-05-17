@@ -82,7 +82,7 @@ export function Blogs({ data }: { data: Post[] }) {
                                 <Link className="text-zinc-500 " href={`/blog/${post.currentSlug}`}>
                                     <div className="flex flex-col items-center px-2 text-xs font-medium text-center text-black">
                                         <div>
-                                            <Image className="object-cover aspect-square rounded-md self-center " src={post.URL} width={200} height={200} alt="Image" />
+                                            <Image className="object-cover aspect-square rounded-md self-center " src={post.URL} width={400} height={400} alt="Image" />
                                         </div>
                                         <div className="mt-5 text-lg line-clamp-3 font-semibold hover:underline leading-6">
                                             {post.title}

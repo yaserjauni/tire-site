@@ -5,6 +5,7 @@ import { TypedObject } from 'sanity';
 import { getImageDimensions } from '@sanity/asset-utils';
 import { urlForImage } from '../../../sanity/lib/image';
 import React from 'react';
+import Link from 'next/link';
 
 type Props = {
   content: TypedObject;
@@ -15,6 +16,10 @@ type ImageValue = {
   alt?: string; // Optional alt text for the image
   url: string; // URL of the image
 };
+interface PortableTextLink {
+  _type: 'link';
+  href: string;
+}
 
 const SampleImageComponent = ({ value }: { value: ImageValue }) => {
   const { width } = getImageDimensions(value);
@@ -58,6 +63,19 @@ const components = {
     // Examples: mapLocation, contactForm, code, featuredProjects, latestNews, etc.
   },
   list: ListComponent as PortableTextListComponent,// Add the list component here
+  marks: {
+
+    link: ({ value, children }: any) => {
+      const { blank, href } = value
+      return blank ? (
+        <Link className='underline text-blue-600' href={href} >
+          {children}
+        </Link>
+      ) : (
+        <Link className='underline text-blue-600' href={href}>{children}</Link>
+      )
+    },
+  },
 };
 
 export function PostBody({ content }: Props) {

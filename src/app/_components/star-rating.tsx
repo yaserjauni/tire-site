@@ -33,7 +33,6 @@ export const StarRating = ({ rating }: { rating?: string }) => {
             {hasHalfStar && (
                 <div style={{ position: 'relative' }}>
                     <FaStarHalfAlt size={24} color="#F2C265" />
-
                 </div>
             )}
             {[...Array(emptyStars)].map((_, index) => (

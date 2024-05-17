@@ -18,8 +18,9 @@ async function getFilteredData({ season, width, profile, wheelSize }: { season: 
     let categoryCondition = 'true';
     season ? categoryCondition = `tireType == '${season}'` : 'true';
     // searchCondition = `name match '*${search2}*' || name match '*${search1}*' || spec match '*${search1}*' || spec match '*${search2}*'`;
-    const pattern = `${width}\\/${profile}\\/${wheelSize}`;
-    const pattern2 = `${width}\\/${profile}R${wheelSize}`;
+    const pattern = `${width}\/${profile}\/${wheelSize}`;
+    const pattern2 = `${width}\/${profile}R${wheelSize}`;
+    console.log(pattern, pattern2);
     const searchCondition = `name match '${pattern}' || name match '${pattern2}'`;
     const searchCondition2 = `spec match '${pattern}' || spec match '${pattern2}'`;
 
@@ -62,7 +63,7 @@ export default async function ProductPage({
     params: { parameter: string }
 }) {
     const parameter = decodeURIComponent(params.parameter);
-    console.log(parameter);
+    // console.log(parameter);s
     let data = null;
     if (parameter === 'Accessories' || parameter === 'Tire' || parameter === 'Rims') {
         data = await getParaData(parameter);
@@ -86,7 +87,7 @@ export default async function ProductPage({
             data = await getParaData('Tire'); // Default to Tire if no season or search parameters
         }
     }
-    console.log(data);
+
     return (
         <div className="flex flex-col min-h-screen overflow-hidden">
             <Header />

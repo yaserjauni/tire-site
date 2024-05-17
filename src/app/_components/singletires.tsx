@@ -14,7 +14,7 @@ async function getData(): Promise<Single[]> {
         name,
         list,
     }`
-    const data = await client.fetch<Single[]>(query, {}, { cache: 'no-cache' });
+    const data = await client.fetch<Single[]>(query, {}, { cache: 'no-store' });
     return data;
 }
 
