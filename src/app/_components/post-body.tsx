@@ -64,7 +64,6 @@ const components = {
   },
   list: ListComponent as PortableTextListComponent,// Add the list component here
   marks: {
-
     link: ({ value, children }: any) => {
       const { blank, href } = value
       return blank ? (

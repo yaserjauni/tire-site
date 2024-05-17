@@ -5,16 +5,31 @@ import { urlForImage } from "../../../sanity/lib/image";
 import { Products } from "./homePage";
 import { StarRating } from "./star-rating";
 
-export async function SearchResult({ data }: { data: Products[] }) {
+export async function SearchResult({ data, season, width, profile, wheelSize }: { data: Products[], season: string, width: string, profile: string, wheelSize: string }) {
+    const pattern = `${width}\/${profile}\/${wheelSize}`;
+    const pattern2 = `${width}\/${profile}R${wheelSize}`;
+
+
+    const matchesSearchConditions = (item: any) => {
+        const regex1 = new RegExp(pattern, 'i');
+        const regex2 = new RegExp(pattern2, 'i');
+        const matchesNameOrSpec = regex1.test(item.name) || regex2.test(item.name) || regex1.test(item.spec) || regex2.test(item.spec);
+        const matchesTireType = season ? item.tireType === season : true;  // Check tireType only if season is provided
+        return matchesNameOrSpec && matchesTireType;
+    };
+    console.log(data.length);
+    // Filter data based on the search conditions
+    const filteredData = data.filter(matchesSearchConditions);
+    console.log(filteredData.length);
     return (
         <div>
-            {data.length > 0 ? (
+            {filteredData.length > 0 ? (
                 <section>
                     <div className="bg-gray-900 py-16">
                         <div className="container mx-auto px-4">
                             <h2 className="text-3xl font-bold text-white mb-6">Matching Products:</h2>
                             <div className="flex flex-wrap pl-auto justify-center gap-6">
-                                {data.map((item, index) => (
+                                {filteredData.map((item, index) => (
                                     <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] rounded-lg shadow-lg p-4">
                                         <div className="relative overflow-hidden">
                                             <img className="object-contain w-[150px] h-[150px]" src={urlForImage(item.productImage) || ""} alt="Product" />
