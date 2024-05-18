@@ -28,6 +28,7 @@ export interface Products {
             _type: "reference";
         };
     };
+    URL: string;
 }
 export interface UsedProducts {
     name: string;

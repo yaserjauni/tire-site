@@ -1,11 +1,23 @@
-
+"use client"
 import * as React from "react";
 import Link from "next/link";
 import { urlForImage } from "../../../sanity/lib/image";
 import { Products } from "./homePage";
 import { StarRating } from "./star-rating";
+import { client } from "../../../sanity/lib/client";
+import { useSearchParams } from "next/navigation";
 
-export async function SearchResult({ data, season, width, profile, wheelSize }: { data: Products[], season: string, width: string, profile: string, wheelSize: string }) {
+
+export function SearchResult({ data }: { data: Products[] }) {
+    const searchParams = useSearchParams()!;
+    const width = searchParams.get("width");
+    const profile = searchParams.get("profile");
+    const wheelSize = searchParams.get("wheelSize");
+    const season = searchParams.get("season");
+
+    // Default to Tire if no season or search parameters
+
+    // }
     const pattern = `${width}\/${profile}\/${wheelSize}`;
     const pattern2 = `${width}\/${profile}R${wheelSize}`;
 
@@ -19,7 +31,7 @@ export async function SearchResult({ data, season, width, profile, wheelSize }: 
     };
     console.log(data.length);
     // Filter data based on the search conditions
-    const isProvided = (value: string | undefined | null) => value !== null && value !== undefined && value !== '';
+    const isProvided = (value: string | null | null) => value !== null && value !== null && value !== '';
     const allParamsProvided = isProvided(width) && isProvided(profile) && isProvided(wheelSize);
     const filteredData = allParamsProvided ? data.filter(matchesSearchConditions) : data;
     console.log(filteredData.length);
@@ -34,7 +46,7 @@ export async function SearchResult({ data, season, width, profile, wheelSize }: 
                                 {filteredData.map((item, index) => (
                                     <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] rounded-lg shadow-lg p-4">
                                         <div className="relative overflow-hidden">
-                                            <img className="object-contain w-[150px] h-[150px]" src={urlForImage(item.productImage) || ""} alt="Product" />
+                                            <img className="object-contain w-[150px] h-[150px]" src={item.URL || ""} alt="Product" />
                                         </div>
                                         <h3 className="text-md font-semibold leading-6 text-gray-900 mt-2 truncate">{item.name || "Product Name"}</h3>
                                         <div className="flex items-center justify-between mt-1">

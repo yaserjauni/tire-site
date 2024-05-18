@@ -1,33 +1,29 @@
 'use client'
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useState } from "react";
 
 
 export function Search() {
     const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+
+    // Get a new searchParams string by merging the current
+    // searchParams with a provided key/value pair
+    const createQueryString = useCallback(
+        (width: string | null, profile: string | null, wheelSize: string | null, season: string | null) => {
+            const params = new URLSearchParams(searchParams.toString());
+            if (width) params.set('width', width);
+            if (profile) params.set('profile', profile);
+            if (wheelSize) params.set('wheelSize', wheelSize);
+            if (season) params.set('season', season);
+
+            return params.toString();
+        },
+        [searchParams]
+    );
     function showData() {
-        let parameter = "";
-        if (width !== undefined && width !== null && width !== "") {
-            parameter += `width=${width}*`;
-        } else {
-            parameter += "width=*";
-        }
-        if (profile !== undefined && profile !== null && profile !== "") {
-            parameter += `+profile=${profile}*`;
-        } else {
-            parameter += "+profile=*";
-        }
-        if (wheelSize !== undefined && wheelSize !== null && wheelSize !== "") {
-            parameter += `+wheelSize=${wheelSize}*`;
-        } else {
-            parameter += "+wheelSize=*";
-        }
-        if (season !== undefined && season !== null && season !== "") {
-            parameter += `+season=${season}*`;
-        } else {
-            parameter += "+season=*";
-        }
-        router.push(`/product/${parameter}`);
+        router.push(`/product/search?${createQueryString(width, profile, wheelSize, season)}`);
     }
 
     const [search, setSearch] = useState("");
