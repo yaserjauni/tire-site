@@ -83,7 +83,7 @@ export async function getPostData(): Promise<Post[]> {
     body,
     "authorPic": author->image  
     }`
-    const data = await client.fetch<Post[]>(query, {}, { cache: 'no-store' });
+    const data = await client.fetch<Post[]>(query, {}, { cache: 'default' });
     data.forEach(post => {
         post.URL = urlForImage(post.mainImage);
     });
@@ -102,7 +102,10 @@ export async function getData(category: string): Promise<Products[]> {
         tireType,
         productImage,
     }`
-    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-store' });
+    const data = await client.fetch<Products[]>(query, {}, { cache: 'default' });
+    data.forEach(product => {
+        product.URL = urlForImage(product.productImage);
+    });
     return data;
 }
 export async function getTopData(category: string): Promise<TopProducts[]> {
@@ -111,7 +114,10 @@ export async function getTopData(category: string): Promise<TopProducts[]> {
         
         topProducts[]->,
     }`
-    const data = await client.fetch<TopProducts[]>(query, {}, { cache: 'no-store' });
+    const data = await client.fetch<TopProducts[]>(query, {}, { cache: 'default' });
+    data[0].topProducts.forEach(product => {
+        product.URL = urlForImage(product.productImage);
+    });
     return data;
 }
 export async function getAllData(): Promise<UsedProducts[]> {
@@ -123,14 +129,14 @@ export async function getAllData(): Promise<UsedProducts[]> {
         tireType,
         productImage,
     }`
-    const data = await client.fetch<UsedProducts[]>(query, {}, { cache: 'no-store' });
+    const data = await client.fetch<UsedProducts[]>(query, {}, { cache: 'default' });
     return data;
 }
 export async function getDisplay(): Promise<string[]> {
     const query = `*[_type == 'imageSlide']{
         display,
     }`
-    const data = await client.fetch<ImageSlideData[]>(query, {}, { cache: 'no-store' });
+    const data = await client.fetch<ImageSlideData[]>(query, {}, { cache: 'default' });
     // Extract image URLs from data and return as an array of strings
     const imageUrls = data[0].display.map((image: Image) => urlForImage(image));
     return imageUrls;
