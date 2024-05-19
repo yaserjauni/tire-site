@@ -6,7 +6,10 @@ const nextConfig = {
             hostname: "cdn.sanity.io",
             port: "",
         }]
-    }
+    },
+    experimental: {
+        missingSuspenseWithCSRBailout: false,
+    },
 };
 
 export default nextConfig;
