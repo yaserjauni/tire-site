@@ -56,7 +56,7 @@ export function Footer() {
 const ContactInfo = () => (
   <div className="flex flex-col text-sm font-semibold leading-5 text-white">
     <ContactDetail iconSrc="/phone.svg" detail="1-519-827-7854" />
-    <ContactDetail iconSrc="/mail.svg" detail="Tireempirekitchner@gmail.com" />
+    <ContactDetail iconSrc="/mail.svg" detail="Tireempirekitchener@gmail.com" />
     <ContactDetail iconSrc="/cal.svg" detail="Hours: Mon - Fri 11:00 AM - 5:00 PM, Sat 11:00 AM - 3:00 PM EST" />
   </div>
 );

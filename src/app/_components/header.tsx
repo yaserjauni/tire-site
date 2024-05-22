@@ -31,7 +31,7 @@ const Header = () => {
                   src="/mail.svg"
                   className="shrink-0 w-3.5 aspect-square"
                 />
-                <div className="flex-auto">Tireempirekitchner@gmail.com</div>
+                <div className="flex-auto">Tireempirekitchener@gmail.com</div>
               </div>
               <div className="flex gap-2">
                 <img
@@ -126,7 +126,7 @@ const Header = () => {
                           src="/mail.svg"
                           className="shrink-0 self-start w-3.5 aspect-square"
                         />
-                        <div className="flex-auto">Tireempirekitchner@gmail.com</div>
+                        <div className="flex-auto">Tireempirekitchener@gmail.com</div>
                       </div>
                       <div className="flex gap-2">
                         <img
