@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function Footer() {
@@ -20,23 +21,29 @@ export function Footer() {
             ))}
           </div>
         </div>
-        <div className="flex justify-center items-center px-6 py-9 w-full bg-stone-950">
+        <div className="flex justify-center items-center px-4 py-9 w-full bg-stone-950">
           <div className="max-w-full">
             <div className="flex gap-5 max-md:flex-col max-md:gap-0">
               <div className="flex flex-col w-[23%] max-md:ml-0 max-md:w-full">
                 <ContactInfo />
               </div>
-              <div className="flex flex-col ml-5  justify-center item-center text-left w-[62%] max-md:ml-0 max-md:w-full">
+              <div className="flex flex-col ml-5  justify-center item-center text-left w-[55%] max-md:ml-0 max-md:w-full">
                 <div className="mt-3.5 mx-5 text-l font-semibold leading-5 text-white max-md:mt-10 max-md:max-w-full">
                   Tire Empire offers a range of services tailored to your needs, from tire sales to expert advice. Whether you're a dealership, wholesaler, or individual, they provide convenient options to meet your requirements. Contact Tire Empire for a hassle-free experience and to learn more about their services.
                 </div>
               </div>
-              <div className="flex justify-center item-center w-[20%] max-md:ml-0 max-md:w-full">
-                <img
-                  loading="lazy"
-                  src="/logo.jpg"
-                  className="shrink-0 w-[200px] max-w-full aspect-[1]"
-                />
+              <div className="flex justify-center md:justify-start item-center md:items-start w-[30%] max-md:ml-0 max-md:w-full">
+                <Link href="/" className="flex items-start pt-10 space-x-2">
+                  <Image
+                    loading="lazy"
+                    width={55} // Provide specific width and height for next/image
+                    height={55}
+                    alt="Tire Empire"
+                    src="/tire.svg"
+                    className="aspect-square"
+                  />
+                  <span className="text-4xl text-[#05fd00] uppercase leading-[111%] font-semibold mt-2">Empire Tire</span>
+                </Link>
               </div>
             </div>
           </div>
@@ -48,7 +55,7 @@ export function Footer() {
 
 const ContactInfo = () => (
   <div className="flex flex-col text-sm font-semibold leading-5 text-white">
-    <ContactDetail iconSrc="/phone.svg" detail="1-519-827-7845" />
+    <ContactDetail iconSrc="/phone.svg" detail="1-519-827-7854" />
     <ContactDetail iconSrc="/mail.svg" detail="Tireempirekitchner@gmail.com" />
     <ContactDetail iconSrc="/cal.svg" detail="Hours: Mon - Fri 11:00 AM - 5:00 PM, Sat 11:00 AM - 3:00 PM EST" />
   </div>

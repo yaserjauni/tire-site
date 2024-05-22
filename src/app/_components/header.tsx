@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { useMediaQuery } from "@react-hook/media-query";
+import Image from "next/image";
 
 const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -22,7 +23,7 @@ const Header = () => {
                   src="/phone.svg"
                   className="shrink-0 w-3.5 aspect-square"
                 />
-                <div className="my-auto text-white">1-519-827-7845</div>
+                <div className="my-auto text-white">1-519-827-7854</div>
               </div>
               <div className="flex gap-1.5 self-start whitespace-nowrap">
                 <img
@@ -45,13 +46,17 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="flex justify-between py-3 pl-20  px-10 w-full uppercase bg-violet-950 leading-[111%] max-md:px-5 max-md:max-w-full">
-            <Link href={"/"} >
-              <img
+          <div className="flex justify-between py-3 pl-10  px-7 w-full uppercase bg-violet-950 leading-[111%] max-md:px-5 max-md:max-w-full">
+            <Link href="/" className="flex items-start space-x-2">
+              <Image
                 loading="lazy"
-                src="/logo.jpg"
-                className="shrink-0 items-center w-10 aspect-square"
+                width={40} // Provide specific width and height for next/image
+                height={40}
+                alt="Tire Empire"
+                src="/tire.svg"
+                className="aspect-square"
               />
+              <span className="text-3xl  text-[#05fd00]">Empire Tire</span>
             </Link>
             <div className="flex flex-row gap-10 whitespace-nowrap py-2 items-center px-2">
               <div className="flex-auto"><Link href={"/"}>
@@ -80,15 +85,20 @@ const Header = () => {
       )}
       {isMobile && (
         <div className="flex justify-end px-16 z-1 py-4  w-full uppercase border-t border-r border-b-2 border-l border-black border-solid bg-violet-950 leading-[111%] max-md:px-5 max-md:max-w-full">
-          <div className="flex flex-row absolute left-1/2 transform -translate-x-1/2 items-center max-md:max-w-full text-xl md:text-2xl text-center font-aclonica">
-            <Link href={"/"}>
-              <img
+          <div className="flex justify-center items-center absolute left-5 transform -translate-x-1 max-md:max-w-full font-aclonica">
+            <Link href="/" className="flex items-center space-x-1">
+              <Image
                 loading="lazy"
-                src="/logo.jpg"
-                className="shrink-0 w-10 aspect-square"
+                width={40} // Provide specific width and height for next/image
+                height={40}
+                alt="Tire Empire"
+                src="/tire.svg"
+                className="aspect-square"
               />
+              <span className="text-2xl   text-[#05fd00]">Empire Tire</span>
             </Link>
           </div>
+
           <button onClick={toggleDrawer}>
             <img
               loading="lazy"
@@ -108,7 +118,7 @@ const Header = () => {
                           src="/phone.svg"
                           className="shrink-0 aspect-[0.79] w-[11px]"
                         />
-                        <div className="my-auto text-white">1-519-827-7845</div>
+                        <div className="my-auto text-white">1-519-827-7854</div>
                       </div>
                       <div className="flex gap-1.5 self-start whitespace-nowrap">
                         <img
@@ -124,7 +134,7 @@ const Header = () => {
                           src="/cal.svg"
                           className="shrink-0 self-start aspect-[0.93] w-[13px]"
                         />
-                        <div className="flex-auto">
+                        <div className="flex-auto ">
                           Hours: Mon - Fri 11:00 AM - 5:00 PM, Sat 11:00 AM - 3:00 PM EST
                         </div>
                       </div>
