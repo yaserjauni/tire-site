@@ -11,7 +11,7 @@ import Slider from "react-slick";
 var settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 5,
+    slidesToShow: 6,
     slidesToScroll: 1,
     initialSlide: 1,
     autoplay: true,
@@ -19,6 +19,32 @@ var settings = {
     pauseOnHover: false,
 
     responsive: [
+        {
+            breakpoint: 1400,
+            settings: {
+                dots: false,
+                infinite: true,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                initialSlide: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                pauseOnHover: false,
+            }
+        },
+        {
+            breakpoint: 1200,
+            settings: {
+                dots: false,
+                infinite: true,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                initialSlide: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                pauseOnHover: false,
+            }
+        },
         {
             breakpoint: 1024,
             settings: {
@@ -33,7 +59,7 @@ var settings = {
             }
         },
         {
-            breakpoint: 600,
+            breakpoint: 992,
             settings: {
                 dots: false,
                 infinite: true,
@@ -46,7 +72,20 @@ var settings = {
             }
         },
         {
-            breakpoint: 480,
+            breakpoint: 576,
+            settings: {
+                dots: false,
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                initialSlide: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                pauseOnHover: false,
+            }
+        },
+        {
+            breakpoint: 375,
             settings: {
                 dots: false,
                 arrows: false,
@@ -67,7 +106,7 @@ export function Tires({ data }: { data: TopProducts[] }) {
 
     return (
         <div>
-            <div className=" pb-3 md:px-10 px-10  mx-7">
+            <div className=" pb-3 md:px-10 px-10  mx-8 lg:mx-20">
                 <Slider {...settings}>
                     {data[0].topProducts.map((item, index) => (
                         <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] min-h-[400px] justify-center rounded-lg shadow-lg p-4">
@@ -104,7 +143,7 @@ export function Rims({ data }: { data: TopProducts[] }) {
                     </div>
                 </Link>
             </header>
-            <div className=" pb-3 md:px-10 px-10  mx-7 ">
+            <div className=" pb-3 md:px-5 px-10 mx-8 md:mx-4 lg:mx-20">
                 <Slider {...settings}>
                     {data[0].topProducts.map((item, index) => (
                         <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] min-h-[400px] rounded-lg shadow-lg p-4">
@@ -142,7 +181,7 @@ export function Accessories({ data }: { data: TopProducts[] }) {
                     </div>
                 </Link>
             </header>
-            <div className=" pb-3 md:px-10 px-10  mx-7 ">
+            <div className=" pb-3 md:px-10 px-10  mx-8 lg:mx-20">
                 <Slider {...settings}>
                     {data[0].topProducts.map((item, index) => (
                         <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] min-h-[400px] rounded-lg shadow-lg p-4">
