@@ -62,6 +62,7 @@ var settings = {
             breakpoint: 992,
             settings: {
                 dots: false,
+                arrows: false,
                 infinite: true,
                 slidesToShow: 2,
                 slidesToScroll: 1,
@@ -75,8 +76,9 @@ var settings = {
             breakpoint: 576,
             settings: {
                 dots: false,
+                arrows: false,
                 infinite: true,
-                slidesToShow: 1,
+                slidesToShow: 2,
                 slidesToScroll: 1,
                 initialSlide: 1,
                 autoplay: true,
@@ -106,10 +108,10 @@ export function Tires({ data }: { data: TopProducts[] }) {
 
     return (
         <div>
-            <div className=" pb-3 md:px-10 px-10  mx-8 lg:mx-20">
+            <div className=" pb-3 md:px-10  lg:mx-20">
                 <Slider {...settings}>
                     {data[0].topProducts.map((item, index) => (
-                        <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] min-h-[400px] justify-center rounded-lg shadow-lg p-4">
+                        <div key={index} className="bg-slate-100 min-w-[195px] sm:min-w-[180px] max-w-[195px] min-h-[400px]  justify-center rounded-lg shadow-lg p-4 px-6">
                             <div className="relative overflow-hidden">
                                 <img className="object-contain w-[150px] h-[150px] rounded-lg" src={item.URL} alt="Product" />
                             </div>
@@ -119,8 +121,8 @@ export function Tires({ data }: { data: TopProducts[] }) {
                                 <p className="text-gray-500 text-sm mt-2">{item.tireType || ''} </p>
                             </div>
                             <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
-                            <div className="flex items-center justify-between absolute bottom-3 mt-2">
-                                <Link href={item.link || ''} className="bg-gray-900 text-white py-2 px-4  rounded-full font-bold hover:bg-gray-800">Buy now</Link>
+                            <div className="flex place-items-center justify-between absolute bottom-3  mt-2">
+                                <Link href={item.link || ''} className="bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800">Buy now</Link>
                             </div>
                         </div>
                     ))}
@@ -143,10 +145,10 @@ export function Rims({ data }: { data: TopProducts[] }) {
                     </div>
                 </Link>
             </header>
-            <div className=" pb-3 md:px-5 px-10 mx-8 md:mx-4 lg:mx-20">
+            <div className=" pb-3 md:px-10  lg:mx-20">
                 <Slider {...settings}>
                     {data[0].topProducts.map((item, index) => (
-                        <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] min-h-[400px] rounded-lg shadow-lg p-4">
+                        <div key={index} className="bg-slate-100 min-w-[195px] sm:min-w-[180px] max-w-[195px] min-h-[400px]  justify-center rounded-lg shadow-lg p-4 px-6">
                             <div className="relative overflow-hidden">
                                 <img className="object-contain w-[150px] h-[150px] rounded-lg" src={item.URL} alt="Product" />
                             </div>
@@ -181,10 +183,10 @@ export function Accessories({ data }: { data: TopProducts[] }) {
                     </div>
                 </Link>
             </header>
-            <div className=" pb-3 md:px-10 px-10  mx-8 lg:mx-20">
+            <div className=" pb-3 md:px-10  lg:mx-20">
                 <Slider {...settings}>
                     {data[0].topProducts.map((item, index) => (
-                        <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] min-h-[400px] rounded-lg shadow-lg p-4">
+                        <div key={index} className="bg-slate-100 min-w-[195px] sm:min-w-[180px] max-w-[195px] min-h-[400px]  justify-center rounded-lg shadow-lg p-4 px-6">
                             <div className="relative overflow-hidden">
                                 <img className="object-contain w-[150px] h-[150px] rounded-lg" src={item.URL} alt="Product" />
                             </div>
