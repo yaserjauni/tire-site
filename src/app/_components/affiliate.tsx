@@ -11,7 +11,7 @@ import Slider from "react-slick";
 var settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 6,
+    slidesToShow: 7,
     slidesToScroll: 1,
     initialSlide: 1,
     autoplay: true,
@@ -24,7 +24,7 @@ var settings = {
             settings: {
                 dots: false,
                 infinite: true,
-                slidesToShow: 5,
+                slidesToShow: 6,
                 slidesToScroll: 1,
                 initialSlide: 1,
                 autoplay: true,
@@ -50,7 +50,7 @@ var settings = {
             settings: {
                 dots: false,
                 infinite: true,
-                slidesToShow: 3,
+                slidesToShow: 4,
                 slidesToScroll: 1,
                 initialSlide: 1,
                 autoplay: true,
@@ -59,12 +59,12 @@ var settings = {
             }
         },
         {
-            breakpoint: 992,
+            breakpoint: 768,
             settings: {
                 dots: false,
                 arrows: false,
                 infinite: true,
-                slidesToShow: 2,
+                slidesToShow: 4,
                 slidesToScroll: 1,
                 initialSlide: 1,
                 autoplay: true,
@@ -92,7 +92,7 @@ var settings = {
                 dots: false,
                 arrows: false,
                 infinite: true,
-                slidesToShow: 1,
+                slidesToShow: 2,
                 slidesToScroll: 1,
                 initialSlide: 1,
                 autoplay: true,
@@ -108,20 +108,20 @@ export function Tires({ data }: { data: TopProducts[] }) {
 
     return (
         <div>
-            <div className=" pb-3 md:px-10  lg:mx-20">
+            <div className=" pb-3 md:px-10 lg:mx-10">
                 <Slider {...settings}>
                     {data[0].topProducts.map((item, index) => (
-                        <div key={index} className="bg-slate-100 min-w-[195px] sm:min-w-[180px] max-w-[195px] min-h-[400px]  justify-center rounded-lg shadow-lg p-4 px-6">
-                            <div className="relative overflow-hidden">
-                                <img className="object-contain w-[150px] h-[150px] rounded-lg" src={item.URL} alt="Product" />
+                        <div key={index} className="bg-slate-100  min-w-[155px]  max-w-[175px]  min-h-[415px] max-h-[430px] justify-center rounded-lg shadow-lg  md:py-4 py-4 px-3 ">
+                            <div className="flex relative overflow-hidden justify-center">
+                                <img className="object-contain w-[175px] h-[175px] sm:w-[130px] sm:h-[130px] rounded-lg" src={item.URL} alt="Product" />
                             </div>
-                            <h3 className="text-md font-bold text-gray-900 mt-2 line-clamp-1">{item.name || "Product Name"}</h3>
+                            <h3 className="text-md font-bold text-gray-900 mt-2 lg:line-clamp-3 line-clamp-2">{item.name || "Product Name"}</h3>
                             <div className="flex items-center justify-between mt-2">
-                                <p className="text-gray-500 text-sm mt-2 line-clamp-2 pr-4">{item.spec || ''} </p>
-                                <p className="text-gray-500 text-sm mt-2">{item.tireType || ''} </p>
+                                <p className="text-gray-500 text-sm mt-1 lg:line-clamp-3 line-clamp-2 pr-4">{item.spec || ''} </p>
+                                <p className="text-gray-500 text-sm mt-1">{item.tireType || ''} </p>
                             </div>
-                            <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
-                            <div className="flex place-items-center justify-between absolute bottom-3  mt-2">
+                            <p className="text-gray-500 absolute bottom-14  text-sm "><StarRating rating={item.rating || '0'} /></p>
+                            <div className="flex items-center justify-between absolute bottom-3  mt-2">
                                 <Link href={item.link || ''} className="bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800">Buy now</Link>
                             </div>
                         </div>
@@ -145,19 +145,19 @@ export function Rims({ data }: { data: TopProducts[] }) {
                     </div>
                 </Link>
             </header>
-            <div className=" pb-3 md:px-10  lg:mx-20">
+            <div className=" pb-3 md:px-10  lg:mx-10">
                 <Slider {...settings}>
                     {data[0].topProducts.map((item, index) => (
-                        <div key={index} className="bg-slate-100 min-w-[195px] sm:min-w-[180px] max-w-[195px] min-h-[400px]  justify-center rounded-lg shadow-lg p-4 px-6">
+                        <div key={index} className="bg-slate-100  min-w-[155px]  max-w-[175px]  min-h-[415px] max-h-[430px] justify-center rounded-lg shadow-lg  md:py-4 p-4 ">
                             <div className="relative overflow-hidden">
-                                <img className="object-contain w-[150px] h-[150px] rounded-lg" src={item.URL} alt="Product" />
+                                <img className="object-contain w-[175px] h-[175px] sm:w-[130px] sm:h-[130px] rounded-lg" src={item.URL} alt="Product" />
                             </div>
-                            <h3 className="text-md font-bold text-gray-900 mt-2 line-clamp-2">{item.name || "Product Name"}</h3>
+                            <h3 className="text-md font-bold text-gray-900 mt-2 lg:line-clamp-3 line-clamp-2">{item.name || "Product Name"}</h3>
                             <div className="flex items-center justify-between mt-2">
-                                <p className="text-gray-500 text-sm mt-2 line-clamp-2 pr-4">{item.spec || ''} </p>
+                                <p className="text-gray-500 text-sm mt-2 lg:line-clamp-3 line-clamp-2 pr-4">{item.spec || ''} </p>
                                 <p className="text-gray-500 text-sm mt-2">{item.rimType || ''} </p>
                             </div>
-                            <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
+                            <p className="text-gray-500 text-sm absolute bottom-14 mt-2"><StarRating rating={item.rating || '0'} /></p>
                             <div className="flex items-center justify-between absolute bottom-3 mt-2">
                                 <Link href={item.link || ""} className="bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800">Buy now</Link>
                             </div>
@@ -183,18 +183,18 @@ export function Accessories({ data }: { data: TopProducts[] }) {
                     </div>
                 </Link>
             </header>
-            <div className=" pb-3 md:px-10  lg:mx-20">
+            <div className=" pb-3 md:px-10  lg:mx-10">
                 <Slider {...settings}>
                     {data[0].topProducts.map((item, index) => (
-                        <div key={index} className="bg-slate-100 min-w-[195px] sm:min-w-[180px] max-w-[195px] min-h-[400px]  justify-center rounded-lg shadow-lg p-4 px-6">
+                        <div key={index} className="bg-slate-100  min-w-[155px]  max-w-[175px]  min-h-[415px] max-h-[430px] justify-center rounded-lg shadow-lg  md:py-4 p-4 ">
                             <div className="relative overflow-hidden">
-                                <img className="object-contain w-[150px] h-[150px] rounded-lg" src={item.URL} alt="Product" />
+                                <img className="object-contain w-[175px] h-[175px] sm:w-[130px] sm:h-[130px] rounded-lg" src={item.URL} alt="Product" />
                             </div>
-                            <h3 className="text-md font-bold text-gray-900 mt-2  line-clamp-2">{item.name || "Product Name"}</h3>
+                            <h3 className="text-md font-bold text-gray-900 mt-2  lg:line-clamp-3 line-clamp-2">{item.name || "Product Name"}</h3>
                             <div className="flex items-center justify-between mt-2">
-                                <p className="text-gray-500 text-sm mt-2 line-clamp-2">{item.spec || ''} </p>
+                                <p className="text-gray-500 text-sm mt-2 lg:line-clamp-3 line-clamp-2">{item.spec || ''} </p>
                             </div>
-                            <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
+                            <p className="text-gray-500 text-sm absolute bottom-14 mt-2"><StarRating rating={item.rating || '0'} /></p>
                             <div className="flex items-center justify-between mt-2 absolute bottom-3">
                                 <Link href={item.link || ""} className="bg-gray-900 text-white py-2 px-4  rounded-full font-bold hover:bg-gray-800">Buy now</Link>
                             </div>

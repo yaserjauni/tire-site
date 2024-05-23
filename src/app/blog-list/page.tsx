@@ -5,6 +5,7 @@ import Link from "next/link";
 import Header from "../_components/header";
 import Footer from "../_components/footer";
 import { getPostData, Post } from "../_components/homePage";
+import { title } from "process";
 
 
 
@@ -22,22 +23,22 @@ export default async function BlogList() {
                         </div>
                     </div>
 
-                    <div className="flex flex-wrap justify-center items-center gap-5">
+                    <div className="flex flex-wrap justify px-4 gap-5">
 
                         {data.map((post: Post, index: number) => (
-                            <div key={index} className="items-center  h-[425px] w-[300px] px-2 text-xs font-medium text-center text-black py-1 bg-slate-100 rounded-lg hover:shadow-xl shadow-md">
-                                <Link className="text-zinc-500 " href={`/blog/${post.currentSlug}`}>
+                            <div key={index} className="items-center  h-[400px] w-[275px] px-2 text-xs font-medium text-center text-black py-1 bg-slate-100 rounded-lg hover:shadow-xl shadow-md">
+                                <Link className="text-zinc-500 " href={`/blog/${post.currentSlug}`} title={post.title}>
                                     <div className="flex flex-col items-center px-2 text-xs font-medium text-center text-black">
                                         <div>
                                             <Image className="object-cover aspect-square rounded-md self-center " src={post.URL} width={200} height={200} alt="Image" />
                                         </div>
-                                        <div className="mt-5 text-lg line-clamp-3 font-semibold hover:underline leading-6">
+                                        <div className="mt-5 text-base line-clamp-3 font-semibold hover:underline leading-6">
                                             {post.title}
                                         </div>
-                                        <div className="mt-5 text-sm leading-4 line-clamp-2 text-neutral-800">
+                                        <div className="mt-5 text-xs leading-4 line-clamp-2 text-neutral-800">
                                             {post.desc}{" "}
                                         </div>
-                                        <div className=" text-red-500 hover:underline mt-2 text-sm leading-5">
+                                        <div className=" text-red-500 hover:underline mt-2 text-xs leading-5">
                                             Read more...
                                         </div>
                                     </div>

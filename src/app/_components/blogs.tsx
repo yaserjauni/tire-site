@@ -8,7 +8,7 @@ export function Blogs({ data }: { data: Post[] }) {
     var settings = {
         dots: true,
         infinite: true,
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 1,
         initialSlide: 1,
         autoplay: true,
@@ -37,7 +37,7 @@ export function Blogs({ data }: { data: Post[] }) {
                     dots: true,
                     infinite: true,
                     speed: 700,
-                    slidesToShow: 2,
+                    slidesToShow: 3,
                     slidesToScroll: 1,
                     initialSlide: 1,
                     autoplay: true,
@@ -51,7 +51,7 @@ export function Blogs({ data }: { data: Post[] }) {
                     dots: true,
                     infinite: true,
                     speed: 700,
-                    slidesToShow: 1,
+                    slidesToShow: 2,
                     slidesToScroll: 1,
                     initialSlide: 1,
                     autoplay: true,
@@ -69,7 +69,7 @@ export function Blogs({ data }: { data: Post[] }) {
                     <div className="items-start self-start pt-4 pr-4 pb-4 pl-4 md:pl-16 md:text-2xl text-xl font-semibold  text-white ">
                         Blogs
                     </div>
-                    <Link className="flex justify-center" href={'/product/Tire'}>
+                    <Link className="flex justify-center" href={'/blog-list'}>
                         <div className="items-start self-end pt-4 pr-4 pb-4 md:pr-16 md:text-2xl text-xl font-semibold underline text-white ">
                             Show All
                         </div>
@@ -78,19 +78,19 @@ export function Blogs({ data }: { data: Post[] }) {
                 <div className=" overflow-visible md:m-10 ">
                     <Slider {...settings}>
                         {data.map((post: Post, index: number) => (
-                            <div key={index} className="items-center lg:h-[500px] md:h-[450px] sm:h-[300px] w-[300px] px-2 text-xs font-medium text-center text-black py-1 bg-slate-100 rounded-lg hover:shadow-xl shadow-md">
-                                <Link className="text-zinc-500 " href={`/blog/${post.currentSlug}`}>
-                                    <div className="flex flex-col items-center px-2 text-xs font-medium text-center text-black">
+                            <div key={index} className="items-center h-[375px] lg:max-h-[500px] lg:min-h-[500px]  w-[300px] px-2 text-xs font-medium text-center text-black py-1 bg-slate-100 rounded-lg hover:shadow-xl shadow-md">
+                                <Link className="text-zinc-500 " href={`/blog/${post.currentSlug}`} title={post.title}>
+                                    <div className="flex flex-col  px-2  font-medium text-left text-black">
                                         <div>
                                             <Image className="object-cover aspect-square rounded-md self-center " src={post.URL} width={400} height={400} alt="Image" />
                                         </div>
-                                        <div className="mt-5 text-lg font-semibold hover:underline line-clamp-2 leading-6">
+                                        <div className="mt-5 text-lg md:text-base font-semibold  hover:underline line-clamp-3 leading-6">
                                             {post.title}
                                         </div>
-                                        <div className="mt-5 text-sm leading-4 line-clamp-2 text-neutral-800">
+                                        <div className="mt-5 text-sm leading-4 line-clamp-3  text-neutral-800">
                                             {post.desc}{" "}
                                         </div>
-                                        <div className=" text-red-500 hover:underline mt-2 text-sm leading-5">
+                                        <div className=" text-red-500 text-center hover:underline mt-2 text-sm leading-5">
                                             Read more...
                                         </div>
                                     </div>
