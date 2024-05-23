@@ -8,7 +8,7 @@ export function Blogs({ data }: { data: Post[] }) {
     var settings = {
         dots: true,
         infinite: true,
-        slidesToShow: 5,
+        slidesToShow: 4,
         slidesToScroll: 1,
         initialSlide: 1,
         autoplay: true,
@@ -37,7 +37,7 @@ export function Blogs({ data }: { data: Post[] }) {
                     dots: true,
                     infinite: true,
                     speed: 700,
-                    slidesToShow: 3,
+                    slidesToShow: 2,
                     slidesToScroll: 1,
                     initialSlide: 1,
                     autoplay: true,
@@ -51,7 +51,7 @@ export function Blogs({ data }: { data: Post[] }) {
                     dots: true,
                     infinite: true,
                     speed: 700,
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1,
                     initialSlide: 1,
                     autoplay: true,
@@ -61,6 +61,7 @@ export function Blogs({ data }: { data: Post[] }) {
             }
         ]
     };
+
 
     return (
         <section>
@@ -78,23 +79,22 @@ export function Blogs({ data }: { data: Post[] }) {
                 <div className=" overflow-visible md:m-10 ">
                     <Slider {...settings}>
                         {data.map((post: Post, index: number) => (
-                            <div key={index} className="items-center h-[375px] lg:max-h-[500px] lg:min-h-[500px]  w-[300px] px-2 text-xs font-medium text-center text-black py-1 bg-slate-100 rounded-lg hover:shadow-xl shadow-md">
-                                <Link className="text-zinc-500 " href={`/blog/${post.currentSlug}`} title={post.title}>
-                                    <div className="flex flex-col  px-2  font-medium text-left text-black">
-                                        <div>
-                                            <Image className="object-cover aspect-square rounded-md self-center " src={post.URL} width={400} height={400} alt="Image" />
-                                        </div>
-                                        <div className="mt-5 text-lg md:text-base font-semibold  hover:underline line-clamp-3 leading-6">
-                                            {post.title}
-                                        </div>
-                                        <div className="mt-5 text-sm leading-4 line-clamp-3  text-neutral-800">
-                                            {post.desc}{" "}
-                                        </div>
-                                        <div className=" text-red-500 text-center hover:underline mt-2 text-sm leading-5">
-                                            Read more...
-                                        </div>
+                            <div key={index} className="items-center h-[500px] w-[300px] px-2 text-xs font-medium text-center text-black py-1 bg-slate-100 rounded-lg hover:shadow-xl shadow-md">                                <Link className="text-zinc-500 " href={`/blog/${post.currentSlug}`} title={post.title}>
+                                <div className="flex flex-col  px-2  font-medium text-center text-black">
+                                    <div>
+                                        <Image className="object-cover aspect-square rounded-md self-center " src={post.URL} width={400} height={400} alt="Image" />
                                     </div>
-                                </Link>
+                                    <div className="mt-5 text-lg md:text-base font-semibold  hover:underline line-clamp-3 leading-6">
+                                        {post.title}
+                                    </div>
+                                    <div className="mt-5 text-sm leading-4 line-clamp-3 sm:line-clamp-2 text-neutral-800">
+                                        {post.desc}{" "}
+                                    </div>
+                                    <div className=" text-red-500 text-center hover:underline mt-2 text-sm leading-5">
+                                        Read more...
+                                    </div>
+                                </div>
+                            </Link>
                             </div>
                         ))}
                     </Slider>
