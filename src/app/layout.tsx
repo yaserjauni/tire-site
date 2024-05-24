@@ -7,7 +7,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Tire Empire",
-  description: "Tire Empire Website",
+  description: "Discover the best deals on winter and all-season tires, both new and used, in various widths, sizes, and profiles. Our website also offers a selection of top picks, including options with rims.",
+  verification: {
+    google: 'TOZK4k9D1lqazSXDf0n1gEAGhqjxao2eUFPZNhZiudY',
+  }
 };
 
 export default function RootLayout({
