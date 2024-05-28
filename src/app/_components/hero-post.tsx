@@ -14,9 +14,9 @@ export async function HeroPost(): Promise<JSX.Element> {
           <div className="flex flex-col max-w-full w-[1260px] ">
             <div className="flex  items-center self-center text-4xl font-semibold leading-10 text-center text-white uppercase max-md:flex-wrap">
 
-              <div className="self-stretch ">
+              <h3 className="self-stretch ">
                 Our Services Include
-              </div>
+              </h3>
 
             </div>
             <div className="justify-center pt-2.5 pl-2.5 mt-8 max-w-[1260px]  ">
@@ -28,44 +28,42 @@ export async function HeroPost(): Promise<JSX.Element> {
                       src="/flat.svg"
                       className="max-w-full aspect-square w-[143px]"
                     />
-                    <div className="mt-6 text-3xl font-semibold tracking-wider">
+                    <h2 className="mt-6 text-3xl font-semibold tracking-wider">
                       Flat Tire Service
-                    </div>
-                    <div className="self-stretch mt-4 text-base leading-8">
-                      we are specialize in preforming the most reliablbe patch
-                      inside your tire.
-                    </div>
+                    </h2>
+                    <h1 className="self-stretch mt-4 text-base leading-8">
+                      We specialize in performing the most reliable patch inside your tire in the Kitchener-Waterloo-Cambridge area.
+                    </h1>
                   </div>
                 </div>
                 <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
                   <div className="flex flex-col grow self-stretch text-center text-white max-md:mt-8">
                     <img
                       loading="lazy"
-                      src="/install.svg"
+                      src="/recycle.svg"
                       className="self-center max-w-full aspect-square w-[150px]"
                     />
-                    <div className="mt-6 text-3xl font-semibold tracking-wider leading-9">
+                    <h2 className="mt-6 text-3xl font-semibold tracking-wider leading-9">
                       Tire Installation & Balancing
-                    </div>
-                    <div className="mt-4 text-base leading-8">
-                      we offer fast and proffesional tire installtion & balancing
-                      by using the best tire changer on the market
-                    </div>
+                    </h2>
+                    <h1 className="mt-4 text-base leading-8">
+                      We offer fast and professional tire installation & balancing by using the best tire changer on the market in Kitchener-Waterloo-Cambridge.
+                    </h1>
                   </div>
                 </div>
                 <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
                   <div className="flex flex-col items-center self-stretch text-center text-white max-md:mt-8">
                     <img
                       loading="lazy"
-                      src="/recycle.svg"
+                      src="/recycle2.png"
                       className="max-w-full aspect-square w-[150px]"
                     />
-                    <div className="mt-6 text-3xl font-semibold tracking-wider">
+                    <h2 className="mt-6 text-3xl font-semibold tracking-wider">
                       Tire Recycling
-                    </div>
-                    <div className="self-stretch mt-4 text-base leading-8">
-                      we offer free tire recyling for everyone at our location.
-                    </div>
+                    </h2>
+                    <h1 className="self-stretch mt-4 text-base leading-8">
+                      We offer free tire recycling for everyone at our location in Kitchener-Waterloo-Cambridge.
+                    </h1>
                   </div>
                 </div>
                 <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
@@ -82,7 +80,7 @@ export async function HeroPost(): Promise<JSX.Element> {
                       Sell your used Tires
                     </div>
                     <div className="self-stretch mt-4 text-base leading-8">
-                      we buy your used tires contact us for price.
+                      We offer top dollers for used tires in Kitchener - Waterloo - Cambridge area
                     </div>
                   </div>
                 </div>

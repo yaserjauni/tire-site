@@ -21,7 +21,7 @@ export function UsedRims({ data }: { data: UsedProducts[] }) {
                     <div className="bg-gray-900 py-16">
                         <div className="container mx-auto px-4">
                             <div className="flex flex-row justify-between">
-                                <h2 className="text-3xl font-bold text-white mb-8">Used Rims in Stock</h2>
+                                <h1 className="text-3xl font-bold text-white mb-8">High Quality Used Rims in Kitchener - Waterloo - Cambridge</h1>
                                 <div className="relative">
                                     <select
                                         className="text-lg md:text-xl font-bold rounded text-center border-2 border-purple-700 text-gray-600 h-12 w-25 pr-10 pl-2 bg-white hover:border-gray-400 focus:outline-none appearance-none"

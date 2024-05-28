@@ -25,9 +25,9 @@ export async function SingleTires() {
             {data.map((item, index) => (
                 <div key={index} className="flex relative flex-col mt-2 max-w-full">
 
-                    <div className="self-center text-4xl font-extrabold leading-10 text-center uppercase ">
+                    <h1 className="self-center text-3xl font-extrabold leading-10 text-center uppercase ">
                         {item.name}
-                    </div>
+                    </h1>
                     <div className=" gap-5 justify-center self-center md:columns-2 w-full mt-10   text-xl tracking-wider leading-7 ">
 
                         <div className="justify-center self-center grid md:grid-cols-2 ">
