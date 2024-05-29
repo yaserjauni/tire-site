@@ -83,7 +83,7 @@ export async function getPostData(): Promise<Post[]> {
     body,
     "authorPic": author->image  
     }`
-    const data = await client.fetch<Post[]>(query, {}, { cache: 'default' });
+    const data = await client.fetch<Post[]>(query, {}, { cache: 'no-cache' });
     data.forEach(post => {
         post.URL = urlForImage(post.mainImage);
     });
