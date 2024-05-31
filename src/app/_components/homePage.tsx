@@ -147,7 +147,7 @@ export async function HomePage() {
     const tiredata = await getTopData('New Tires | Top Picks');
     const rimData = await getTopData('New Rims | Top Picks');
     const accData = await getTopData('New Accessories');
-    const whiteLetterData = await getTopData('White Letter');
+    const whiteLetterData = await getTopData('White Letter ');
     const blogs = await getPostData();
 
     // console.log(top[0]);
