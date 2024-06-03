@@ -16,6 +16,19 @@ export default defineType({
             type: 'array',
             of: [{ type: 'reference', to: { type: 'products' } }],
         }),
+        defineField({
+            name: 'category',
+            title: 'Category',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'Tire', value: 'Tire' },
+                    { title: 'Accessories', value: 'Accessories' },
+                    { title: 'Rims', value: 'Rims' },
+                ],
+                layout: 'radio', // This makes it a three-way selection
+            },
+        }),
     ],
 
     preview: {

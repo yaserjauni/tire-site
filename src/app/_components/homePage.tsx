@@ -55,7 +55,9 @@ export interface ImageSlideData {
     }[];
 }
 export interface TopProducts {
+    title: string;
     topProducts: Products[];
+    category: string;
 }
 export interface Post {
     title: string;
@@ -108,16 +110,21 @@ export async function getData(category: string): Promise<Products[]> {
     });
     return data;
 }
-export async function getTopData(category: string): Promise<TopProducts[]> {
+export async function getTopData(): Promise<TopProducts[]> {
 
-    const query = `*[_type == 'topPicks'  && title == '${category}']{
-        
+    const query = `*[_type == 'topPicks']{
+        title,
         topProducts[]->,
+        category
     }`
     const data = await client.fetch<TopProducts[]>(query, {}, { cache: 'default' });
-    data[0].topProducts.forEach(product => {
-        product.URL = urlForImage(product.productImage);
+
+    data.forEach(category => {
+        category.topProducts.forEach(product => {
+            product.URL = urlForImage(product.productImage);
+        });
     });
+
     return data;
 }
 export async function getAllData(): Promise<UsedProducts[]> {
@@ -144,10 +151,8 @@ export async function getDisplay(): Promise<string[]> {
 
 export async function HomePage() {
     const data = await getAllData();
-    const tiredata = await getTopData('New Tires | Top Picks');
-    const rimData = await getTopData('New Rims | Top Picks');
-    const accData = await getTopData('New Accessories');
-    const whiteLetterData = await getTopData('White Letter ');
+    const tiredata = await getTopData();
+
     const blogs = await getPostData();
 
     // console.log(top[0]);
@@ -156,30 +161,11 @@ export async function HomePage() {
         <main className=" hide-scrollbar relative pb-5">
             <Intro />
             <HeroPost />
-            <header className="flex flex-row justify-between border-t bg-violet-950 z-5 mb-5">
-                <div className="items-start self-start pt-4 pr-4 pb-4 pl-4 md:pl-16  md:text-2xl text-xl font-semibold text-white ">
-                    New Tires | Top Picks
-                </div>
-                <Link className="flex justify-center" href={'/product/Tire'}>
-                    <div className="items-start self-end pt-4 pr-4 pb-4  md:pr-16 md:text-2xl text-xl font-semibold underline text-white ">
-                        Show All
-                    </div>
-                </Link>
-            </header>
+
             <Tires data={tiredata} />
-            <Rims data={rimData} />
-            <Accessories data={accData} />
-            <header className="flex flex-row justify-between border-t bg-violet-950 z-5 mb-5">
-                <div className="items-start self-start pt-4 pr-4 pb-4 pl-4 md:pl-16  md:text-2xl text-xl font-semibold text-white ">
-                    White Letter Tires | Top Picks
-                </div>
-                <Link className="flex justify-center" href={'/product/Tire'}>
-                    <div className="items-start self-end pt-4 pr-4 pb-4  md:pr-16 md:text-2xl text-xl font-semibold underline text-white ">
-                        Show All
-                    </div>
-                </Link>
-            </header>
-            <Tires data={whiteLetterData} />
+            {/*<Rims data={rimData} />
+            <Accessories data={accData} />s
+            <Tires data={whiteLetterData} /> */}
             <Blogs data={blogs} />
         </main>
     );
