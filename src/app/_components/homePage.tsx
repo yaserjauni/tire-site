@@ -104,7 +104,7 @@ export async function getData(category: string): Promise<Products[]> {
         tireType,
         productImage,
     }`
-    const data = await client.fetch<Products[]>(query, {}, { cache: 'default' });
+    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-cache' });
     data.forEach(product => {
         product.URL = urlForImage(product.productImage);
     });
@@ -117,7 +117,7 @@ export async function getTopData(): Promise<TopProducts[]> {
         topProducts[]->,
         category
     }`
-    const data = await client.fetch<TopProducts[]>(query, {}, { cache: 'default' });
+    const data = await client.fetch<TopProducts[]>(query, {}, { cache: 'no-cache' });
 
     data.forEach(category => {
         category.topProducts.forEach(product => {
@@ -136,14 +136,14 @@ export async function getAllData(): Promise<UsedProducts[]> {
         tireType,
         productImage,
     }`
-    const data = await client.fetch<UsedProducts[]>(query, {}, { cache: 'default' });
+    const data = await client.fetch<UsedProducts[]>(query, {}, { cache: 'no-cache' });
     return data;
 }
 export async function getDisplay(): Promise<string[]> {
     const query = `*[_type == 'imageSlide']{
         display,
     }`
-    const data = await client.fetch<ImageSlideData[]>(query, {}, { cache: 'default' });
+    const data = await client.fetch<ImageSlideData[]>(query, {}, { cache: 'no-cache' });
     // Extract image URLs from data and return as an array of strings
     const imageUrls = data[0].display.map((image: Image) => urlForImage(image));
     return imageUrls;
