@@ -22,9 +22,13 @@ async function getParaData(parameter: string): Promise<Products[]> {
         tireType,
         productImage,
     }`;
-    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-store' });
+    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-cache' });
     data.forEach(product => {
-        product.URL = urlForImage(product.productImage);
+        if (product.productImage) {
+            product.URL = urlForImage(product.productImage);
+        } else {
+            product.URL = '';
+        }
     });
     return data;
 }
