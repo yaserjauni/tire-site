@@ -9,7 +9,8 @@ import singleTires from './schemaTypes/single-tires'
 import usedProducts from './schemaTypes/used-products'
 import imageSlide from './schemaTypes/image-slide'
 import topPicks from './schemaTypes/top-picks'
+import listing from './schemaTypes/listing'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post, author, blockContent, topPicks, products, usedProducts, singleTires, imageSlide],
+  types: [post, author, blockContent, topPicks, products, usedProducts, singleTires, imageSlide, listing],
 }

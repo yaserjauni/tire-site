@@ -104,11 +104,11 @@ export default async function BlogPage({ params }: { params: { slug: string } })
                         content={data[0].body}
                     />
                     {data[0].relatedProducts && (
-                        <div className="md:w-1/4 md:justify-end md:pl-20 ">
+                        <div className="md:w-1/4 md:justify-end md:pl-20 mt-7 ">
                             <div className="md:relative right-0 mb-3 md:text-2xl text-xl font-semibold text-Black ">
                                 Related Products
                             </div>
-                            <div className="md:absolute md:right-5 overflow-scroll md:overflow-x-hidden flex flex-row md:flex-col pb-3 md:pl-3 md:ml-10 mx-3 gap-10">
+                            <div className="md:absolute right-14 max-h-[130vh] overflow-scroll md:overflow-x-hidden flex flex-row md:flex-col pb-3 md:pl-3 md:ml-10 mx-10 gap-10">
                                 {data[0].relatedProducts.map((item, index) => (
                                     <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] justify-evenly rounded-lg shadow-lg p-4">
                                         <div className="relative overflow-hidden">
