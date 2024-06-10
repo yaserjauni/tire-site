@@ -42,7 +42,7 @@ const SampleListingComponent = ({ value }: { value: any }) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row-reverse p-2 m-2 hover:shadow-lg">
       <img
-        src={productImage || '/logo.png'}
+        src={productImage ? urlForImage(productImage) : '/logo.png'}
         alt={title}
         className="h-32 w-full md:w-32 object-contain"
       />
