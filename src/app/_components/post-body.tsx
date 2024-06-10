@@ -40,19 +40,19 @@ const SampleListingComponent = ({ value }: { value: any }) => {
   const { title, description, productImage, rating, link } = value;
 
   return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row-reverse p-2 m-2 hover:shadow-lg">
+    <div className="bg-gray-50 rounded-lg overflow-hidden shadow-md border-slate-950 border-2 flex flex-col md:flex-row-reverse m-5 md:p-1 md:mr-20 hover:shadow-lg">
       <img
         src={productImage ? urlForImage(productImage) : '/logo.png'}
         alt={title}
-        className="h-32 w-full md:w-32 object-contain"
+        className="h-40 w-full md:w-32 object-contain"
       />
-      <div className="p-4 flex flex-col flex-1 justify-between md:px-10">
+      <div className="p-2 flex flex-col flex-1 justify-between md:px-10">
         <div>
           <h2 className="text-xl font-semibold">{title || ""}</h2>
-          <p className="text-gray-600 md:line-clamp-3 line-clamp-4 pt-3 md:pl-3 leading-snug">{description || ""}</p>
+          <p className="text-gray-600 md:line-clamp-2 line-clamp-3 pt-3 md:pl-3 text-xs md:text-base leading-snug">{description || ""}</p>
         </div>
-        <div className="flex items-center justify-between mt-4 px-2">
-          <a href={link || ""} className="bg-red-500 hover:bg-red-400 text-white font-bold py-1 px-2 border-b-4 border-red-700 hover:border-red-500 rounded">Check Price</a>
+        <div className="flex items-center justify-between mt-4 px-2 gap-5">
+          <a href={link || ""} className="bg-red-500 hover:bg-red-400 text-white font-bold text-xs md:text-base py-1 px-2 border-b-4 border-red-700 hover:border-red-500 rounded">Check Price</a>
           <p className="text-gray-700"><StarRating rating={rating || "0"} /></p>
         </div>
       </div>
