@@ -10,6 +10,7 @@ import { Tires } from "@/app/_components/affiliate";
 import Link from "next/link";
 import { getPostData } from "@/app/_components/homePage";
 import { StarRating } from "@/app/_components/star-rating";
+import { RelatedProducts } from "@/app/_components/side-products";
 
 export interface Products {
 
@@ -26,6 +27,7 @@ export interface Products {
             _type: "reference";
         };
     };
+    URL: string;
 }
 interface Post {
     title: string;
@@ -46,22 +48,6 @@ interface Post {
     };
     body: TypedObject;
     relatedProducts: Products[];
-
-}
-async function getAllData(): Promise<Post[]> {
-
-    const query = `*[_type == 'post'] | order(publishedAt asc){
-    title,
-    "name": author->name,
-    publishedAt,
-    mainImage,
-    body,
-    "authorPic": author->image,
-    relatedProducts[]-> ,
-
-    }`
-    const data = await client.fetch<Post[]>(query, {}, { cache: 'no-store' });
-    return data;
 }
 async function getData(slug: string): Promise<Post[]> {
 
@@ -74,7 +60,14 @@ async function getData(slug: string): Promise<Post[]> {
     "authorPic": author->image,
     relatedProducts[]-> ,
     }`
-    const data = await client.fetch<Post[]>(query, {}, { cache: 'no-store' });
+    const data = await client.fetch<Post[]>(query, {}, { cache: 'no-cache' });
+    data.forEach(post => {
+        post.relatedProducts.forEach(product => {
+            if (product.productImage?.asset?._ref) {
+                product.URL = urlForImage(product.productImage);
+            }
+        });
+    });
     return data;
 }
 
@@ -99,35 +92,18 @@ export default async function BlogPage({ params }: { params: { slug: string } })
                     }}
                 />
                 {/* post-body */}
-                <main className="md:flex flex-col w-full md:flex-row  justify-between">
+                <main className="md:flex flex-col w-full md:flex-row md:w-5/6 justify-between">
                     <PostBody
                         content={data[0].body}
                     />
                     {data[0].relatedProducts && (
-                        <div className="md:w-1/4 md:justify-end md:pl-20 mt-7 ">
-                            <div className="md:relative right-0 mb-3 md:text-2xl text-xl font-semibold text-Black ">
+                        <div className="md:w-1/5 md:justify-end ">
+                            <div className="pt-7 md:text-2xl text-xl font-semibold text-Black ">
                                 Related Products
                             </div>
-                            <div className="md:absolute right-14 max-h-[130vh] overflow-scroll md:overflow-x-hidden flex flex-row md:flex-col pb-3 md:pl-3 md:ml-10 mx-10 gap-10">
-                                {data[0].relatedProducts.map((item, index) => (
-                                    <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] justify-evenly rounded-lg shadow-lg p-4">
-                                        <div className="relative overflow-hidden">
-                                            <img className="object-fill w-[150px] h-[150px] rounded-lg" src={urlForImage(item.productImage)} alt="Product" />
-                                        </div>
-                                        <h3 className="text-md font-bold text-gray-900 mt-2 line-clamp-1">{item.name || "Product Name"}</h3>
-                                        <div className="flex items-center justify-between mt-2">
-                                            <p className="text-gray-500 text-sm mt-2">{item.spec || ''} </p>
-                                            <p className="text-gray-500 text-sm mt-2">{item.tireType || ''} </p>
-                                        </div>
-                                        <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
-                                        <div className="flex items-center justify-between mt-2">
-                                            <Link href={item.link || ""} className="bg-gray-900 text-white py-2 px-4  rounded-full font-bold hover:bg-gray-800">Buy now</Link>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
 
+                            <RelatedProducts data={data[0].relatedProducts} />
+                        </div>
 
                     )}
                 </main>
