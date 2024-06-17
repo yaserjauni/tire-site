@@ -17,6 +17,7 @@ export interface Products {
     name: string;
     spec: string;
     link: string;
+    btn: string;
     rating: string;
     category: string;
     rimType: string;

@@ -68,7 +68,7 @@ export function RelatedProducts({ data }: { data: Products[] }) {
                             <StarRating rating={item.rating || '0'} />
                         </div>
                         <div className="flex items-center justify-between mt-2">
-                            <Link href={item.link || ""} className="bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800">Buy now</Link>
+                            <Link href={item.link || "/contact-us"} className="bg-gray-900 text-white py-2 px-5 rounded-full font-bold text-xs hover:bg-gray-800">{item.link ? (item.btn ? item.btn : "Buy Now") : "Contact Us"}</Link>
                         </div>
                     </div>
                 ))}
