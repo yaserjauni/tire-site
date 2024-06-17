@@ -56,7 +56,7 @@ export function SearchResult({ data }: { data: Products[] }) {
                                         <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
                                         <div className="flex items-center justify-between mt-2">
                                             {/* <span className="text-gray-900 font-bold text-lg">${item.price || 0}</span> */}
-                                            <Link href={item.link || "/contact-us"} className="bg-gray-900 text-white py-2 px-6 rounded-full font-bold hover:bg-gray-800">{item.link ? "Buy Now" : "Contact Us"}</Link>
+                                            <Link href={item.link || "/contact-us"} className="bg-gray-900 text-white py-2 px-6 rounded-full font-bold hover:bg-gray-800">{item.link ? (item.btn ? item.btn : "Buy Now") : "Contact Us"}</Link>
                                         </div>
                                     </div>
                                 ))}

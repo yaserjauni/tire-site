@@ -18,6 +18,7 @@ export interface Products {
     name: string;
     spec: string;
     link: string;
+    btn: string;
     rating: string;
     category: string;
     rimType: string;
@@ -94,10 +95,10 @@ export async function getPostData(): Promise<Post[]> {
 export async function getData(category: string): Promise<Products[]> {
 
     const query = `*[_type == 'products'  && category == '${category}']{
-        
         name,
         spec,
         link,
+        btn,
         rating,
         category,
         rimType,

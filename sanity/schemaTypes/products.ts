@@ -22,6 +22,11 @@ export default defineType({
             type: 'string',
         }),
         defineField({
+            name: 'btn',
+            title: 'Button label',
+            type: 'string',
+        }),
+        defineField({
             name: 'productImage',
             title: 'Product image',
             type: 'image',
