@@ -12,17 +12,17 @@ import { urlForImage } from "../../../../sanity/lib/image";
 async function getParaData(parameter: string): Promise<Products[]> {
 
 
-    const query = `*[ category == '${parameter}' || type == 'used-tire'] {
+    const query = `*[ category == '${parameter}'] {
         name,
         spec,
-        link,
+        buttons,
         rating,
         category,
         rimType,
         tireType,
         productImage,
     }`;
-    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-cache' });
+    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-store' });
     data.forEach(product => {
         if (product.productImage) {
             product.URL = urlForImage(product.productImage);

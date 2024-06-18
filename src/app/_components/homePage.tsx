@@ -3,7 +3,7 @@ import { Blogs } from "./blogs";
 import { HeroPost } from "./hero-post";
 import { Intro } from "./intro";
 import { Brands } from "./brands";
-import { Accessories, Rims, Tires } from "./affiliate";
+import { Tires } from "./affiliate";
 import { Search } from "./search";
 import { client } from "../../../sanity/lib/client";
 
@@ -14,11 +14,9 @@ import Link from "next/link";
 
 
 export interface Products {
-
     name: string;
     spec: string;
-    link: string;
-    btn: string;
+    buttons: { btnlink: string; btnText: string; }[];
     rating: string;
     category: string;
     rimType: string;
@@ -97,8 +95,7 @@ export async function getData(category: string): Promise<Products[]> {
     const query = `*[_type == 'products'  && category == '${category}']{
         name,
         spec,
-        link,
-        btn,
+        buttons,
         rating,
         category,
         rimType,

@@ -18,14 +18,14 @@ async function getParaData(): Promise<Products[]> {
         name,
         spec,
         link,
-        btn,
+        buttons,
         rating,
         category,
         rimType,
         tireType,
         productImage,
     }`;
-    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-store' });
+    const data = await client.fetch<Products[]>(query, {}, { cache: 'no-cache' });
     return data;
 }
 
@@ -53,9 +53,21 @@ export default async function AccPage() {
                                         <p className="text-gray-500 text-sm mt-1">{item.tireType || ''} </p>
                                     </div>
                                     <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
-                                    <div className="flex items-center justify-between mt-2">
-                                        {/* <span className="text-gray-900 font-bold text-lg">${item.price || 0}</span> */}
-                                        <Link href={item.link || "/contact-us"} className="bg-gray-900 text-white py-2 px-5 rounded-full font-bold text-xs hover:bg-gray-800">{item.link ? (item.btn ? item.btn : "Buy Now") : "Contact Us"}</Link>
+                                    <div className="flex items-center justify-center mt-2">
+                                        <div className="flex flex-col items-center justify-between mt-2 space-y-2">
+                                            {item.buttons && item.buttons.length > 0 ? (
+
+                                                item.buttons.map((button, btnIndex) => (
+                                                    <Link key={btnIndex} href={button.btnlink || "/contact-us"} className="bg-gray-900 text-white py-2 px-5 rounded-full justify-center items-center font-medium text-xs hover:bg-gray-800">
+                                                        {button.btnText ? button.btnText : "Contact Us"}
+                                                    </Link>
+                                                ))
+                                            ) : (
+                                                <Link href="/contact-us" className="bg-gray-900 text-white py-2 px-5 rounded-full font-medium text-xs hover:bg-gray-800">
+                                                    Contact Us
+                                                </Link>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             ))}

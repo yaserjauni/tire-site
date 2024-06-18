@@ -8,28 +8,10 @@ import { PostBody } from "@/app/_components/post-body";
 import { TypedObject } from "sanity";
 import { Tires } from "@/app/_components/affiliate";
 import Link from "next/link";
-import { getPostData } from "@/app/_components/homePage";
+import { getPostData, Products } from "@/app/_components/homePage";
 import { StarRating } from "@/app/_components/star-rating";
 import { RelatedProducts } from "@/app/_components/side-products";
 
-export interface Products {
-
-    name: string;
-    spec: string;
-    link: string;
-    btn: string;
-    rating: string;
-    category: string;
-    rimType: string;
-    tireType: string;
-    productImage: {
-        asset: {
-            _ref: string;
-            _type: "reference";
-        };
-    };
-    URL: string;
-}
 interface Post {
     title: string;
     name: string;

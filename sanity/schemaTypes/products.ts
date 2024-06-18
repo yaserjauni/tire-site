@@ -17,14 +17,16 @@ export default defineType({
             type: 'string',
         }),
         defineField({
-            name: 'link',
-            title: 'Link',
-            type: 'string',
-        }),
-        defineField({
-            name: 'btn',
-            title: 'Button label',
-            type: 'string',
+            name: 'buttons',
+            type: 'array',
+            title: 'Link Buttons',
+            of: [{
+                type: 'object',
+                fields: [
+                    { name: 'btnlink', type: 'string', title: 'Affiliate Link' },
+                    { name: 'btnText', type: 'string', title: 'Button Label' },
+                ],
+            }],
         }),
         defineField({
             name: 'productImage',
