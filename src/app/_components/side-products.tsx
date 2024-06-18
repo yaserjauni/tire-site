@@ -7,7 +7,11 @@ import { Products } from "./homePage";
 
 export function RelatedProducts({ data }: { data: Products[] }) {
     var settings = {
-        dots: true,
+        arrows: false,
+        easing: 'easeOutQuad',
+        draggable: true,
+        centerMode: true,
+        dots: false,
         infinite: true,
         slidesToShow: 4,
         slidesToScroll: 1,

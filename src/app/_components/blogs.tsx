@@ -6,7 +6,11 @@ import Slider from "react-slick";
 
 export function Blogs({ data }: { data: Post[] }) {
     var settings = {
-        dots: true,
+        arrows: true,
+        easing: 'easeOutQuad',
+        draggable: true,
+        centerMode: true,
+        dots: false,
         infinite: true,
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -48,6 +52,7 @@ export function Blogs({ data }: { data: Post[] }) {
             {
                 breakpoint: 480,
                 settings: {
+                    arrows: false,
                     dots: true,
                     infinite: true,
                     speed: 700,

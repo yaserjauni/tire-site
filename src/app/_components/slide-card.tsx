@@ -11,6 +11,7 @@ interface SlideCardProps {
 export const SlideCard: React.FC<SlideCardProps> = ({ imageUrls }) => {
 
     var settings = {
+        arrows: false,
         dots: false,
         infinite: true,
         slidesToShow: 5,

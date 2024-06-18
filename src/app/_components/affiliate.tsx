@@ -7,83 +7,67 @@ import { getData, Products, TopProducts } from "./homePage";
 import { StarRating } from "./star-rating";
 import { Console } from "console";
 import Slider from "react-slick";
+import { RiDraggable } from "react-icons/ri";
 
 var settings = {
+    arrows: true,
+    easing: 'easeOutQuad',
+    draggable: true,
+    centerMode: true,
     dots: false,
     infinite: true,
     slidesToShow: 7,
     slidesToScroll: 1,
     initialSlide: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 2400,
     pauseOnHover: false,
 
     responsive: [
         {
             breakpoint: 1400,
             settings: {
-                dots: false,
-                infinite: true,
                 slidesToShow: 6,
                 slidesToScroll: 1,
-                initialSlide: 1,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                pauseOnHover: false,
             }
         },
         {
             breakpoint: 1200,
             settings: {
-                dots: false,
-                infinite: true,
+
                 slidesToShow: 5,
                 slidesToScroll: 1,
-                initialSlide: 1,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                pauseOnHover: false,
+
             }
         },
         {
             breakpoint: 1024,
             settings: {
-                dots: false,
-                infinite: true,
+
                 slidesToShow: 4,
                 slidesToScroll: 1,
                 initialSlide: 1,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                pauseOnHover: false,
+
             }
         },
         {
             breakpoint: 768,
             settings: {
-                dots: false,
-                arrows: false,
-                infinite: true,
+
                 slidesToShow: 4,
                 slidesToScroll: 1,
                 initialSlide: 1,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                pauseOnHover: false,
+
             }
         },
         {
             breakpoint: 576,
             settings: {
-                dots: false,
-                arrows: false,
-                infinite: true,
+
                 slidesToShow: 2,
                 slidesToScroll: 1,
                 initialSlide: 1,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                pauseOnHover: false,
+
             }
         },
         {
