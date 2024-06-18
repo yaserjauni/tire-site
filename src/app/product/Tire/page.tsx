@@ -14,7 +14,7 @@ import { client } from "../../../../sanity/lib/client";
 async function getParaData(): Promise<Products[]> {
 
 
-    const query = `*[(_type == 'products') && category == 'Tire'] {
+    const query = `*[_type == 'products'] {
         name,
         spec,
         link,
@@ -65,7 +65,8 @@ export default async function TirePage() {
                                             <Link href="/contact-us" className="bg-gray-900 text-white py-2 px-5 rounded-full font-bold text-xs hover:bg-gray-800">
                                                 Contact Us
                                             </Link>
-                                        )}                                    </div>
+                                        )}
+                                    </div>
                                 </div>
                             ))}
                         </div>
