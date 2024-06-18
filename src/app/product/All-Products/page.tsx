@@ -40,29 +40,29 @@ export default async function TirePage() {
             <section>
                 <div className="bg-gray-900 py-16">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold text-white mb-6">Matching Products:</h2>
+                        <h2 className="text-3xl font-bold text-white mb-6">All Products:</h2>
                         <div className="flex flex-wrap pl-auto justify-center gap-6">
                             {data.map((item, index) => (
-                                <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] rounded-lg shadow-lg p-4">
+                                <div key={index} className="bg-slate-100 min-w-[180px] max-w-[180px] rounded-lg shadow-lg p-4">
                                     <div className="relative overflow-hidden">
-                                        <img className="object-contain w-[150px] h-[150px]" src={urlForImage(item.productImage) || ""} alt="Product" />
+                                        <img className="object-contain w-[175px] h-[175px] sm:w-[130px] sm:h-[130px] rounded-lg transition duration-200 hover:scale-150" src={urlForImage(item.productImage) || ""} alt="Product" />
                                     </div>
-                                    <h3 className="text-md font-semibold leading-6 text-gray-900 mt-2 truncate">{item.name || "Product Name"}</h3>
+                                    <h3 className="text-base font-semibold leading-6 text-gray-900 hover:text-red-600 mt-2 line-clamp-2">{item.name || "Product Name"}</h3>
                                     <div className="flex items-center justify-between mt-1">
-                                        <p className="text-gray-500 text-sm mt-1 truncate">{item.spec || ''}</p>
+                                        <p className="text-gray-500 text-sm mt-1 line-clamp-2">{item.spec || ''}</p>
                                         <p className="text-gray-500 text-sm mt-1">{item.tireType || ''} </p>
                                     </div>
                                     {/* <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p> */}
-                                    <div className="flex items-center justify-between mt-2">
+                                    <div className="flex flex-col items-center justify-between mt-2">
                                         {/* <span className="text-gray-900 font-bold text-lg">${item.price || 0}</span> */}
-                                        {Array.isArray(item.buttons) && item.buttons.length > 0 ? (
+                                        {item.buttons && item.buttons.length > 0 ? (
                                             item.buttons.map((button, btnIndex) => (
-                                                <Link key={btnIndex} href={button.btnlink || "/contact-us"} className="bg-gray-900 text-white py-2 px-5 rounded-full font-bold text-xs hover:bg-gray-800">
+                                                <Link key={btnIndex} href={button.btnlink || "/contact-us"} className="z-10  bg-gradient-to-r from-amber-500 text-center text-nowrap to-[#ff6a00] text-white font-mono uppercase text-xs px-4 py-2 rounded-2xl transition duration-200 hover:scale-110 mr-1 mb-1">
                                                     {button.btnText ? button.btnText : "Contact Us"}
                                                 </Link>
                                             ))
                                         ) : (
-                                            <Link href="/contact-us" className="bg-gray-900 text-white py-2 px-5 rounded-full font-bold text-xs hover:bg-gray-800">
+                                            <Link href="/contact-us" className=" bg-gradient-to-r from-amber-500  to-[#ff6a00] text-white font-mono uppercase text-xs px-4 py-2 rounded-2xl transition duration-200 hover:scale-110  mr-1 mb-1">
                                                 Contact Us
                                             </Link>
                                         )}

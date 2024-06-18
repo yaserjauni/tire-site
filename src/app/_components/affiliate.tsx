@@ -96,7 +96,7 @@ export function Tires({ data }: { data: TopProducts[] }) {
                         <div className="items-start self-start pt-4 pr-4 pb-4 pl-4 md:pl-16  md:text-2xl text-xl font-semibold  text-white ">
                             {productCategory.title || "No Title Found"}
                         </div>
-                        <Link className="flex justify-center" href={`/product/${productCategory.category}` || "/product/Tires"}>
+                        <Link className="flex justify-center" href={"/product/All-Products"}>
                             <div className="items-start self-end pt-4 pr-4 pb-4 md:pr-16 md:text-2xl text-xl  font-semibold underline text-white ">
                                 Show All
                             </div>
@@ -107,25 +107,25 @@ export function Tires({ data }: { data: TopProducts[] }) {
                             {productCategory.topProducts.map((item, index) => (
                                 <div key={index} className="bg-slate-100  min-w-[155px]  max-w-[175px] min-h-[430px] max-h-auto justify-center rounded-lg shadow-lg  md:py-4 py-4 px-3 ">
                                     <div className="flex relative overflow-hidden justify-center">
-                                        <img className="object-contain w-[175px] h-[175px] sm:w-[130px] sm:h-[130px] rounded-lg" src={item.URL} alt="Product" />
+                                        <img className="object-contain w-[175px] h-[175px] sm:w-[130px] sm:h-[130px] rounded-lg transition duration-200 hover:scale-150" src={item.URL} alt="Product" />
                                     </div>
-                                    <h3 className="text-md font-bold text-gray-900 mt-2 lg:line-clamp-3 line-clamp-2">{item.name || "Product Name"}</h3>
+                                    <h3 className="text-base font-bold text-gray-900 hover:text-red-600 mt-2 lg:line-clamp-3 line-clamp-2">{item.name || "Product Name"}</h3>
                                     <div className="flex items-center justify-between mt-2">
                                         <p className="text-gray-500 text-sm mt-1 lg:line-clamp-3 line-clamp-2 pr-4">{item.spec || ''} </p>
                                         <p className="text-gray-500 text-sm mt-1">{item.tireType || item.rimType || ''} </p>
                                     </div>
                                     {/* <p className="text-gray-500 absolute top-72  text-sm "><StarRating rating={item.rating || '0'} /></p> */}
-                                    <div className="flex flex-col items-center justify-center mt-5 space-y-2">
+                                    <div className="flex flex-col items-center justify-center relative top-auto mt-5 ">
                                         <div className="flex items-center justify-center mt-2">
                                             <div className="flex flex-col items-center justify-between mt-2 space-y-2">
                                                 {item.buttons && item.buttons.length > 0 ? (
                                                     item.buttons.map((button, btnIndex) => (
-                                                        <Link key={btnIndex} href={button.btnlink || "/contact-us"} className="bg-gray-900 text-white py-2 px-5 rounded-full justify-center items-center font-medium text-xs hover:bg-gray-800">
+                                                        <Link key={btnIndex} href={button.btnlink || "/contact-us"} className="z-10  bg-gradient-to-r from-amber-500 text-center text-nowrap to-[#ff6a00] text-white font-mono uppercase text-xs px-4 py-2 rounded-2xl transition duration-200 hover:scale-110 mr-1 mb-1">
                                                             {button.btnText ? button.btnText : "Contact Us"}
                                                         </Link>
                                                     ))
                                                 ) : (
-                                                    <Link href="/contact-us" className="bg-gray-900 text-white py-2 px-5 rounded-full font-medium text-xs hover:bg-gray-800">
+                                                    <Link href="/contact-us" className=" bg-gradient-to-r from-amber-500  to-[#ff6a00] text-white font-mono uppercase text-xs px-4 py-2 rounded-2xl transition duration-200 hover:scale-110  mr-1 mb-1">
                                                         Contact Us
                                                     </Link>
                                                 )}
