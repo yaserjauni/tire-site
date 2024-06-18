@@ -105,7 +105,7 @@ export function Tires({ data }: { data: TopProducts[] }) {
                     <div className=" pb-3 md:px-10 lg:mx-10">
                         <Slider {...settings}>
                             {productCategory.topProducts.map((item, index) => (
-                                <div key={index} className="bg-slate-100  min-w-[155px]  max-w-[175px]  min-h-[500px] max-h-auto justify-center rounded-lg shadow-lg  md:py-4 py-4 px-3 ">
+                                <div key={index} className="bg-slate-100  min-w-[155px]  max-w-[175px] min-h-[470px] max-h-auto justify-center rounded-lg shadow-lg  md:py-4 py-4 px-3 ">
                                     <div className="flex relative overflow-hidden justify-center">
                                         <img className="object-contain w-[175px] h-[175px] sm:w-[130px] sm:h-[130px] rounded-lg" src={item.URL} alt="Product" />
                                     </div>
@@ -114,12 +114,11 @@ export function Tires({ data }: { data: TopProducts[] }) {
                                         <p className="text-gray-500 text-sm mt-1 lg:line-clamp-3 line-clamp-2 pr-4">{item.spec || ''} </p>
                                         <p className="text-gray-500 text-sm mt-1">{item.tireType || item.rimType || ''} </p>
                                     </div>
-                                    <p className="text-gray-500 absolute top-72  text-sm "><StarRating rating={item.rating || '0'} /></p>
-                                    <div className="flex flex-col items-center justify-center absolute top-72 mt-5 space-y-2">
+                                    {/* <p className="text-gray-500 absolute top-72  text-sm "><StarRating rating={item.rating || '0'} /></p> */}
+                                    <div className="flex flex-col items-center justify-center absolute top-64 mt-5 space-y-2">
                                         <div className="flex items-center justify-center mt-2">
                                             <div className="flex flex-col items-center justify-between mt-2 space-y-2">
                                                 {item.buttons && item.buttons.length > 0 ? (
-
                                                     item.buttons.map((button, btnIndex) => (
                                                         <Link key={btnIndex} href={button.btnlink || "/contact-us"} className="bg-gray-900 text-white py-2 px-5 rounded-full justify-center items-center font-medium text-xs hover:bg-gray-800">
                                                             {button.btnText ? button.btnText : "Contact Us"}

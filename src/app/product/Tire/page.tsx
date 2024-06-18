@@ -52,7 +52,7 @@ export default async function TirePage() {
                                         <p className="text-gray-500 text-sm mt-1 truncate">{item.spec || ''}</p>
                                         <p className="text-gray-500 text-sm mt-1">{item.tireType || ''} </p>
                                     </div>
-                                    <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
+                                    {/* <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p> */}
                                     <div className="flex items-center justify-between mt-2">
                                         {/* <span className="text-gray-900 font-bold text-lg">${item.price || 0}</span> */}
                                         {Array.isArray(item.buttons) && item.buttons.length > 0 ? (

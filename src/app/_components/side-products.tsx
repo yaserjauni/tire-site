@@ -69,7 +69,7 @@ export function RelatedProducts({ data }: { data: Products[] }) {
                             <p className="text-gray-500 text-sm">{item.tireType || ''}</p>
                         </div>
                         <div className="mt-2">
-                            <StarRating rating={item.rating || '0'} />
+                            {/* <StarRating rating={item.rating || '0'} /> */}
                         </div>
                         <div className="flex items-center justify-center mt-2">
                             <div className="flex flex-col items-center justify-between mt-2 space-y-2">

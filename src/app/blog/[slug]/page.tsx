@@ -9,7 +9,6 @@ import { TypedObject } from "sanity";
 import { Tires } from "@/app/_components/affiliate";
 import Link from "next/link";
 import { getPostData, Products } from "@/app/_components/homePage";
-import { StarRating } from "@/app/_components/star-rating";
 import { RelatedProducts } from "@/app/_components/side-products";
 
 interface Post {

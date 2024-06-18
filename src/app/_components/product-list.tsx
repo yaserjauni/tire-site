@@ -53,7 +53,7 @@ export function SearchResult({ data }: { data: Products[] }) {
                                             <p className="text-gray-500 text-sm mt-1 truncate">{item.spec || ''}</p>
                                             <p className="text-gray-500 text-sm mt-1">{item.tireType || ''} </p>
                                         </div>
-                                        <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p>
+                                        {/* <p className="text-gray-500 text-sm mt-2"><StarRating rating={item.rating || '0'} /></p> */}
                                         <div className="flex items-center justify-center mt-2">
                                             <div className="flex flex-col items-center justify-between mt-2 space-y-2">
                                                 {item.buttons && item.buttons.length > 0 ? (

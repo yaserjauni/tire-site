@@ -53,7 +53,7 @@ const SampleListingComponent = ({ value }: { value: any }) => {
         </div>
         <div className="flex items-center justify-between mt-4 px-2 gap-5">
           <a href={link || ""} className="bg-red-500 hover:bg-red-400 text-white font-bold text-xs md:text-base py-1 px-2 border-b-4 border-red-700 hover:border-red-500 rounded">Check Price</a>
-          <p className="text-gray-700"><StarRating rating={rating || "0"} /></p>
+          {/* <p className="text-gray-700"><StarRating rating={rating || "0"} /></p> */}
         </div>
       </div>
     </div>
