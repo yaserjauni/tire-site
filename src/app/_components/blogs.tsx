@@ -84,7 +84,7 @@ export function Blogs({ data }: { data: Post[] }) {
                 <div className=" overflow-visible md:m-10 ">
                     <Slider {...settings}>
                         {data.map((post: Post, index: number) => (
-                            <div key={index} className="items-center h-[500px] w-[300px] px-2 text-xs font-medium text-center text-black py-1 bg-slate-100 rounded-lg  shadow-md transition duration-200 hover:scale-90">                                <Link className="text-zinc-500 " href={`/blog/${post.currentSlug}`} title={post.title}>
+                            <div key={index} className="items-center h-[500px] w-[300px] px-2 text-xs font-medium text-center text-black pt-2 bg-slate-100 rounded-lg  shadow-md transition duration-200 hover:scale-90">                                <Link className="text-zinc-500 " href={`/blog/${post.currentSlug}`} title={post.title}>
                                 <div className="flex flex-col  px-2  font-medium text-center text-black">
                                     <div>
                                         <Image className="object-cover aspect-square rounded-md self-center" src={post.URL} width={400} height={400} alt="Image" />

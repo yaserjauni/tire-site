@@ -8,6 +8,7 @@ import Link from "next/link";
 import { urlForImage } from "../../../sanity/lib/image";
 import { StarRating } from "./star-rating";
 import { FaFilter } from "react-icons/fa";
+import Image from "next/image";
 
 
 export function UsedTires({ data }: { data: UsedProducts[] }) {
@@ -40,15 +41,15 @@ export function UsedTires({ data }: { data: UsedProducts[] }) {
 
                             <div className="flex flex-wrap pl-auto items-center justify-center gap-6">
                                 {filteredData.map((item, index) => (
-                                    <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] rounded-lg shadow-lg p-4">
+                                    <div key={index} className="bg-slate-100 min-w-[190px] max-w-[190px] h-auto  rounded-lg shadow-lg p-4 transition duration-200 hover:scale-105 ">
                                         <div className="relative overflow-hidden">
-                                            <img className="object-cover w-[150px] h-[150px]" src={item.URL} alt="Product" />
+                                            <Image className="object-cover aspect-square scale-100 transition duration-200 hover:scale-150" width={1200} height={1200} src={item.URL} alt="Product" />
                                         </div>
-                                        <h3 className="text-md font-semibold leading-6 text-gray-900 mt-2 truncate">{item.name || "Product Name"}</h3>
+                                        <h3 className="text-md font-semibold leading-6  mt-2 line-clamp-2 text-wrap text-gray-900 hover:text-red-600">{item.name || "Product Name"}</h3>
                                         <p className="text-gray-500 text-sm mt-1"><StarRating rating={item.rating || '0'} /></p>
-                                        <div className="flex flex-row gap-3 items-center justify-between mt-2">
+                                        <div className="flex flex-row gap-2 items-center justify-between mt-2">
                                             <span className="text-gray-900 font-bold">${item.price || 0}</span>
-                                            <Link href={"/contact-us"} className="bg-gray-900 items-end text-center text-white py-1 px-3 text-xs rounded-full font-bold hover:bg-gray-800">Contact now</Link>
+                                            <Link href={"/contact-us"} className="bg-gradient-to-r from-red-500 to-[#ca0202] items-end text-center text-white py-1 px-2 text-xs rounded-full font-semibold">Contact now</Link>
                                         </div>
                                     </div>
                                 ))}
