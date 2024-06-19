@@ -105,7 +105,7 @@ export function Tires({ data }: { data: TopProducts[] }) {
                     <div className=" pb-3 md:px-10 lg:mx-10">
                         <Slider {...settings}>
                             {productCategory.topProducts.map((item, index) => (
-                                <div key={index} className="bg-slate-100  min-w-[155px]  max-w-[175px] min-h-[430px] max-h-auto justify-center rounded-lg shadow-lg  md:py-4 py-4 px-3 ">
+                                <div key={index} className="bg-slate-100  min-w-[155px]  max-w-[175px] min-h-[430px] max-h-auto justify-center rounded-lg transition duration-200 hover:scale-105  md:py-4 py-4 px-3 ">
                                     <div className="flex relative overflow-hidden justify-center">
                                         <img className="object-contain w-[175px] h-[175px] sm:w-[130px] sm:h-[130px] rounded-lg transition duration-200 hover:scale-150" src={item.URL} alt="Product" />
                                     </div>
@@ -120,12 +120,12 @@ export function Tires({ data }: { data: TopProducts[] }) {
                                             <div className="flex flex-col items-center justify-between mt-2 space-y-2">
                                                 {item.buttons && item.buttons.length > 0 ? (
                                                     item.buttons.map((button, btnIndex) => (
-                                                        <Link key={btnIndex} href={button.btnlink || "/contact-us"} className="z-10  bg-gradient-to-r from-amber-500 text-center text-nowrap to-[#ff6a00] text-white font-mono uppercase text-xs px-4 py-2 rounded-2xl transition duration-200 hover:scale-110 mr-1 mb-1">
+                                                        <Link key={btnIndex} href={button.btnlink || "/contact-us"} className="z-10  bg-gradient-to-r  from-red-500 to-[#ca0202] text-center text-nowrap text-white font-mono uppercase text-xs px-4 py-2 rounded-2xl transition duration-200 hover:scale-110 mr-1 mb-1">
                                                             {button.btnText ? button.btnText : "Contact Us"}
                                                         </Link>
                                                     ))
                                                 ) : (
-                                                    <Link href="/contact-us" className=" bg-gradient-to-r from-amber-500  to-[#ff6a00] text-white font-mono uppercase text-xs px-4 py-2 rounded-2xl transition duration-200 hover:scale-110  mr-1 mb-1">
+                                                    <Link href="/contact-us" className=" bg-gradient-to-r  from-red-500 to-[#ca0202] text-white font-mono uppercase text-xs px-4 py-2 rounded-2xl transition duration-200 hover:scale-110  mr-1 mb-1">
                                                         Contact Us
                                                     </Link>
                                                 )}

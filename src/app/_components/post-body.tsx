@@ -13,10 +13,19 @@ type Props = {
 };
 
 type ImageValue = {
-  _type: string; // Assuming this is a required property
+  _type: 'image';
   alt?: string; // Optional alt text for the image
   url: string; // URL of the image
 };
+
+type ProductListingValue = {
+  _type: 'productListing';
+  title: string;
+  description: string;
+  productImage: ImageValue;
+  buttons?: { btnlink: string; btnText: string }[];
+};
+
 interface PortableTextLink {
   _type: 'link';
   href: string;
@@ -36,8 +45,9 @@ const SampleImageComponent = ({ value }: { value: ImageValue }) => {
     />
   );
 };
-const SampleListingComponent = ({ value }: { value: any }) => {
-  const { title, description, productImage, rating, link } = value;
+
+const SampleListingComponent = ({ value }: { value: ProductListingValue }) => {
+  const { title, description, productImage, buttons } = value;
 
   return (
     <div className="bg-gray-50 rounded-lg overflow-hidden shadow-md border-slate-950 border-2 flex flex-col md:flex-row-reverse m-5 md:p-1 md:mr-20 hover:shadow-lg">
@@ -46,14 +56,25 @@ const SampleListingComponent = ({ value }: { value: any }) => {
         alt={title}
         className="h-40 w-full md:w-32 object-contain"
       />
-      <div className="p-2 flex flex-col flex-1 justify-between md:px-10">
+      <div className="p-2 flex flex-col flex-1 justify-center items-c md:px-10">
         <div>
           <h2 className="text-xl font-semibold">{title || ""}</h2>
           <p className="text-gray-600 md:line-clamp-2 line-clamp-3 pt-3 md:pl-3 text-xs md:text-base leading-snug">{description || ""}</p>
         </div>
-        <div className="flex items-center justify-between mt-4 px-2 gap-5">
-          <a href={link || ""} className="bg-red-500 hover:bg-red-400 text-white font-bold text-xs md:text-base py-1 px-2 border-b-4 border-red-700 hover:border-red-500 rounded">Check Price</a>
-          {/* <p className="text-gray-700"><StarRating rating={rating || "0"} /></p> */}
+        <div className='flex flex-wrap gap-5 mt-4'>
+          {buttons && buttons.length > 0 ? (
+            buttons.map((button, btnIndex) => (
+              <Link key={btnIndex} href={button.btnlink || "/contact-us"} className="z-10 bg-gradient-to-r  from-red-500 to-[#ca0202] text-center text-nowrap text-white font-mono uppercase text-xs px-4 py-2 rounded-2xl transition duration-200 hover:scale-110 mr-1 mb-1">
+                {button.btnText ? button.btnText : "Contact Us"}
+              </Link>
+            ))
+          ) : (
+            <>
+              <Link href="/contact-us" className="bg-gradient-to-r from-red-500 to-[#ca0202] text-white font-mono uppercase text-xs px-4 py-2 rounded-2xl transition duration-200 hover:scale-110 mr-1 mb-1">
+                Contact Us
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>

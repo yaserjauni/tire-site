@@ -57,12 +57,12 @@ export default async function TirePage() {
                                         {/* <span className="text-gray-900 font-bold text-lg">${item.price || 0}</span> */}
                                         {item.buttons && item.buttons.length > 0 ? (
                                             item.buttons.map((button, btnIndex) => (
-                                                <Link key={btnIndex} href={button.btnlink || "/contact-us"} className="z-10  bg-gradient-to-r from-amber-500 text-center text-nowrap to-[#ff6a00] text-white font-mono uppercase text-xs px-4 py-2 rounded-2xl transition duration-200 hover:scale-110 mr-1 mb-1">
+                                                <Link key={btnIndex} href={button.btnlink || "/contact-us"} className="z-10  bg-gradient-to-r  from-red-500 to-[#ca0202] text-center text-nowrap  text-white font-mono uppercase text-xs px-4 py-2 rounded-2xl transition duration-200 hover:scale-110 mr-1 mb-1">
                                                     {button.btnText ? button.btnText : "Contact Us"}
                                                 </Link>
                                             ))
                                         ) : (
-                                            <Link href="/contact-us" className=" bg-gradient-to-r from-amber-500  to-[#ff6a00] text-white font-mono uppercase text-xs px-4 py-2 rounded-2xl transition duration-200 hover:scale-110  mr-1 mb-1">
+                                            <Link href="/contact-us" className=" bg-gradient-to-r  from-red-500 to-[#ca0202] text-white font-mono uppercase text-xs px-4 py-2 rounded-2xl transition duration-200 hover:scale-110  mr-1 mb-1">
                                                 Contact Us
                                             </Link>
                                         )}

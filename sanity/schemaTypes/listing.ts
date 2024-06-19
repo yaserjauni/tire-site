@@ -31,9 +31,16 @@ export default defineType({
             ]
         }),
         defineField({
-            name: 'rating',
-            title: 'Rating',
-            type: 'string',
+            name: 'buttons',
+            type: 'array',
+            title: 'Link Buttons',
+            of: [{
+                type: 'object',
+                fields: [
+                    { name: 'btnlink', type: 'string', title: 'Affiliate Link' },
+                    { name: 'btnText', type: 'string', title: 'Button Label' },
+                ],
+            }],
         }),
         defineField({
             name: 'link',
