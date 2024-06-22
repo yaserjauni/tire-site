@@ -73,8 +73,8 @@ var settings = {
         {
             breakpoint: 375,
             settings: {
-
-                slidesToShow: 1,
+                centerMode: false,
+                slidesToShow: 2,
                 slidesToScroll: 1,
                 initialSlide: 1,
             }
