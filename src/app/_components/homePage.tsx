@@ -110,7 +110,7 @@ export async function getData(category: string): Promise<Products[]> {
 }
 export async function getTopData(): Promise<TopProducts[]> {
 
-    const query = `*[_type == 'topPicks']{
+    const query = `*[_type == 'topPicks'] | order(_publishedAt desc)  {
         title,
         topProducts[]->,
         category
@@ -148,7 +148,6 @@ export async function getDisplay(): Promise<string[]> {
 }
 
 export async function HomePage() {
-    const data = await getAllData();
     const tiredata = await getTopData();
 
     const blogs = await getPostData();
