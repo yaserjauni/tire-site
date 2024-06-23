@@ -12,6 +12,7 @@
     "@next/third-parties": "^14.2.3",
     "@nextui-org/scroll-shadow": "^2.1.16",
     "@react-hook/media-query": "^1.1.1",
+    "@sanity/orderable-document-list": "^1.2.1",
     "@sanity/vision": "^3.37.2",
     "next": "14.1.0",
     "next-sanity": "^8.5.1",
