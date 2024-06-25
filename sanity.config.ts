@@ -26,21 +26,12 @@ export default defineConfig({
                     .items([
                         // Minimum required configuration
                         orderableDocumentListDeskItem({ type: 'topPicks', S, context }),
-                        S.listItem()
-                            .title('Blog Posts')
-                            .schemaType('post'),
-                        S.listItem()
-                            .title('Products')
-                            .schemaType('products'),
-                        S.listItem()
-                            .title('Single Tires')
-                            .schemaType('single'),
-                        S.listItem()
-                            .title('Used Products')
-                            .schemaType('used-products'),
-                        S.listItem()
-                            .title('Image Slideshow')
-                            .schemaType('imageSlide'),
+
+                        S.documentTypeListItem('imageSlide'),
+                        S.documentTypeListItem('post'),
+                        S.documentTypeListItem('products'),
+                        S.documentTypeListItem('single'),
+                        S.documentTypeListItem('used-products'),
                     ])
         }),
         vercelDeployTool(),
