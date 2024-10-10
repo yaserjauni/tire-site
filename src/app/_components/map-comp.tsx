@@ -15,10 +15,10 @@ export default function MapComponent() {
                         <div className="flex gap-5 px-3 pt-2.5">
                             <div className="flex flex-col pb-14 text-base text-zinc-600">
                                 <div className="text-xl font-medium text-black">
-                                    63 Courtland Ave E
+                                    7 Stirling Ln, Kitchener,
                                 </div>
-                                <div className="mt-1.5">63 Courtland Ave E, Kitchener, ON N2G</div>
-                                <div> 2T6, Canada</div>
+                                <div className="mt-1.5">7 Stirling Ln, Kitchener, ON N2G</div>
+                                <div> 2M4, Canada</div>
                             </div>
                             <div className="flex flex-col flex-1 self-start px-2.5 text-xs text-center text-blue-600 whitespace-nowrap">
                                 <img

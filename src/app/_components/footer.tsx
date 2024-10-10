@@ -34,7 +34,7 @@ export function Footer() {
                 width={800}
                 height={200}
                 alt="Tire Empire"
-                src="/smallMap.png"
+                src="/map.png"
                 className="bg-cover w-full h-auto"
               />
             </Link>
@@ -58,8 +58,8 @@ export function Footer() {
             <div className="flex flex-row md:pt-10 pt-5 ml-2 lg:ml-20 items-left md:justify-center ">
               <SlLocationPin size={25} color="white" />
               <div className="flex flex-col text-lg space-y-2 font-semibold ml-2 leading-5 text-white " >
-                <div >63 Courtland Ave E, Kitchener, Unit C,</div>
-                <div>N2G 2T6, ON Canada</div>
+                <div >7 Stirling Ln, Kitchener,</div>
+                <div>N2G 2M4, ON Canada</div>
               </div>
             </div>
           </div>
