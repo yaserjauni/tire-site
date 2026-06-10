@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { GoogleAnalytics } from '@next/third-parties/google'
-import NextTopLoader from 'nextjs-toploader';
+import { GoogleAnalytics } from "@next/third-parties/google";
+import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tire Empire - Best Tire shop to Buy used tires in Kitchener Waterloo",
-  description: "Discover the best deals on both new and used, winter and all-season tires, with a great selection of top picks, including rims & accessories.",
+  title:
+    "ELMIRA TIRES - Best Tire shop to Buy used tires in Kitchener Waterloo",
+  description:
+    "Discover the best deals on both new and used, winter and all-season tires, with a great selection of top picks, including rims & accessories.",
   verification: {
-    google: 'TOZK4k9D1lqazSXDf0n1gEAGhqjxao2eUFPZNhZiudY',
-  }
+    google: "TOZK4k9D1lqazSXDf0n1gEAGhqjxao2eUFPZNhZiudY",
+  },
 };
 
 export default function RootLayout({

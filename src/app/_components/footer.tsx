@@ -15,7 +15,7 @@ export function Footer() {
               { href: "/used-rims", text: "Used Rims" },
               { href: "/single-tires", text: "Single Tires" },
               { href: "/contact-us", text: "Contact Us" },
-              { href: "/blog-list", text: "Blogs" }
+              { href: "/blog-list", text: "Blogs" },
             ].map(({ href, text }) => (
               <div key={href} className="flex-auto">
                 <Link href={href}>{text}</Link>
@@ -28,12 +28,14 @@ export function Footer() {
             <ContactInfo />
           </div>
           <div className="w-full md:w-1/3 flex items-center justify-center mb-4 md:mb-0">
-            <Link href="https://maps.app.goo.gl/vT1nLMd8dNB8pHvY7" className="w-full h-full">
+            <Link
+              href="https://maps.app.goo.gl/LWe1YiPM6HPR1iuv8"
+              className="w-full h-full"
+            >
               <Image
-
                 width={800}
                 height={200}
-                alt="Tire Empire"
+                alt="ELMIRA TIRES"
                 src="/map.png"
                 className="bg-cover w-full h-auto"
               />
@@ -42,28 +44,28 @@ export function Footer() {
 
           <div className="w-full md:w-1/3 flex md:flex-col flex-col-reverse mr-5 justify-start ">
             <Link href="/" className="flex flex-col items-center pt-5">
-
               <div className="flex flex-row ">
                 <Image
                   loading="lazy"
                   width={55} // Provide specific width and height for next/image
                   height={55}
-                  alt="Tire Empire"
+                  alt="ELMIRA TIRES"
                   src="/tire.svg"
                   className="aspect-square"
                 />
-                <span className="text-4xl text-[#05fd00] uppercase leading-[111%] font-semibold mt-2">Empire Tire</span>
+                <span className="text-4xl text-[#05fd00] uppercase leading-[111%] font-semibold mt-2">
+                  ELMIRA TIRES
+                </span>
               </div>
             </Link>
             <div className="flex flex-row md:pt-10 pt-5 ml-2 lg:ml-20 items-left md:justify-center ">
               <SlLocationPin size={25} color="white" />
-              <div className="flex flex-col text-lg space-y-2 font-semibold ml-2 leading-5 text-white " >
-                <div >7 Stirling Ln, Kitchener,</div>
-                <div>N2G 2M4, ON Canada</div>
+              <div className="flex flex-col text-lg space-y-2 font-semibold ml-2 leading-5 text-white ">
+                <div>18 park avenue East Elmira,</div>
+                <div>N3B 2H3, ON Canada</div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </footer>
@@ -74,7 +76,10 @@ const ContactInfo = () => (
   <div className="flex flex-col md:text-lg text-base justify-center space-y-4 font-semibold leading-5 text-white">
     <ContactDetail iconSrc="/phone.svg" detail="1-519-827-7854" />
     <ContactDetail iconSrc="/mail.svg" detail="Tireempirekitchener@gmail.com" />
-    <ContactDetail iconSrc="/cal.svg" detail="Hours: Mon-Fri 11:00 AM - 5:00 PM," />
+    <ContactDetail
+      iconSrc="/cal.svg"
+      detail="Hours: Mon-Fri 11:00 AM - 5:00 PM,"
+    />
     <div className="pl-4">Sat 11:00 AM - 3:00 PM EST</div>
   </div>
 );
@@ -86,7 +91,11 @@ interface ContactDetailProps {
 
 const ContactDetail = ({ iconSrc, detail }: ContactDetailProps) => (
   <div className="flex gap-1 mt-4">
-    <img loading="lazy" src={iconSrc} className="shrink-0 md:w-[25px] sm:w-[11px] aspect-[0.79]" />
+    <img
+      loading="lazy"
+      src={iconSrc}
+      className="shrink-0 md:w-[25px] sm:w-[11px] aspect-[0.79]"
+    />
     <div className="flex-auto my-auto">{detail}</div>
   </div>
 );

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useMediaQuery } from "@react-hook/media-query";
@@ -40,7 +40,8 @@ const Header = () => {
                   className="shrink-0 w-3.5 aspect-square"
                 />
                 <div className="flex-auto">
-                  Hours: Mon - Fri 11:00 AM - 5:00 PM, Sat 11:00 AM - 3:00 PM EST
+                  Hours: Mon - Fri 11:00 AM - 5:00 PM, Sat 11:00 AM - 3:00 PM
+                  EST
                 </div>
               </div>
             </div>
@@ -52,33 +53,33 @@ const Header = () => {
                 loading="lazy"
                 width={40} // Provide specific width and height for next/image
                 height={40}
-                alt="Tire Empire"
+                alt="ELMIRA TIRES"
                 src="/tire.svg"
                 className="aspect-square"
               />
-              <span className="text-3xl  text-[#05fd00]">Empire Tire</span>
+              <span className="text-3xl  text-[#05fd00]">ELMIRA TIRES</span>
             </Link>
             <div className="flex flex-row gap-10 whitespace-nowrap py-2 items-center px-2">
-              <div className="flex-auto"><Link href={"/"}>
-                Home
-              </Link></div>
-              <div className="flex-auto"><Link href={"/used-tires"}>
-                Used Tires
-              </Link></div>
+              <div className="flex-auto">
+                <Link href={"/"}>Home</Link>
+              </div>
+              <div className="flex-auto">
+                <Link href={"/used-tires"}>Used Tires</Link>
+              </div>
               <div className="flex-auto ">
-                <Link href={"/used-rims"}>
-                  Used Rims
+                <Link href={"/used-rims"}>Used Rims</Link>
+              </div>
+              <div className="flex-auto">
+                <Link href={"/single-tires"}>Single Tires</Link>{" "}
+              </div>
+              <div>
+                <Link href="/blog-list" className="flex-auto">
+                  Blogs
                 </Link>
               </div>
-              <div className="flex-auto"><Link href={"/single-tires"} >
-                Single Tires
-              </Link> </div>
-              <div><Link href="/blog-list" className="flex-auto">
-                Blogs
-              </Link></div>
-              <div className="flex-auto"><Link href={"/contact-us"} >
-                Contact Us
-              </Link></div>
+              <div className="flex-auto">
+                <Link href={"/contact-us"}>Contact Us</Link>
+              </div>
             </div>
           </div>
         </section>
@@ -91,11 +92,11 @@ const Header = () => {
                 loading="lazy"
                 width={40} // Provide specific width and height for next/image
                 height={40}
-                alt="Tire Empire"
+                alt="ELMIRA TIRES"
                 src="/tire.svg"
                 className="aspect-square"
               />
-              <span className="text-2xl   text-[#05fd00]">Empire Tire</span>
+              <span className="text-2xl   text-[#05fd00]">ELMIRA TIRES</span>
             </Link>
           </div>
 
@@ -109,7 +110,7 @@ const Header = () => {
           {isDrawerOpen && (
             <div className="bg-black h-screen z-20 overflow-y-hidden w-full fixed text-sm top-0 right-0 shadow-md flex justify-center items-left py-1  font-semibold leading-5 text-white text-left ">
               <ul>
-                <li >
+                <li>
                   <div className="flex flex-row self-end gap-2 p-2 ">
                     <div className=" p-2 gap-3 justify-start max-md:flex-wrap">
                       <div className="flex gap-1.5 self-start">
@@ -126,7 +127,9 @@ const Header = () => {
                           src="/mail.svg"
                           className="shrink-0 self-start w-3.5 aspect-square"
                         />
-                        <div className="flex-auto">Tireempirekitchener@gmail.com</div>
+                        <div className="flex-auto">
+                          Tireempirekitchener@gmail.com
+                        </div>
                       </div>
                       <div className="flex gap-2">
                         <img
@@ -135,7 +138,8 @@ const Header = () => {
                           className="shrink-0 self-start aspect-[0.93] w-[13px]"
                         />
                         <div className="flex-auto ">
-                          Hours: Mon - Fri 11:00 AM - 5:00 PM, Sat 11:00 AM - 3:00 PM EST
+                          Hours: Mon - Fri 11:00 AM - 5:00 PM, Sat 11:00 AM -
+                          3:00 PM EST
                         </div>
                       </div>
                     </div>
@@ -148,33 +152,51 @@ const Header = () => {
                     </button>
                   </div>
                 </li>
-                <li >
-                  <Link href={"/"} className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap">
+                <li>
+                  <Link
+                    href={"/"}
+                    className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap"
+                  >
                     Home
                   </Link>
                 </li>
-                <li >
-                  <Link href={"/used-tires"} className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap">
+                <li>
+                  <Link
+                    href={"/used-tires"}
+                    className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap"
+                  >
                     Used Tires
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/used-rims"} className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap">
+                  <Link
+                    href={"/used-rims"}
+                    className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap"
+                  >
                     Used Rims
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/single-tires"} className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap">
+                  <Link
+                    href={"/single-tires"}
+                    className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap"
+                  >
                     Single Tires
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/contact-us"} className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap">
+                  <Link
+                    href={"/contact-us"}
+                    className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap"
+                  >
                     Contact Us
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/blog-list"} className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap">
+                  <Link
+                    href={"/blog-list"}
+                    className="block p-4 hover:bg-gray-300 hover:text-black whitespace-nowrap"
+                  >
                     Blogs
                   </Link>
                 </li>
